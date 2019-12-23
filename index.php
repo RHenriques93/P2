@@ -1,7 +1,7 @@
 <!--CASO ESTEJAS A LER ISTO DURO ENTÃO EVENTUALMENTE SERÁS HOMOSSEXUAL, POSTO ISO, TERÁS DE SER EXTERMINADO PELO ZÉ BORREGO-->
 <!--  TESTE CARALHOOOOOOOOOOOOOOOOOOO  -->
 <!--  o claudio faz anos esse boi :|  -->
-
+<!-- Comi o cu de quem está lendo -->
 
 <!DOCTYPE html>
 

@@ -11,16 +11,35 @@ if(isset($_REQUEST["submit"])) {
         $message = $error->getMessage();
     } else {
 
+        $nome = $_REQUEST["nome"];
+        $pass =$_REQUEST["pass"];
+
+
         $query = "SELECT * FROM utilizador WHERE nome = :nome AND pass = :pass";
-        $statement = $db->prepare($query);
+
+       $dados = $db->query("SELECT * FROM utilizador WHERE nome = '$nome' AND pass = '$pass'");
+
+            foreach ($dados as $row) {
+
+                $id = $row["id_utilizador"];
+            }
+
+      
+                $statement = $db->prepare($query);
         $statement->execute(array('nome'=>$_REQUEST["nome"], 'pass'=>$_REQUEST["pass"]));
-            
+
+             
+     
+
+          
         $count = $statement->rowCount();
         if($count > 0){
 
           $_SESSION["nome"] = $_POST["nome"];
           $logado = true;
-            header("location:index.php?op=success");
+          $_SESSION["id_utilizador"] = $id;
+          header("location:index.php?op=success");
+            
         } else {
     
             $message = '<label>Wrong Data</label>';

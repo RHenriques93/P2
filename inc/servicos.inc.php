@@ -6,9 +6,9 @@
             </header>
             <div class="row">
 
+            <?php
 
-
-            <?php require("db_projetofinal.php");
+             require("db_projetofinal.php");
 
 $dados = $db->query("SELECT area.nome, area.descricao, area.id_area FROM area");
 

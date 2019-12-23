@@ -9,9 +9,12 @@ if(isset($_SESSION['nome'])){
                 <h2 class="text-center text-dark">Bem Vindo(a) '.$_SESSION["nome"].'</h2>
                 <span class="underline-rosa mb-3"></span>
                 <a href="index.php?op=logout">Logout</a>
+                
+               
         </header>
     </div>
     </div>';
+    
   
  } else {
 

@@ -47,13 +47,16 @@ if($host == "index.php") {
         case "servicos": require("inc/servicos.inc.php"); break;
         case "contactos": require("inc/contactos.inc.php"); break;
         case "area": require("inc/area.inc.php"); break;
+        case "subarea": require("inc/subarea.inc.php"); break;
         case "login": require("inc/login.inc.php"); break;
         case "registar": require("inc/registar.inc.php"); break;
         case "success": require("inc/login_success.inc.php"); break;
         case "logout": require("inc/logout.inc.php"); break;
         case "procura": require("inc/procura.inc.php"); break;
         case "servicepage": require("inc/service_page.inc.php"); break;
-        case "pedidos": require("#"); break; 
+        case "reqpage": require("inc/reqpage.inc.php"); break;
+        case "pedidos": require("inc/pedidos.inc.php"); break;
+        case "usersettings": require("inc/user_settings.inc.php"); break; 
         
         
         

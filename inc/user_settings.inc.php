@@ -3,66 +3,36 @@
 
 if(isset($_SESSION['nome'],$_SESSION['id_utilizador'])){
 
-   ?>
+  
 
    
 
-<?php require("db_projetofinal.php");
+require("db_projetofinal.php");
 
 
 $id = $_SESSION["id_utilizador"];
 
 
-$dados = $db->query("SELECT  * FROM utilizador WHERE utilizador.id_utilizador = '$id'");
+$dados = $db->query("SELECT * FROM utilizador WHERE utilizador.id_utilizador = '$id'");
 
 
 foreach ($dados as $linha) {
 
  echo   '
+
     <div class="container">
-     <div class="card-body">
-
- <div class="media mb-3">
- 
-   <div class="user-avatar user-avatar-xl fileinput-button">
-     <div class="fileinput-button-label"> Change photo </div>
-     <img src="#" alt="User Avatar">
-     <input id="fileupload-avatar" type="file" name="avatar"> </div>
+    <div class="card-body">
   
-   <div class="media-body pl-3">
-     <h3 class="card-title"> Public avatar </h3>
-     <h6 class="card-subtitle text-muted"> Click the current avatar to change your photo. </h6>
-     <p class="card-text">
-       <small>JPG, GIF or PNG 400x400, &lt; 2 MB.</small>
-     </p>
-
-
-     <!-- The avatar upload progress bar -->
-    <div id="progress-avatar" class="progress progress-xs fade">
-       <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-     </div>
-     <!-- /avatar upload progress bar -->
-
-
-   </div>
-  
- </div>
-
- <form method="post">
-  
-   <div class="form-row">
-
-     <label for="input01" class="col-md-3">Cover image</label>
    
-     <div class="col-md-9 mb-3">
-       <div class="custom-file">
-         <input type="file" class="custom-file-input" id="input01" multiple="">
-         <label class="custom-file-label" for="input01">Choose cover</label>
-       </div>
-       <small class="text-muted">Upload a new cover image, JPG 1200x300</small>
-     </div>
+    <form method="post" action="inc/upload.inc.php" enctype="multipart/form-data">
+
+
+    <div class="form-row">
+          <img src="'.$linha["imagem"].'" width="250px">
+          <input type="file" name="imagemperfil" class="form-control-file" accept="image/x-png,image/jpeg"/>
+          
      
-   </div>
+    </div>
  
    <div class="form-row">
    
@@ -107,15 +77,19 @@ foreach ($dados as $linha) {
    <hr>
 
    <div class="form-actions">
-     <button type="submit" class="btn btn-primary ml-auto">Update Profile</button>
+     <button type="submit" name="submitimg" class="btn btn-primary ml-auto">Update Profile</button>
    </div>
  
  </form>
+
+
 
 </div>
 </div>'; 
 
 }
+
+
 
 
             ?>         
@@ -132,3 +106,13 @@ foreach ($dados as $linha) {
 }
 
 ?>
+
+
+
+
+
+
+
+
+
+

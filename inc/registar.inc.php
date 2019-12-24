@@ -30,7 +30,7 @@
                         }
                     ?>
                 </select>
-                <input type="text" class="form-control mt-2" name="user" placeholder="Username" required>
+                <input type="text" class="form-control mt-2" name="username" placeholder="Username" required>
                 <input type="email" class="form-control mt-2" name="email" placeholder="Email" required>
                 <input type="password" class="form-control mt-2" name="pass" placeholder="Password" required>
                 <button type="submit" name="submit" class="btn btn-grad grad text-center m-2"><i class="fas fa-sign-in-alt"></i> Registar</button>
@@ -51,8 +51,8 @@ if(isset($_POST["submit"])){
         $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // <== add this line
 
-        $sql = "INSERT INTO utilizador (nome, email, data_nascimento, pass, tipo_utilizador, id_genero)
-        VALUES ('".$_POST["nome"]."','".$_POST["email"]."','".$_POST["data_nascimento"]."','".$_POST["pass"]."','".$_POST["tipo_utilizador"]."','".$_POST["genero"]."')";
+        $sql = "INSERT INTO utilizador (nome, username, email, data_nascimento, pass, tipo_utilizador, id_genero)
+        VALUES ('".$_POST["nome"]."','".$_POST["username"]."','".$_POST["email"]."','".$_POST["data_nascimento"]."','".$_POST["pass"]."','".$_POST["tipo_utilizador"]."','".$_POST["genero"]."')";
         if ($db->query($sql)) {
         echo "<script type= 'text/javascript'>alert('Registo Efetuado com Sucesso');</script>";
         }

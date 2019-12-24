@@ -3,18 +3,18 @@
 
         if(isset($_REQUEST["submit"])) {
 
-            if(empty($_REQUEST["nome"]) || empty($_REQUEST["pass"])){
+            if(empty($_REQUEST["username"]) || empty($_REQUEST["pass"])){
 
                 $message = $error->getMessage();
             } else {
 
-                $nome = $_REQUEST["nome"];
+                $username = $_REQUEST["username"];
                 $pass =$_REQUEST["pass"];
 
 
-                $query = "SELECT * FROM utilizador WHERE nome = :nome AND pass = :pass";
+                $query = "SELECT * FROM utilizador WHERE username = :username AND pass = :pass";
 
-            $dados = $db->query("SELECT * FROM utilizador WHERE nome = '$nome' AND pass = '$pass'");
+            $dados = $db->query("SELECT * FROM utilizador WHERE username = '$username' AND pass = '$pass'");
 
                     foreach ($dados as $row) {
 
@@ -23,7 +23,7 @@
 
             
                         $statement = $db->prepare($query);
-                $statement->execute(array('nome'=>$_REQUEST["nome"], 'pass'=>$_REQUEST["pass"]));
+                $statement->execute(array('username'=>$_REQUEST["username"], 'pass'=>$_REQUEST["pass"]));
 
                 
                 $count = $statement->rowCount();
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>';
-                $_SESSION["nome"] = $_POST["nome"];
+                $_SESSION["username"] = $_POST["username"];
                 $logado = true;
                 $_SESSION["id_utilizador"] = $id;
                 header("location:index.php?op=userpage");
@@ -87,7 +87,7 @@
             <form class="col-6 text-center justify-content-center" method="POST">
                 <div class="input-group m-2">  
                     <span class="input-group-addon" id="input1"><i class="fas fa-user fa-sm txt-gr op-3"></i></span>
-                    <input type="text" class="form-control text-center" name="nome" placeholder="Username" required>
+                    <input type="text" class="form-control text-center" name="username" placeholder="Username" required>
                 </div>
                 <div class="input-group m-2">
                     <span class="input-group-addon" id="input1"><i class="fas fa-key fa-sm txt-gr op-3"></i></span>

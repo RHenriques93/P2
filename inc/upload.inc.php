@@ -7,8 +7,7 @@ require("../db_projetofinal.php");
 
 <?php
 
-if(isset($_REQUEST['submitimg'])) {
-
+if(isset($_REQUEST['submitimg'])){
 
 $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
 
@@ -51,13 +50,13 @@ $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
     $id = $_SESSION["id_utilizador"];
     
 try{
-    
-  
-         $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil WHERE id_utilizador = $id");
-      $stmt->execute(array(
-        
+
+    $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia =:biografia, email =: email WHERE id_utilizador = $id");
+    $stmt->execute(array(
         ':imagemperfil' => 'http://localhost/projetofinal/img/uploads/'.basename($_FILES['imagemperfil']['name']),
-       
+        ':nome' => $_REQUEST["nome"],
+        ':biografia' => $_REQUEST["biografia"],
+        ':email' => $_REQUEST["email"],
       ));
 
       if ($stmt->rowCount() == 1) {
@@ -70,7 +69,4 @@ try{
 }
 
 }
-
-
-
 ?>

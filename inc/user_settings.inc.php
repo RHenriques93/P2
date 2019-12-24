@@ -44,9 +44,6 @@ foreach ($dados as $linha) {
         <div class="col-md-4 text-center bg-light rounded p-3 border border-secondary">
             <img src="'.$linha["imagem"].'" class="rounded-circle" width="250px" height="250px">
             <input type="file" name="imagemperfil" class="form-control-file my-3 text-dark" accept="image/x-png,image/jpeg"/>
-            <div class="col-md-12">
-              <button type="submit" name="submitimg" class="btn btn-grad grad ml-auto">Alterar Foto de Perfil</button>
-            </div>
         </div>
         <hr>
         </form>

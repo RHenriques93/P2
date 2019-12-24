@@ -1,56 +1,33 @@
 <?php
-
-
 if(isset($_SESSION['nome'],$_SESSION['id_utilizador'])){
 
-  
-
-   
-
 require("db_projetofinal.php");
-
-
 $id = $_SESSION["id_utilizador"];
-
 ?>
 
-
-<br> 
 <header class="col-md-12 mb-4">
 <h2 class="text-center text-dark">Gerir Serviços</h2>
 <span class="underline mb-3"></span>
 </header>
-
 <div class="container">
-
-
-
 
 <div class="col-md-6">
 <ul class="nav navbar-nav list-group">
 
 <div class="col-12 text-center p-2 text-dark">
-                <h3 class="">Seus Serviços</h3>
-            </div>
-
-<?php
-                        $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-                        $dados = $db->query("SELECT subarea.nome FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id");
-                                                                
-                        foreach($dados as $row) {
-                            echo' <li class="list-group-item text-dark">'.$row["nome"].'</li>';
-                        }
-                    ?>
-
-        
-       </ul>
-               
+  <h3 class="">Seus Serviços</h3>
 </div>
 
-
-
-
-
+<?php
+  $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+  $dados = $db->query("SELECT subarea.nome FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id");
+                                                                
+  foreach($dados as $row) {
+    echo' <li class="list-group-item text-dark">'.$row["nome"].'</li>';
+  }
+?>
+</ul>
+</div>
 
 <div class="col-md-6">
 
@@ -64,12 +41,12 @@ $id = $_SESSION["id_utilizador"];
     <select multiple class="form-control" name="subarea" id="exampleFormControlSelect1">
 
     <?php
-                        $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-                        $dados = $db->query("SELECT * FROM subarea");
+      $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+      $dados = $db->query("SELECT * FROM subarea");
                                                                 
-                        foreach($dados as $row) {
-                            echo'<option class="text-secondary" value="'.$row['id_subarea'].'">'.$row['nome'].'</option>';
-                        }
+      foreach($dados as $row) {
+        echo'<option class="text-secondary" value="'.$row['id_subarea'].'">'.$row['nome'].'</option>';
+      }
     ?>
 
         </select>
@@ -84,9 +61,6 @@ $id = $_SESSION["id_utilizador"];
   <div class="form-actions">
      <button type="submit" name="submitservice" class="btn btn-primary ml-auto">Criar Serviço</button>
    </div>
-
-
-
 </form>
 
 </div>
@@ -99,8 +73,6 @@ $id = $_SESSION["id_utilizador"];
 
 
 if(isset($_POST["submitservice"])){
-
-
   try {
     $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
@@ -109,6 +81,7 @@ if(isset($_POST["submitservice"])){
     VALUES ('".$id."','".$_POST["subarea"]."','".$_POST["descricao"]."')";
     if ($db->query($sql)) {
     echo "<script type= 'text/javascript'>alert('Serviço Associado com Sucesso');</script>";
+    
     }
     else{
     echo "<script type= 'text/javascript'>alert('Inválido.');</script>";
@@ -120,12 +93,8 @@ if(isset($_POST["submitservice"])){
     {
     echo $e->getMessage();
     }
-
-
 } 
-
-
-} //close session
+}
 ?>
 
 

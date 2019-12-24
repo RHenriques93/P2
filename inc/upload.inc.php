@@ -51,7 +51,7 @@ $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
     
 try{
 
-    $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia =:biografia, email =: email WHERE id_utilizador = $id");
+    $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia = :biografia, email = :email WHERE id_utilizador = $id");
     $stmt->execute(array(
         ':imagemperfil' => 'http://localhost/projetofinal/img/uploads/'.basename($_FILES['imagemperfil']['name']),
         ':nome' => $_REQUEST["nome"],

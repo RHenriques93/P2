@@ -20,7 +20,7 @@ foreach ($dados as $linha)
             ?>         
 <?php 
 
-$dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_subarea = $id");
+$dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador, servico.descricao FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_subarea = $id");
 
 foreach ($dados as $row) {
 
@@ -29,7 +29,8 @@ foreach ($dados as $row) {
                         <img src="img/exemplo.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class="card-title grad-txt">'.$row["nome"].'</h3>
-                            <a href="index.php?op=servicepage&id='.$row["id_utilizador"].'" class="btn btn-primary">Go somewhere</a>
+                            <p class="text-dark card-subtitle">'.$row["descricao"].'</p>
+                            <a href="index.php?op=servicepage&id='.$row["id_utilizador"].'" class="btn btn-primary mt-2">Go somewhere</a>
                         </div>
                     </div>
                 </div>';

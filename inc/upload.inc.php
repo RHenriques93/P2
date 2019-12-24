@@ -10,7 +10,9 @@ require("../db_projetofinal.php");
 if(isset($_REQUEST['submitimg'])){
     
 
-$ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
+    if(isset($_REQUEST['imagemperfil'])){
+
+    $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
 
 	if (move_uploaded_file($_FILES['imagemperfil']['tmp_name'], $ficheiro)) {
 	    echo "<div class='alert alert-success' role='alert'>Ficheiro copiado com sucesso!</div>\n";
@@ -45,8 +47,7 @@ $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
         }
         echo "<div class='alert alert-danger' role='alert'>$message</div>";
     }
-    
-   
+
 
     $id = $_SESSION["id_utilizador"];
     
@@ -69,5 +70,22 @@ try{
       echo "<div class='alert alert-danger' role='alert'>$e->getMessage()</div>";
 }
 
+}else {
+
+    $id = $_SESSION["id_utilizador"];
+    
+try{
+
+    $stmt = $db->prepare("UPDATE utilizador SET nome = :nome, biografia = :biografia, email = :email WHERE id_utilizador = $id");
+    $stmt->execute(array(
+        ':nome' => $_REQUEST["nome"],
+        ':biografia' => $_REQUEST["biografia"],
+        ':email' => $_REQUEST["email"],
+      ));
+} catch(PDOException $e) {
+      echo "<div class='alert alert-danger' role='alert'>$e->getMessage()</div>";
+}
+
+}
 }
 ?>

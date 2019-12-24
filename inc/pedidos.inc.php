@@ -3,7 +3,7 @@
         <div class="container-fluid py-3">
             <header class="col-md-12 mb-4">
                     <h2 class="text-center text-dark">Pedidos</h2>
-                    <span class="underline mb-3"></span>
+                    <span class="underline-rosa mb-3"></span>
                                 </header>
             <div class="row justify-content-center">
 

@@ -5,12 +5,13 @@ require("db_projetofinal.php");
 $id = $_SESSION["id_utilizador"];
 ?>
 
-<header class="col-md-12 mb-4">
-<h2 class="text-center text-dark">Gerir Serviços</h2>
-<span class="underline mb-3"></span>
-</header>
+<div class="container py-3">
+    <section class="mb-4">
+    <header class="col-md-12 mb-4">
+      <h2 class="text-center text-dark">Contacto</h2>
+      <span class="underline-rosa mb-3"></span>    
+    </header>
 <div class="container">
-
 <div class="col-md-6">
 <ul class="nav navbar-nav list-group">
 
@@ -65,9 +66,7 @@ $id = $_SESSION["id_utilizador"];
 
 </div>
 </div>
-
-
-
+</div>
 <?php
 
 

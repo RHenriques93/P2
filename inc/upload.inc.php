@@ -88,5 +88,6 @@ try{
 
 }
 }
+echo '<script> alert ("Perfil atualizado com sucesso! Parabéns :D"); </script>';
 echo '<meta HTTP-EQUIV="Refresh" CONTENT="0.1; URL=../index.php?op=usersettings">';
 ?>

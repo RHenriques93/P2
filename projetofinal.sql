@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 24-Dez-2019 às 14:05
+-- Generation Time: 24-Dez-2019 às 16:12
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `servico`
@@ -122,7 +122,10 @@ INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `des
 (1, 6, '2019-12-11 00:26:39', 19, ''),
 (1, 10, '2019-12-11 00:26:39', 20, ''),
 (2, 12, '2019-12-12 13:14:31', 21, ''),
-(1, 7, '2019-12-21 21:53:56', 22, '');
+(1, 7, '2019-12-21 21:53:56', 22, ''),
+(1, 13, '2019-12-24 15:34:24', 27, 'fdvdfds'),
+(11, 7, '2019-12-24 15:49:47', 30, 'SADSAD'),
+(11, 7, '2019-12-24 16:07:21', 33, 'xdvfsdfdsf');
 
 -- --------------------------------------------------------
 
@@ -206,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 --
 
 INSERT INTO `utilizador` (`id_utilizador`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`) VALUES
-(1, 'Rafael', 1, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-24 12:02:45', '12345', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
+(1, 'Rafael', 1, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-24 14:09:13', '12345', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
 (2, 'André Ferreira', 1, 'andreferreira@gmail.com', '1999-12-18', '2019-12-24 12:02:45', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
 (4, 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-24 12:02:45', '123456', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (6, 'Jacinta Paes', 2, 'sdsadsad@gmail.com', '2019-12-11', '2019-12-24 12:02:45', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
@@ -214,7 +217,7 @@ INSERT INTO `utilizador` (`id_utilizador`, `nome`, `id_genero`, `email`, `data_n
 (8, 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-24 12:04:32', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (9, 'Zé Borrego', 1, 'zeborrego@gmail.com', '2019-12-18', '2019-12-24 12:02:45', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (10, 'Sofia Ssdfsdfsd', 2, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-24 12:02:45', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(11, 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-24 14:01:28', '12345', 2, NULL, NULL);
+(11, 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-24 14:06:31', '12345', 2, NULL, 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg');
 
 --
 -- Constraints for dumped tables

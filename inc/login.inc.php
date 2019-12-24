@@ -41,7 +41,7 @@
                 $_SESSION["nome"] = $_POST["nome"];
                 $logado = true;
                 $_SESSION["id_utilizador"] = $id;
-                header("location:index.php?op=success");
+                header("location:index.php?op=usersettings");
                     
                 } else {
                     $message = '<div class="row">

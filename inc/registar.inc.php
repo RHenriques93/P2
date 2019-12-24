@@ -15,16 +15,18 @@
                         $dados = $db->query("SELECT * FROM genero_utilizador");
                                                                 
                         foreach($dados as $row) {
-                            echo'<option class="text-secondary value="'.$row['id_genero'].'">'.$row['genero'].'</option>';
+                            echo'<option class="text-secondary" value="'.$row['id_genero'].'">'.$row['genero'].'</option>';
                         }
                     ?>
                 </select>
                 <input type="date" class="form-control mt-2" name="data_nascimento" placeholder="Data de Nascimento" required>
+                
                 <select class="custom-select mt-2 text-secondary w-100 align-content-left" id="inputGroupSelect02" name="tipo_utilizador" required>
                     <option class="bg-dark" value="" disabled selected>Tipo de Registo</option>
-                    <?php       
+                    <?php      
+                    $dados = $db->query("SELECT * FROM tipo_utilizador"); 
                         foreach($dados as $row) {
-                            echo'<option class="text-secondary value="'.$row['id_tipo'].'">'.$row['nome_tipo'].'</option>';
+                            echo'<option class="text-secondary" value="'.$row['id_tipo'].'">'.$row['nome_tipo'].'</option>';
                         }
                     ?>
                 </select>
@@ -49,8 +51,8 @@ if(isset($_POST["submit"])){
         $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // <== add this line
 
-        $sql = "INSERT INTO utilizador (nome, email, data_nascimento, pass, tipo_utilizador)
-        VALUES ('".$_POST["nome"]."','".$_POST["email"]."','".$_POST["data_nascimento"]."','".$_POST["pass"]."','".$_POST["tipo_utilizador"]."')";
+        $sql = "INSERT INTO utilizador (nome, email, data_nascimento, pass, tipo_utilizador, id_genero)
+        VALUES ('".$_POST["nome"]."','".$_POST["email"]."','".$_POST["data_nascimento"]."','".$_POST["pass"]."','".$_POST["tipo_utilizador"]."','".$_POST["genero"]."')";
         if ($db->query($sql)) {
         echo "<script type= 'text/javascript'>alert('Registo Efetuado com Sucesso');</script>";
         }

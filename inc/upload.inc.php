@@ -87,4 +87,5 @@ try{
 
 }
 }
+echo '<meta HTTP-EQUIV="Refresh" CONTENT="0.1; URL=../index.php?op=usersettings">';
 ?>

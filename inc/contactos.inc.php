@@ -47,16 +47,15 @@
         </div>
         <div class="col-md-3 text-center">
             <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p class="text-dark mt-2">Rua Teste, 3045-000, Coimbra</p>
+                <li class="grad rounded p-2 m-2"><i class="fas fa-map-marker-alt mt-2 fa-2x"></i>
+                    <p class="mt-3">Rua Teste, 3045-000, Coimbra</p>
                 </li>
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p class="text-dark mt-2">teste@gmail.com</p>
+                <li class="grad rounded p-2 m-2"><a href="mailto: "><i class="fas fa-envelope mt-2 fa-2x"></i>
+                <p class="mt-2">teste@teste.com</p>
                 </li>
-
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p class="text-dark mt-2">+ 351 910 000 000</p>
-                </li>
+                <li class="grad rounded p-2 m-2"><a href="tel: +351"><i class="fas fa-phone mt-2 fa-2x"></i>
+                <p class="mt-2">910 000 000</p>
+                </li></a>
             </ul>
         </div>
     </div>

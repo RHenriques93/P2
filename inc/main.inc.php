@@ -72,8 +72,17 @@ $dados = $db->query("SELECT * FROM area");
                             <div class="icon">
                                 <i class="fas fa-briefcase"></i>
                             </div>
-                            <div class="contador">
-                                <h3><span class="contar">15</span></h3>
+                            <div class="contador">                            
+                                <?php
+                                    $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+                                    $dados = $db->query("SELECT * FROM utilizador WHERE tipo_utilizador LIKE 1");
+                                    $count = 0;
+                                    
+                                    foreach($dados as $row) {
+                                        $count++;
+                                    }
+                                    echo '<h3><span class="contar">'.$count.'</span></h3>';
+                                ?>
                                 <h4>Freelancers</h4>
                             </div>
                         </div>
@@ -84,7 +93,7 @@ $dados = $db->query("SELECT * FROM area");
                                 <i class="fas fa-shopping-cart"></i>
                             </div>
                             <div class="contador">
-                                <h3>+ <span class="contar">145</span></h3>
+                                <h3>+ <span class="contar">7</span></h3>
                                 <h4>Vendas</h4>
                             </div>
                         </div>
@@ -95,7 +104,16 @@ $dados = $db->query("SELECT * FROM area");
                                 <i class="fa fa-users"></i>
                             </div>
                             <div class="contador">
-                                <h3>+ <span class="contar">28970</span></h3>
+                            <?php
+                                    $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+                                    $dados = $db->query("SELECT * FROM utilizador WHERE tipo_utilizador LIKE 2");
+                                    $count = 0;
+                                    
+                                    foreach($dados as $row) {
+                                        $count++;
+                                    }
+                                    echo '<h3>+  <span class="contar">'.$count.'</span></h3>';
+                            ?>
                                 <h4>Clientes</h4>
                             </div>
                         </div>

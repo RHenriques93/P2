@@ -40,7 +40,7 @@ session_start();
                     
                         <div class="input-group">
                     
-                            <input class="form-control border border-warning" name="search" type="search" placeholder="Procura" aria-label="Search">
+                            <input class="form-control border border-warning" name="search" type="search" placeholder="Procura" aria-label="Search" required>
                             <span class="input-group-btn">
                                 <button class="btn btn-warning" formaction="index.php?op=procura"><i class="fas fa-search"></i></button>
                             </span>

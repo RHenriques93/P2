@@ -18,8 +18,7 @@ echo'<header class="col-md-12 mb-4">
 <span class="underline mb-3"></span>
 </header>';
 
-foreach ($dados as $row) {
-
+    foreach ($dados as $row) {
                 echo '<div class="col-md-3 col-sm-6 col-xs-12 m-2">
                     <div class="card" style="width: 18rem">
                         <img src="img/exemplo.jpg" class="card-img-top" alt="...">
@@ -31,7 +30,7 @@ foreach ($dados as $row) {
                     </div>
                 </div>';
 
-}
+    }
 
                
 ?>

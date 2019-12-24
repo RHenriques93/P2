@@ -15,6 +15,10 @@ $id = $_SESSION["id_utilizador"];
 
 $dados = $db->query("SELECT * FROM utilizador WHERE utilizador.id_utilizador = '$id'");
 
+echo ' <br> <header class="col-md-12 mb-4">
+<h2 class="text-center text-dark">Informações de Perfil</h2>
+<span class="underline mb-3"></span>
+</header>';
 
 foreach ($dados as $linha) {
 
@@ -77,7 +81,7 @@ foreach ($dados as $linha) {
    <hr>
 
    <div class="form-actions">
-     <button type="submit" name="submitimg" class="btn btn-primary ml-auto">Update Profile</button>
+     <button type="submit" name="submitimg" class="btn btn-primary ml-auto">Atualizar Perfil</button>
    </div>
  
  </form>

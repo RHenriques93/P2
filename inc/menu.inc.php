@@ -58,7 +58,7 @@ session_start();
 
 if(isset($_SESSION["nome"]))
  {
-      echo '<a href="index.php?op=usersettings" class="btn m-1 btn-default f-500 f-17">'.$_SESSION["nome"].'</a>
+      echo '<a href="index.php?op=userpage" class="btn m-1 btn-default f-500 f-17">'.$_SESSION["nome"].'</a>
       <a href="index.php?op=logout" class="btn btn-login">Logout</a>';
  } else {
 

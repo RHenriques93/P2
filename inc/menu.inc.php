@@ -25,7 +25,7 @@ session_start();
                         </li>
 
                         <?php
-                        if(isset($_SESSION["nome"]))
+                        if(isset($_SESSION["username"]))
                         { ?>                        
                         <li class="nav-item">
                             <a href="index.php?op=pedidos" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == 4) echo "active"; ?> text-light f-600">Pedidos</a>

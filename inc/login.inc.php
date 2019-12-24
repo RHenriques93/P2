@@ -1,72 +1,65 @@
 <?php
+        require("db_projetofinal.php");
+
+        if(isset($_REQUEST["submit"])) {
+
+            if(empty($_REQUEST["nome"]) || empty($_REQUEST["pass"])){
+
+                $message = $error->getMessage();
+            } else {
+
+                $nome = $_REQUEST["nome"];
+                $pass =$_REQUEST["pass"];
 
 
+                $query = "SELECT * FROM utilizador WHERE nome = :nome AND pass = :pass";
 
-require("db_projetofinal.php");
+            $dados = $db->query("SELECT * FROM utilizador WHERE nome = '$nome' AND pass = '$pass'");
 
-if(isset($_REQUEST["submit"])) {
+                    foreach ($dados as $row) {
 
-    if(empty($_REQUEST["nome"]) || empty($_REQUEST["pass"])){
+                        $id = $row["id_utilizador"];
+                    }
 
-        $message = $error->getMessage();
-    } else {
-
-        $nome = $_REQUEST["nome"];
-        $pass =$_REQUEST["pass"];
-
-
-        $query = "SELECT * FROM utilizador WHERE nome = :nome AND pass = :pass";
-
-       $dados = $db->query("SELECT * FROM utilizador WHERE nome = '$nome' AND pass = '$pass'");
-
-            foreach ($dados as $row) {
-
-                $id = $row["id_utilizador"];
-            }
-
-      
-                $statement = $db->prepare($query);
-        $statement->execute(array('nome'=>$_REQUEST["nome"], 'pass'=>$_REQUEST["pass"]));
-
-             
-     
-
-          
-        $count = $statement->rowCount();
-        if($count > 0){
-
-          $_SESSION["nome"] = $_POST["nome"];
-          $logado = true;
-          $_SESSION["id_utilizador"] = $id;
-          header("location:index.php?op=success");
             
-        } else {
-    
-            $message = '<label>Wrong Data</label>';
+                        $statement = $db->prepare($query);
+                $statement->execute(array('nome'=>$_REQUEST["nome"], 'pass'=>$_REQUEST["pass"]));
+
+                
+                $count = $statement->rowCount();
+                if($count > 0){
+                    $message = '<div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                                <span aria-hidden="true" class="text-dark">&times;</span>
+                            </button>
+                            Login efetuado com sucesso! A redirecionar para a página de utilizador...
+                        </div>
+                    </div>
+                </div>';
+                $_SESSION["nome"] = $_POST["nome"];
+                $logado = true;
+                $_SESSION["id_utilizador"] = $id;
+                header("location:index.php?op=success");
+                    
+                } else {
+                    $message = '<div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                                <span aria-hidden="true" class="text-dark">&times;</span>
+                            </button>
+                            Username ou Password incorretos, verifique se inseriu corretamente os dados!
+                        </div>
+                    </div>
+                </div>';
+                }
+            }
         }
-
-
-    }
-
-
-
-}
-
-
 ?>
 
-<?php
-
-if(isset($message)){
-
-
-    echo "<label class='text-danger'>".$message."</label>";
-}
-
-?>
-   
-   
-   <form class="col-8 text-center d-flex justify-content-center m-4 vdivider">
+    <form class="col-8 text-center d-flex justify-content-center m-4 vdivider">
         <div class="modal" id="demoModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -105,6 +98,11 @@ if(isset($message)){
             <div class="col-12 text-center p-2">
                 <button type="button" class="btn grad-txt text-center m-2" data-toggle="modal" data-target="#demoModal">Recuperar Password</button>
             </div>
+            <?php
+                if(isset($message)){
+                    echo $message;
+                }
+            ?>
         </div>
     </div>
 

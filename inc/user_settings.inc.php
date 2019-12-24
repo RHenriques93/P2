@@ -61,6 +61,14 @@ foreach ($dados as $linha) {
       </div>
 
 
+      <div class="form-row">
+      <label for="input03" class="col-md-3">E-mail</label>
+      <div class="col-md-9 mb-3">
+     <textarea type="text" class="form-control" id="input03">'.$linha["email"].'</textarea>
+   </div>
+     </div>
+
+
 
 
  

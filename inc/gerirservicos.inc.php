@@ -96,31 +96,11 @@ $id = $_SESSION["id_utilizador"];
 
 <?php
 
+
+
 if(isset($_POST["submitservice"])){
-   
-  try {
-    $stmt = $db->prepare("UPDATE servico SET id_utilizador = :id_utilizador, id_subarea = :id_subarea, descricao = :descricao WHERE id_servico = :id_servico");
-    $stmt->execute(array(
-            ':id_utilizador' => $id, 
-            ':id_subarea' => $_REQUEST["id_subarea"], 
-            ':descricao' => $_REQUEST["descricao"], 
-        
-    )) ; 	if ($stmt->rowCount() == 1) {
-        echo "<div class='alert alert-success' role='alert'>Filme inserido com sucesso!</div>";
-    } else {
-        echo "<div class='alert alert-danger' role='alert'>Erro ao inserir filme!</div>";
-    }
-    
-    
-        }catch(PDOException $e) {
-            echo "<div class='alert alert-danger' role='alert'>$e->getMessage()</div>";
-      }
-    
-    
 
-} else {
 
-  
   try {
     $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
@@ -140,19 +120,13 @@ if(isset($_POST["submitservice"])){
     {
     echo $e->getMessage();
     }
-    }
 
 
+} 
 
 
-
-
-
-
-}
-
+} //close session
 ?>
-
 
 
 

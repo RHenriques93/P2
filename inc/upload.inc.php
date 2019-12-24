@@ -53,12 +53,14 @@ if(isset($_REQUEST['submitimg'])){
     
 try{
 
-    $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia = :biografia, email = :email WHERE id_utilizador = $id");
+    $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador WHERE id_utilizador = $id");
     $stmt->execute(array(
         ':imagemperfil' => 'http://localhost/projetofinal/img/uploads/'.basename($_FILES['imagemperfil']['name']),
         ':nome' => $_REQUEST["nome"],
         ':biografia' => $_REQUEST["biografia"],
         ':email' => $_REQUEST["email"],
+        ':genero' => $_REQUEST["genero"],
+        ':tipo_utilizador' => $_REQUEST["tipo_utilizador"],
       ));
 
       if ($stmt->rowCount() == 1) {
@@ -76,11 +78,13 @@ try{
     
 try{
 
-    $stmt = $db->prepare("UPDATE utilizador SET nome = :nome, biografia = :biografia, email = :email WHERE id_utilizador = $id");
+    $stmt = $db->prepare("UPDATE utilizador SET nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador WHERE id_utilizador = $id");
     $stmt->execute(array(
         ':nome' => $_REQUEST["nome"],
         ':biografia' => $_REQUEST["biografia"],
         ':email' => $_REQUEST["email"],
+        ':genero' => $_REQUEST["genero"],
+        ':tipo_utilizador' => $_REQUEST["tipo_utilizador"],
       ));
 } catch(PDOException $e) {
       echo "<div class='alert alert-danger' role='alert'>$e->getMessage()</div>";

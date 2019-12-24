@@ -32,16 +32,39 @@ foreach ($dados as $linha) {
             <label class="grad-txt f-20 font-weight-bold" for="nascimento">Data de Nascimento</label>
             <input type="date" class="form-control" id="nascimento" name="nascimento" aria-describedby="nascimentoHelp" value="'.$linha['data_nascimento'].'">
           </div>
+
+
           <div class="col-md-4 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="tipo_utilizador">Tipo de Utilizador</label>
-            <select class="custom-select mt-2 text-secondary w-100 align-content-left" id="inputGroupSelect01" name="tipo_utilizador">
-              <option class="text-secondary" value="'.$linha['id_tipo'].'">'.$linha['nome_tipo'].'</option>
-            </select>
-          </div>
-          <div class="col-md-4 mb-3">
+            <select class="custom-select mt-2 text-secondary w-100 align-content-left" id="inputGroupSelect01" name="tipo_utilizador" required>
+             
+            <option class="bg-dark" value="'.$linha['id_tipo'].'" disabled selected>'.$linha['nome_tipo'].'</option>';
+           
+            $dados = $db->query("SELECT id_tipo, nome_tipo FROM tipo_utilizador");
+
+            foreach ($dados as $linha3) {
+            
+            echo '<option class="text-secondary" value="'.$linha3['id_tipo'].'">'.$linha3['nome_tipo'].'</option>';
+            }
+
+           echo '</select>
+            </div>
+
+            <div class="col-md-4 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="genero">Genero</label>
-            <select class="custom-select mt-2 text-secondary w-100 align-content-left" id="inputGroupSelect02" name="genero">
-              <option class="text-secondary" value="'.$linha['id_genero'].'">'.$linha['genero'].'</option>
+            <select class="custom-select mt-2 text-secondary w-100 align-content-left" id="inputGroupSelect02" name="genero" required>
+             
+            <option class="bg-dark" value="'.$linha['id_genero'].'" disabled selected>'.$linha['genero'].'</option>';
+            $dados = $db->query("SELECT genero, id_genero FROM genero_utilizador");
+
+            foreach ($dados as $linha2) {
+             
+            echo '<option class="text-secondary" value="'.$linha2['id_genero'].'">'.$linha2['genero'].'</option>';
+                  
+          
+          }
+
+            echo  '
             </select>
           </div>
           <div class="col-md-12 mb-3">

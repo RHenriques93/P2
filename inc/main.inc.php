@@ -48,7 +48,7 @@ $dados = $db->query("SELECT * FROM area");
                 ?>
                 
                     <div class="col-md-12 justify-content-center text-center">
-                        <button class="btn btn-grad text-center mt-2"><a href="index.php?op=servicos" class="text-light">Ver Todos<i class="far fa-plus-square ml-2"></i></a></button>
+                        <button class="btn btn-grad grad text-center mt-2"><a href="index.php?op=servicos" class="text-light">Ver Todos<i class="far fa-plus-square ml-2"></i></a></button>
                     </div>
                 </div>
             </section>

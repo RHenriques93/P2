@@ -8,6 +8,7 @@ require("../db_projetofinal.php");
 <?php
 
 if(isset($_REQUEST['submitimg'])){
+    
 
 $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
 

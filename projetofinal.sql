@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 23-Dez-2019 às 22:09
+-- Generation Time: 24-Dez-2019 às 11:49
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -49,6 +49,19 @@ INSERT INTO `area` (`id_area`, `nome`, `descricao`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `genero_utilizador`
+--
+
+DROP TABLE IF EXISTS `genero_utilizador`;
+CREATE TABLE IF NOT EXISTS `genero_utilizador` (
+  `id_genero` int(11) NOT NULL,
+  `genero` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_genero`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `requisicao`
 --
 
@@ -85,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   `id_subarea` int(11) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_servico` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(255) NOT NULL,
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`)
@@ -94,13 +108,13 @@ CREATE TABLE IF NOT EXISTS `servico` (
 -- Extraindo dados da tabela `servico`
 --
 
-INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`) VALUES
-(2, 7, '2019-12-11 00:08:11', 17),
-(1, 9, '2019-12-11 00:08:11', 18),
-(1, 6, '2019-12-11 00:26:39', 19),
-(1, 10, '2019-12-11 00:26:39', 20),
-(2, 12, '2019-12-12 13:14:31', 21),
-(1, 7, '2019-12-21 21:53:56', 22);
+INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`) VALUES
+(2, 7, '2019-12-24 11:40:59', 17, 'teste'),
+(1, 9, '2019-12-11 00:08:11', 18, ''),
+(1, 6, '2019-12-11 00:26:39', 19, ''),
+(1, 10, '2019-12-11 00:26:39', 20, ''),
+(2, 12, '2019-12-12 13:14:31', 21, ''),
+(1, 7, '2019-12-21 21:53:56', 22, '');
 
 -- --------------------------------------------------------
 
@@ -164,6 +178,7 @@ DROP TABLE IF EXISTS `utilizador`;
 CREATE TABLE IF NOT EXISTS `utilizador` (
   `id_utilizador` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(150) NOT NULL,
+  `id_genero` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `data_nascimento` date NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -180,15 +195,15 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 -- Extraindo dados da tabela `utilizador`
 --
 
-INSERT INTO `utilizador` (`id_utilizador`, `nome`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`) VALUES
-(1, 'Rafael', 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-23 22:06:31', '12345', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
-(2, 'André Ferreira', 'andreferreira@gmail.com', '1999-12-18', '2019-12-23 22:03:18', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
-(4, 'Sofia Santos Barreira', 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-23 21:02:51', '123456', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(6, 'Jacinta Paes', 'sdsadsad@gmail.com', '2019-12-11', '2019-12-23 21:02:51', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(7, 'Nuno ConceiÃ§Ã£o', 'nuno@gmail.com', '2019-12-17', '2019-12-23 21:02:51', '1234567890', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(8, 'Carlos ', 'carlos@gmail.com', '2019-12-18', '2019-12-23 21:02:51', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(9, 'ZÃ© Borrego', 'zeborrego@gmail.com', '2019-12-18', '2019-12-23 21:02:51', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(10, 'Sofia Ssdfsdfsd', 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-23 21:02:51', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg');
+INSERT INTO `utilizador` (`id_utilizador`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`) VALUES
+(1, 'Rafael', 0, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-23 22:06:31', '12345', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
+(2, 'André Ferreira', 0, 'andreferreira@gmail.com', '1999-12-18', '2019-12-23 22:03:18', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
+(4, 'Sofia Santos Barreira', 0, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-23 21:02:51', '123456', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(6, 'Jacinta Paes', 0, 'sdsadsad@gmail.com', '2019-12-11', '2019-12-23 21:02:51', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(7, 'Nuno ConceiÃ§Ã£o', 0, 'nuno@gmail.com', '2019-12-17', '2019-12-23 21:02:51', '1234567890', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(8, 'Carlos ', 0, 'carlos@gmail.com', '2019-12-18', '2019-12-23 21:02:51', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(9, 'ZÃ© Borrego', 0, 'zeborrego@gmail.com', '2019-12-18', '2019-12-23 21:02:51', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(10, 'Sofia Ssdfsdfsd', 0, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-23 21:02:51', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg');
 
 --
 -- Constraints for dumped tables

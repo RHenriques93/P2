@@ -49,7 +49,7 @@ $dados = $db->query("SELECT * FROM area");
                 
                     <div class="col-md-3 grad">
                     <a href="index.php?op=servicos" class="text-light">
-                            <h5 class="text-center mt-2">Ver Todos <i class="far fa-plus-square ml-2"></i></h5>
+                            <h5 class="text-center mt-2">Ver Todos<i class="far fa-plus-square ml-2"></i></h5>
                         </a>
                     </div>
                 </div>

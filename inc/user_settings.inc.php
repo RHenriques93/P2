@@ -1,21 +1,14 @@
+<div class="container">
+  <div class="container-fluid py-3 justify-content-center">
 <?php
-
-
 if(isset($_SESSION['nome'],$_SESSION['id_utilizador'])){
-
-  
-
-   
 
 require("db_projetofinal.php");
 
-
 $id = $_SESSION["id_utilizador"];
-
-
 $dados = $db->query("SELECT * FROM utilizador WHERE utilizador.id_utilizador = '$id'");
 
-echo ' <br> <header class="col-md-12 mb-4">
+echo '<header class="col-md-12 mb-4">
 <h2 class="text-center text-dark">Informações de Perfil</h2>
 <span class="underline mb-3"></span>
 </header>';
@@ -23,100 +16,49 @@ echo ' <br> <header class="col-md-12 mb-4">
 foreach ($dados as $linha) {
 
  echo   '
-
     <div class="container">
-    <div class="card-body">
-  
-   
-    <form method="post" action="inc/upload.inc.php" enctype="multipart/form-data">
-
-
-    <div class="form-row">
-          <img src="'.$linha["imagem"].'" width="250px">
-          <input type="file" name="imagemperfil" class="form-control-file" accept="image/x-png,image/jpeg"/>
-          
-     
-    </div>
- 
-   <div class="form-row">
-   
-     <label for="input02" class="col-md-3">Nome de Utilizador</label>
-        <div class="col-md-9 mb-3">
-       <input type="text" class="form-control" id="input02" value="'.$linha["nome"].'"> </div>
-     
-   </div>
-
-   <div class="form-row">
-        <label for="input03" class="col-md-3">Biografia</label>
-        <div class="col-md-9 mb-3">
-       <textarea type="text" class="form-control" id="input03">'.$linha["biografia"].'</textarea>
-     </div>
-       </div>
-
-       <div class="form-row">
-       <label for="input03" class="col-md-3">E-mail</label>
-       <div class="col-md-9 mb-3">
-      <textarea type="text" class="form-control" id="input03">'.$linha["email"].'</textarea>
-    </div>
-      </div>
-
-
-      <div class="form-row">
-      <label for="input03" class="col-md-3">E-mail</label>
-      <div class="col-md-9 mb-3">
-     <textarea type="text" class="form-control" id="input03">'.$linha["email"].'</textarea>
-   </div>
-     </div>
-
-
-
-
- 
-   <div class="form-row">
-   
-     <label for="input04" class="col-md-3">Available for hire?</label>
-   
-   
-     <div class="col-md-9 mb-3">
-       <div class="custom-control custom-checkbox">
-         <input type="checkbox" class="custom-control-input" id="input04" checked="">
-         <label class="custom-control-label" for="input04">Yes, hire me</label>
-       </div>
-     </div>
-   
-   </div>
- 
-   <hr>
-
-   <div class="form-actions">
-     <button type="submit" name="submitimg" class="btn btn-primary ml-auto">Atualizar Perfil</button>
-   </div>
- 
- </form>
-
-
-
-</div>
-</div>'; 
-
-}
-
-
-
-
-            ?>         
+      <form method="post" action="inc/upload.inc.php" enctype="multipart/form-data">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="col-md-12 mb-3">
+            <label class="grad-txt f-20 font-weight-bold" for="name">Nome</label>
+            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" value="'.$linha["nome"].'">
+          </div>
+          <div class="col-md-12 mb-3">
+            <label class="grad-txt f-20 font-weight-bold" for="user">Username</label>
+            <input type="text" class="form-control" id="user" aria-describedby="userHelp" value="Username" disabled>
+          </div>
+          <div class="col-md-12 mb-3">
+            <label class="grad-txt f-20 font-weight-bold" for="biografia">Biografia</label>
+            <textarea type="text" class="form-control" id="biografia" aria-describedby="biografiaHelp">'.$linha["biografia"].'</textarea>
+          </div>
+          <div class="col-md-12 mb-3">
+            <label class="grad-txt f-20 font-weight-bold" for="email">Email</label>
+            <input type="text" class="form-control" id="email" aria-describedby="emailHelp" value="'.$linha["email"].'">
+          </div>
+          <div class="col-md-12">
+            <button type="submit" name="submitimg" class="btn btn-primary ml-auto">Atualizar Perfil</button>
+          </div>
+        </div>
+        <div class="col-md-4 text-center bg-light rounded p-3 border border-secondary">
+            <img src="'.$linha["imagem"].'" class="rounded-circle" width="250px" height="250px">
+            <input type="file" name="imagemperfil" class="form-control-file my-3 text-dark" accept="image/x-png,image/jpeg"/>
+            <div class="col-md-12">
+              <button type="submit" name="submitimg" class="btn btn-grad grad ml-auto">Alterar Foto de Perfil</button>
             </div>
         </div>
-    </div>
-
-
-  <?php
- } else {
-
-    header("location:index.php?op=login");
-
+        <hr>
+        </form>
+      </div>
+    </div>'; 
 }
-
+?>         
+  </div>
+</div>
+<?php
+ } else {
+header("location:index.php?op=login");
+}
 ?>
 
 

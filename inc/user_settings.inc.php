@@ -22,7 +22,7 @@ foreach ($dados as $linha) {
         <div class="col-md-8">
           <div class="col-md-12 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="name">Nome</label>
-            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" value="'.$linha["nome"].'">
+            <input type="text" class="form-control" id="name" name="nome" aria-describedby="nameHelp" value="'.$linha["nome"].'">
           </div>
           <div class="col-md-12 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="user">Username</label>
@@ -30,12 +30,12 @@ foreach ($dados as $linha) {
           </div>
           <div class="col-md-12 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="biografia">Biografia</label>
-            <textarea type="text" class="form-control" id="biografia" maxlength="255" aria-describedby="biografiaHelp">'.$linha["biografia"].'</textarea>
+            <textarea type="text" class="form-control" id="biografia" maxlength="255" name="biografia" aria-describedby="biografiaHelp">'.$linha["biografia"].'</textarea>
             <p class="figure-caption">Máx. 255 caracteres</p>
           </div>
           <div class="col-md-12 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="email">Email</label>
-            <input type="text" class="form-control" id="email" aria-describedby="emailHelp" value="'.$linha["email"].'">
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="'.$linha["email"].'">
           </div>
           <div class="col-md-12">
             <button type="submit" name="submitimg" class="btn btn-primary ml-auto">Atualizar Perfil</button>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 24-Dez-2019 às 12:50
+-- Generation Time: 24-Dez-2019 às 14:05
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -193,13 +193,13 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `pass` varchar(20) NOT NULL,
   `tipo_utilizador` int(11) NOT NULL,
-  `biografia` varchar(255) NOT NULL,
-  `imagem` varchar(255) NOT NULL,
+  `biografia` varchar(255) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_utilizador`),
   UNIQUE KEY `id_area` (`id_utilizador`),
   KEY `fk_id_tipo_tipo_utilizador` (`tipo_utilizador`),
   KEY `fk_id_genero_genero_utilizador` (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `utilizador`
@@ -213,7 +213,8 @@ INSERT INTO `utilizador` (`id_utilizador`, `nome`, `id_genero`, `email`, `data_n
 (7, 'Nuno Conceição', 2, 'nuno@gmail.com', '2019-12-17', '2019-12-24 12:02:45', '1234567890', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (8, 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-24 12:04:32', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (9, 'Zé Borrego', 1, 'zeborrego@gmail.com', '2019-12-18', '2019-12-24 12:02:45', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(10, 'Sofia Ssdfsdfsd', 2, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-24 12:02:45', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg');
+(10, 'Sofia Ssdfsdfsd', 2, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-24 12:02:45', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(11, 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-24 14:01:28', '12345', 2, NULL, NULL);
 
 --
 -- Constraints for dumped tables

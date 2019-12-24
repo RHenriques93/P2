@@ -56,9 +56,9 @@ session_start();
 //REVER ESTA PARTE - esta a funcionar mas retirei session do inicio dos outros inc´s
 
 
-if(isset($_SESSION["nome"]))
+if(isset($_SESSION["username"]))
  {
-      echo '<a href="index.php?op=userpage" class="btn m-1 btn-default f-500 f-17">'.$_SESSION["nome"].'</a>
+      echo '<a href="index.php?op=userpage" class="btn m-1 btn-default f-500 f-17">'.$_SESSION["username"].'</a>
       <a href="index.php?op=logout" class="btn btn-login">Logout</a>';
  } else {
 

@@ -30,8 +30,8 @@ foreach ($dados as $linha) {
           </div>
           <div class="col-md-12 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="biografia">Biografia</label>
-            <textarea type="text" class="form-control" id="biografia" aria-describedby="biografiaHelp">'.$linha["biografia"].'</textarea>
-            <p></p>
+            <textarea type="text" class="form-control" id="biografia" maxlength="255" aria-describedby="biografiaHelp">'.$linha["biografia"].'</textarea>
+            <p class="figure-caption">Máx. 255 caracteres</p>
           </div>
           <div class="col-md-12 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="email">Email</label>

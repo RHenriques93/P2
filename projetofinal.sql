@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 23-Dez-2019 às 11:26
+-- Generation Time: 23-Dez-2019 às 22:09
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -170,6 +170,7 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
   `pass` varchar(20) NOT NULL,
   `tipo_utilizador` int(11) NOT NULL,
   `biografia` varchar(255) NOT NULL,
+  `imagem` varchar(255) NOT NULL,
   PRIMARY KEY (`id_utilizador`),
   UNIQUE KEY `id_area` (`id_utilizador`),
   KEY `fk_id_tipo_tipo_utilizador` (`tipo_utilizador`)
@@ -179,15 +180,15 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 -- Extraindo dados da tabela `utilizador`
 --
 
-INSERT INTO `utilizador` (`id_utilizador`, `nome`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`) VALUES
-(1, 'Rafael', 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-22 23:19:57', '12345', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
-(2, 'André Ferreira', 'andreferreira@gmail.com', '1999-12-18', '2019-12-16 16:01:56', '12345678', 1, ''),
-(4, 'Sofia Santos Barreira', 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-16 16:01:56', '123456', 1, ''),
-(6, 'Jacinta Paes', 'sdsadsad@gmail.com', '2019-12-11', '2019-12-16 16:01:56', '12345678', 1, ''),
-(7, 'Nuno ConceiÃ§Ã£o', 'nuno@gmail.com', '2019-12-17', '2019-12-16 16:01:56', '1234567890', 1, ''),
-(8, 'Carlos ', 'carlos@gmail.com', '2019-12-18', '2019-12-16 16:01:56', 'asdfgh', 1, ''),
-(9, 'ZÃ© Borrego', 'zeborrego@gmail.com', '2019-12-18', '2019-12-16 16:01:56', 'zeborrego', 2, ''),
-(10, 'Sofia Ssdfsdfsd', 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-16 16:09:41', '123456789', 1, '');
+INSERT INTO `utilizador` (`id_utilizador`, `nome`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`) VALUES
+(1, 'Rafael', 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-23 22:06:31', '12345', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
+(2, 'André Ferreira', 'andreferreira@gmail.com', '1999-12-18', '2019-12-23 22:03:18', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
+(4, 'Sofia Santos Barreira', 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-23 21:02:51', '123456', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(6, 'Jacinta Paes', 'sdsadsad@gmail.com', '2019-12-11', '2019-12-23 21:02:51', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(7, 'Nuno ConceiÃ§Ã£o', 'nuno@gmail.com', '2019-12-17', '2019-12-23 21:02:51', '1234567890', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(8, 'Carlos ', 'carlos@gmail.com', '2019-12-18', '2019-12-23 21:02:51', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(9, 'ZÃ© Borrego', 'zeborrego@gmail.com', '2019-12-18', '2019-12-23 21:02:51', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(10, 'Sofia Ssdfsdfsd', 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-23 21:02:51', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg');
 
 --
 -- Constraints for dumped tables

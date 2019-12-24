@@ -13,7 +13,7 @@
                         <div class="input-group-prepend">
                             <button id="button-addon2" formaction="index.php?op=procura" type="submit" class="btn btn-link"><i class="fas fa-search color-yw"></i></button>
                         </div>
-                    <input type="search" name="search" placeholder='O que procuras? "logo" "web site" "captura de video"' aria-describedby="button-addon2" class="form-control border-0 bg-light">
+                    <input type="search" name="search" placeholder='O que procuras? "logo" "web site" "captura de video"' aria-describedby="button-addon2" class="form-control border-0 bg-light" required>
                     </div>
                 </div>
             </form>

@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION['nome'],$_SESSION['id_utilizador'])){
+if(isset($_SESSION['username'],$_SESSION['id_utilizador'])){
 
 require("db_projetofinal.php");
 $id = $_SESSION["id_utilizador"];
@@ -24,7 +24,7 @@ $id = $_SESSION["id_utilizador"];
   $dados = $db->query("SELECT subarea.nome FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id");
                                                                 
   foreach($dados as $row) {
-    echo' <li class="list-group-item text-dark">'.$row["nome"].'</li>';
+    echo'<li class="list-group-item text-dark">'.$row["nome"].'</li>';
   }
 ?>
 </ul>

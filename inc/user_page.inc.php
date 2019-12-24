@@ -8,24 +8,46 @@ $id = $_SESSION["id_utilizador"];
 $username = $_SESSION["username"];
   $dados = $db->query("SELECT * FROM utilizador WHERE username = '$username'");
 
+
+
   foreach ($dados as $row){
-  echo '
-  <header class="col-md-12 mb-4">
-    <h2 class="text-center text-dark">Bem Vindo(a) '.$row['nome'].'</h2>
-    <span class="underline-rosa mb-3"></span>
-  </header>
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href="index.php?op=usersettings">Informações de Perfil</a></h5></button>
+    if($row['id_genero'] == 1) {
+    echo '
+    <header class="col-md-12 mb-4">
+      <h2 class="text-center text-dark">Bem Vindo <br><span class="f-700 text-dark">'.$row['nome'].'</span></h2>
+      <span class="underline-rosa mb-3"></span>
+    </header>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href="index.php?op=usersettings">Informações de Perfil</a></h5></button>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href ="index.php?op=gerirservicos">Gerir Serviços</a></h5></button>
+      </div>
+      <div class="col-md-12 text-center my-2 mt-4">
+        <a class="grad-txt" href="index.php?op=logout"><h5>Logout</a></h5></button>
+      </div>
     </div>
-    <div class="col-md-4">
-      <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href ="index.php?op=gerirservicos">Gerir Serviços</a></h5></button>
-    </div>
-    <div class="col-md-12 text-center my-2 mt-4">
-      <a class="grad-txt" href="index.php?op=logout"><h5>Logout</a></h5></button>
-    </div>
-  </div>
-  ';}
+    ';}else{
+      echo '
+      <header class="col-md-12 mb-4">
+        <h2 class="text-center text-dark">Bem Vinda <br><span class="f-700 text-dark">'.$row['nome'].'</span></h2>
+        <span class="underline-rosa mb-3"></span>
+      </header>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href="index.php?op=usersettings">Informações de Perfil</a></h5></button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href ="index.php?op=gerirservicos">Gerir Serviços</a></h5></button>
+        </div>
+        <div class="col-md-12 text-center my-2 mt-4">
+          <a class="grad-txt" href="index.php?op=logout"><h5>Logout</a></h5></button>
+        </div>
+      </div>
+      ';
+    }
+  }
 
 $dados = $db->query("SELECT * FROM utilizador WHERE utilizador.id_utilizador = '$id'");
 

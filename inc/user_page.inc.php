@@ -22,7 +22,7 @@ $username = $_SESSION["username"];
         <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href="index.php?op=usersettings">Informações de Perfil</a></h5></button>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href ="index.php?op=gerirservicos">Gerir Serviços</a></h5></button>
+        <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href ="index.php?op=listarservicos">Seus Serviços</a></h5></button>
       </div>
       <div class="col-md-12 text-center my-2 mt-4">
         <a class="grad-txt" href="index.php?op=logout"><h5>Logout</a></h5></button>
@@ -39,7 +39,7 @@ $username = $_SESSION["username"];
           <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href="index.php?op=usersettings">Informações de Perfil</a></h5></button>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href ="index.php?op=gerirservicos">Gerir Serviços</a></h5></button>
+          <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href ="index.php?op=listarservicos">Seus Serviços</a></h5></button>
         </div>
         <div class="col-md-12 text-center my-2 mt-4">
           <a class="grad-txt" href="index.php?op=logout"><h5>Logout</a></h5></button>

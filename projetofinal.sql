@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 24-Dez-2019 às 19:34
+-- Generation Time: 25-Dez-2019 às 19:19
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `servico`
@@ -118,14 +118,14 @@ CREATE TABLE IF NOT EXISTS `servico` (
 
 INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`) VALUES
 (2, 7, '2019-12-24 11:40:59', 17, 'teste'),
-(1, 9, '2019-12-11 00:08:11', 18, ''),
-(1, 6, '2019-12-11 00:26:39', 19, ''),
-(1, 10, '2019-12-11 00:26:39', 20, ''),
+(1, 9, '2019-12-25 13:58:35', 18, 'Crio vÃ­deos para vÃ¡rioss tipo de empresas .'),
+(1, 6, '2019-12-25 14:02:07', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.'),
 (2, 12, '2019-12-12 13:14:31', 21, ''),
-(1, 7, '2019-12-21 21:53:56', 22, ''),
-(1, 13, '2019-12-24 15:34:24', 27, 'fdvdfds'),
+(1, 7, '2019-12-25 14:03:36', 22, 'CriaÃ§Ã£o de Flyers para todo o tipo de eventos.'),
 (11, 7, '2019-12-24 15:49:47', 30, 'SADSAD'),
-(11, 7, '2019-12-24 16:07:21', 33, 'xdvfsdfdsf');
+(11, 7, '2019-12-24 16:07:21', 33, 'xdvfsdfdsf'),
+(4, 12, '2019-12-25 15:44:54', 45, 'CriaÃ§Ã£o de vÃ­deos do tipo motion graphics'),
+(4, 13, '2019-12-25 15:46:03', 46, 'realizo serviÃ§os de web design, linguagens html, javascript, php');
 
 -- --------------------------------------------------------
 
@@ -210,12 +210,12 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 --
 
 INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`) VALUES
-(1, 'rafaelxoxota', 'Rafael', 1, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-24 18:43:43', '12345', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
+(1, 'rafaelxoxota', 'Rafael', 1, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-24 19:40:42', '12345', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
 (2, 'andreferreira', 'André Ferreira', 1, 'andreferreira@gmail.com', '1999-12-18', '2019-12-24 18:43:36', '12345678', 1, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
-(4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-24 19:12:25', '123456', 1, 'teste', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-24 19:44:12', '123456', 2, 'teste', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (6, '', 'Jacinta Paes', 2, 'sdsadsad@gmail.com', '2019-12-11', '2019-12-24 12:02:45', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (7, '', 'Nuno Conceição', 2, 'nuno@gmail.com', '2019-12-17', '2019-12-24 12:02:45', '1234567890', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(8, '', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-24 12:04:32', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-25 15:54:34', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (9, '', 'Zé Borrego', 1, 'zeborrego@gmail.com', '2019-12-18', '2019-12-24 12:02:45', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (10, '', 'Sofia Ssdfsdfsd', 2, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-24 12:02:45', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-24 19:16:09', '12345', 2, NULL, 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg');

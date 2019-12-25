@@ -143,75 +143,39 @@ $dados = $db->query("SELECT * FROM area");
                     <span class="underline"></span>
                 </header>
                 <div class="row py-4">
+
+              <?php
+              
+              require("db_projetofinal.php");
+            
+              $dados = $db->query("SELECT utilizador.id_utilizador, utilizador.nome AS 'utilizador nome', subarea.nome AS 'nome subarea', area.nome AS 'nome area' FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area ORDER BY rand() LIMIT 4");
+
+                foreach ($dados as $row) {
+
+                echo '
                     <div class="col-sm-6 col-md-3 col-xs-12">
                         <div class="tabela-preco sombra">
                             <div class="preco-detalhe">
-                                <h2>Logotipos</h2>
+                                <h2>'.$row["nome area"].'</h2>
+                                <h3 class="text-success">'.$row["nome subarea"].'</h3><hr>
                                 <span style="margin: 0">100€</span>
-                                <span style="font-size: 15px">Desde</span>
-                                <ul>
-                                    <li>Desenvolvido ao seu gosto</li>
-                                    <li>Todo do tipo de marcas</li>
-                                </ul>
+                                <span style="font-size: 15px">Desde</span><hr>
+                                
+                                <h4 class="text-danger">'.$row["utilizador nome"].'</h4><hr>
+                                
                                 <div class="preco-btn mb-2">
-                                    <a href="#" class="btn btn-preco">Comprar Agora</a>
+                                    <a href="index.php?op=servicepage&id='.$row["id_utilizador"].'" class="btn btn-preco">+ Informação</a>
                                 </div>
-                                <small class="text-primary">*Garantia de satisfação de 30 dias</small>
+                                
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3 col-xs-12">
-                        <div class="tabela-preco sombra">
-                            <div class="preco-detalhe">
-                                <h2>Foto e Video</h2>
-                                <span style="margin: 0">50€</span>
-                                <span style="font-size: 15px">Desde</span>
-                                <ul>
-                                    <li>Capatação de imagens</li>
-                                    <li>Eventos ou Seções Particulares</li>
-                                </ul>
-                                <div class="preco-btn mb-2">
-                                    <a href="#" class="btn btn-preco">Comprar Agora</a>
-                                </div>
-                                <small class="text-primary">*Garantia de satisfação de 30 dias</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3 col-xs-12">
-                        <div class="tabela-preco sombra">
-                            <div class="preco-detalhe">
-                                <h2>Edição de Video</h2>
-                                <span style="margin: 0">50€</span>
-                                <span style="font-size: 15px">Desde</span>
-                                <ul>
-                                    <li>Pós-Produção</li>
-                                    <li>Bla Bla Bla</li>
-                                </ul>
-                                <div class="preco-btn mb-2">
-                                    <a href="#" class="btn btn-preco">Comprar Agora</a>
-                                </div>
-                                <small class="text-primary">*Garantia de satisfação de 30 dias</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3 col-xs-12">
-                        <div class="tabela-preco sombra">
-                            <div class="preco-detalhe">
-                                <h2>Web Design</h2>
-                                <span style="margin: 0">450€</span>
-                                <span style="font-size: 15px">Desde</span>
-                                <ul>
-                                    <li>Front-End & Back-End Development</li>
-                                    <li>Totalmente Responsivos</li>
-                                </ul>
-                                <div class="preco-btn mb-2">
-                                    <a href="#" class="btn btn-preco">Comprar Agora</a>
-                                </div>
-                                <small class="text-primary">*Garantia de satisfação de 30 dias</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </div>';
+
+                }
+                  
+                
+                ?>
+                
             </section>
         </div>
     </div>

@@ -3,7 +3,7 @@
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-8 text-center">
-                <h1 class="text-uppercase">Título</h1>
+                <h1 class="text-uppercase"><img width="200px" src="img/hire-frame.png"></h1>
                 <p class="lead">Aqui poderás encontrar diversos tipos de serviços realizados por trabalhadores freelancers
             nas diversas áreas abrangidas.</p>
             </div>

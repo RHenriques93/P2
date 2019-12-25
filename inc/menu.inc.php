@@ -6,7 +6,7 @@ session_start();
         <header class="menu-font-20">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <a href="index.php" class="navbar-brand">
-                    <img src="img/logo.png" height="70" class="d-inline-block align-top <?php if (isset($_GET["op"])) if ($_GET["op"] == 0) echo "active";?>">
+                    <img src="img/hire-frame.png" height="70" class="d-inline-block align-top <?php if (isset($_GET["op"])) if ($_GET["op"] == 0) echo "active";?>">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" 
                 aria-expanded="false" aria-label="Menu Colapso">

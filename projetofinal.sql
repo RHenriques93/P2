@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 26-Dez-2019 às 17:07
+-- Generation Time: 26-Dez-2019 às 18:50
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `area` (
   `nome` varchar(150) NOT NULL,
   `descricao` varchar(200) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `img_area` varchar(255) NOT NULL,
   PRIMARY KEY (`id_area`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
@@ -41,10 +42,10 @@ CREATE TABLE IF NOT EXISTS `area` (
 -- Extraindo dados da tabela `area`
 --
 
-INSERT INTO `area` (`id_area`, `nome`, `descricao`, `data`) VALUES
-(5, 'Design Gráfico', 'Design Gráfico', '2019-12-11 00:04:52'),
-(6, 'Vídeo ', 'Vídeo ', '2019-12-11 00:04:52'),
-(7, 'Programação', 'Programação', '2019-12-24 12:22:27');
+INSERT INTO `area` (`id_area`, `nome`, `descricao`, `data`, `img_area`) VALUES
+(5, 'Design Gráfico', 'Design Gráfico', '2019-12-26 17:50:19', 'computer.png'),
+(6, 'Vídeo ', 'Vídeo ', '2019-12-26 17:50:50', 'video.png'),
+(7, 'Programação', 'Programação', '2019-12-26 17:50:51', 'html-coding.png');
 
 -- --------------------------------------------------------
 
@@ -139,6 +140,7 @@ CREATE TABLE IF NOT EXISTS `subarea` (
   `nome` varchar(50) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_area` int(11) NOT NULL,
+  `img_subarea` varchar(255) NOT NULL,
   PRIMARY KEY (`id_subarea`),
   KEY `fk_id_area_area` (`id_area`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
@@ -147,16 +149,16 @@ CREATE TABLE IF NOT EXISTS `subarea` (
 -- Extraindo dados da tabela `subarea`
 --
 
-INSERT INTO `subarea` (`id_subarea`, `nome`, `data`, `id_area`) VALUES
-(6, 'Logotipo', '2019-12-11 00:05:41', 5),
-(7, 'Flyer', '2019-12-11 00:05:41', 5),
-(8, 'Ilustração', '2019-12-11 00:06:24', 5),
-(9, 'Video Institucional', '2019-12-11 00:06:24', 6),
-(10, 'Animação de Logotipo', '2019-12-11 00:23:03', 6),
-(11, 'Edição de Vídeo', '2019-12-11 00:23:03', 6),
-(12, 'Motion Graphics', '2019-12-11 00:23:25', 6),
-(13, 'Web Design', '2019-12-21 22:18:37', 7),
-(14, 'Mobile Apps', '2019-12-21 22:18:37', 7);
+INSERT INTO `subarea` (`id_subarea`, `nome`, `data`, `id_area`, `img_subarea`) VALUES
+(6, 'Logotipo', '2019-12-26 18:16:48', 5, 'logo-design.png'),
+(7, 'Flyer', '2019-12-26 18:16:48', 5, 'flyer-for-promotion.png'),
+(8, 'Ilustração', '2019-12-26 18:16:48', 5, 'illustration.png'),
+(9, 'Video Institucional', '2019-12-26 18:28:32', 6, 'video_institucional.png'),
+(10, 'Animação de Logotipo', '2019-12-26 18:28:32', 6, 'logo-design.png'),
+(11, 'Edição de Vídeo', '2019-12-26 18:28:32', 6, 'videoediting.png'),
+(12, 'Motion Graphics', '2019-12-26 18:28:32', 6, 'motion-graphics.png'),
+(13, 'Web Design', '2019-12-26 18:31:59', 7, 'web_design.png'),
+(14, 'Mobile Apps', '2019-12-26 18:32:13', 7, 'mobile-app.png');
 
 -- --------------------------------------------------------
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 26-Dez-2019 às 18:50
+-- Generation Time: 26-Dez-2019 às 23:11
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -71,6 +71,41 @@ INSERT INTO `genero_utilizador` (`id_genero`, `genero`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `preco_servico`
+--
+
+DROP TABLE IF EXISTS `preco_servico`;
+CREATE TABLE IF NOT EXISTS `preco_servico` (
+  `id_preco_servico` int(11) NOT NULL AUTO_INCREMENT,
+  `base` int(11) NOT NULL,
+  `padrao` int(11) NOT NULL,
+  `premium` int(11) NOT NULL,
+  `id_servico` int(11) NOT NULL,
+  PRIMARY KEY (`id_preco_servico`),
+  KEY `fk_id_servico_servico` (`id_servico`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `preco_servico`
+--
+
+INSERT INTO `preco_servico` (`id_preco_servico`, `base`, `padrao`, `premium`, `id_servico`) VALUES
+(5, 200, 245, 310, 61),
+(6, 10, 20, 30, 17),
+(7, 200, 300, 500, 18),
+(8, 25, 50, 100, 19),
+(9, 25, 35, 50, 21),
+(10, 10, 15, 20, 22),
+(11, 40, 50, 60, 30),
+(12, 30, 40, 50, 45),
+(13, 10, 20, 30, 46),
+(14, 55, 60, 70, 47),
+(15, 100, 200, 300, 48),
+(16, 10, 20, 30, 61);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `requisicao`
 --
 
@@ -109,24 +144,29 @@ CREATE TABLE IF NOT EXISTS `servico` (
   `id_servico` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(255) NOT NULL,
   `img_service` varchar(255) NOT NULL DEFAULT 'http://localhost/projetofinal/img/uploads/exemplo.jpg',
+  `id_preco_servico` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
-  KEY `fk_id_subarea_subarea` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+  KEY `fk_id_subarea_subarea` (`id_subarea`),
+  KEY `fk_id_preco_servico_preco_servico` (`id_preco_servico`)
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `servico`
 --
 
-INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`, `img_service`) VALUES
-(2, 7, '2019-12-26 12:52:19', 17, 'teste', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
-(1, 9, '2019-12-26 12:52:19', 18, 'Crio vÃ­deos para vÃ¡rioss tipo de empresas .', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
-(1, 6, '2019-12-26 12:52:19', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
-(2, 12, '2019-12-26 12:52:19', 21, '', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
-(1, 7, '2019-12-26 12:52:19', 22, 'CriaÃ§Ã£o de Flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
-(11, 7, '2019-12-26 12:52:19', 30, 'CriaÃ§Ã£o de flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
-(4, 6, '2019-12-26 15:42:49', 45, 'CriaÃ§Ã£o de vÃ­deos do tipo motion graphicss.jdsadsas sddfdddeexxxxt4rrttffxxxx', 'http://localhost/projetofinal/img/uploads/11-11.png'),
-(4, 13, '2019-12-26 15:46:07', 46, 'realizo serviÃ§os de web design, linguagens html, javascript, php ETCs - xxx', 'http://localhost/projetofinal/img/uploads/exemplo.jpg');
+INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`, `img_service`, `id_preco_servico`) VALUES
+(2, 7, '2019-12-26 22:01:41', 17, 'teste', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(1, 9, '2019-12-26 22:01:41', 18, 'Crio vÃ­deos para vÃ¡rioss tipo de empresas .', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(1, 6, '2019-12-26 22:01:41', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(2, 12, '2019-12-26 22:01:41', 21, '', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(1, 7, '2019-12-26 22:01:41', 22, 'CriaÃ§Ã£o de Flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(11, 7, '2019-12-26 22:01:41', 30, 'CriaÃ§Ã£o de flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(4, 6, '2019-12-26 22:01:41', 45, 'CriaÃ§Ã£o de vÃ­deos do tipo motion graphicss.jdsadsas sddfdddeexxxxt4rrttffxxxx', 'http://localhost/projetofinal/img/uploads/11-11.png', 1),
+(4, 13, '2019-12-26 22:01:41', 46, 'realizo serviÃ§os de web design, linguagens html, javascript, php ETCs - xxx', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(1, 14, '2019-12-26 22:01:41', 47, 'dsfdsfdsfds', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(1, 13, '2019-12-26 22:11:52', 48, 'sadsasdasd', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', NULL),
+(1, 7, '2019-12-26 23:03:32', 61, 'ilustraÃ§Ã£o e cenas maradassdfds23', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -225,6 +265,12 @@ INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `ema
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Limitadores para a tabela `preco_servico`
+--
+ALTER TABLE `preco_servico`
+  ADD CONSTRAINT `fk_id_servico_servico` FOREIGN KEY (`id_servico`) REFERENCES `servico` (`id_servico`);
 
 --
 -- Limitadores para a tabela `requisicao`

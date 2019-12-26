@@ -38,20 +38,31 @@ $dados = $db->query("SELECT * FROM area");
 
              foreach ($dados as $linha) {       
 
-                echo '<div class="col-md-3 mt-2 text-center">
-                        <a href="index.php?op=area&id='.$linha["id_area"].'">
-                        
-                                <div class="panel-group">
-                                    <div class="panel panel-default">
-                                        <div class="panel-body"><p class="text-center text-dark mt-2">'.$linha["nome"].'</p></div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-body"><img src="img/'.$linha["img_area"].'" width="150px" class="img-fluid"></div>
-                                    </div>
-                                </div>
+                echo '                    
 
+                       <div class="col-md-4 col-sm-6 col-xs-12 my-1 text-center">
+                    <div class="grad p-4 rounded">
+                        
+                        <a href="index.php?op=area&id='.$linha["id_area"].'" class="text-light">
+                            
+                        
+                                <h3 class="px-2"><div class="panel-body">
+                                <img src="img/'.$linha["img_area"].'" width="100px" class="img-fluid">
+                                <hr>
+                                </div>'.$linha["nome"].'</h3>
+                            
+                            
                         </a>
-                      </div>';
+                    </div>
+                </div>';
+
+
+
+
+                      
+                      
+                      
+                     
                 }
                 ?>
                 

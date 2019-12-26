@@ -38,7 +38,7 @@ foreach ($dados as $linha) {
             <label class="grad-txt f-20 font-weight-bold" for="tipo_utilizador">Tipo de Utilizador</label>
             <select class="custom-select mt-2 text-secondary w-100 align-content-left" id="inputGroupSelect01" name="tipo_utilizador" required>
              
-            <option class="bg-dark" value="'.$linha['id_tipo'].'" disabled selected>'.$linha['nome_tipo'].'</option>';
+            <option class="bg-dark" value="'.$linha['id_tipo'].'" selected>'.$linha['nome_tipo'].'</option>';
            
             $dados = $db->query("SELECT id_tipo, nome_tipo FROM tipo_utilizador");
 
@@ -54,7 +54,7 @@ foreach ($dados as $linha) {
             <label class="grad-txt f-20 font-weight-bold" for="genero">Genero</label>
             <select class="custom-select mt-2 text-secondary w-100 align-content-left" id="inputGroupSelect02" name="genero" required>
              
-            <option class="bg-dark" value="'.$linha['id_genero'].'" disabled selected>'.$linha['genero'].'</option>';
+            <option class="bg-dark" value="'.$linha['id_genero'].'" selected>'.$linha['genero'].'</option>';
             $dados = $db->query("SELECT genero, id_genero FROM genero_utilizador");
 
             foreach ($dados as $linha2) {

@@ -10,8 +10,6 @@ require("../db_projetofinal.php");
 if(isset($_REQUEST['submitimg'])){
     
 
-    if(isset($_REQUEST['imagemperfil'])){
-
     $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
 
 	if (move_uploaded_file($_FILES['imagemperfil']['tmp_name'], $ficheiro)) {
@@ -53,30 +51,7 @@ if(isset($_REQUEST['submitimg'])){
     
 try{
 
-    $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador WHERE id_utilizador = $id");
-    $stmt->execute(array(
-        ':imagemperfil' => 'http://localhost/projetofinal/img/uploads/'.basename($_FILES['imagemperfil']['name']),
-        ':nome' => $_REQUEST["nome"],
-        ':biografia' => $_REQUEST["biografia"],
-        ':email' => $_REQUEST["email"],
-        ':genero' => $_REQUEST["genero"],
-        ':tipo_utilizador' => $_REQUEST["tipo_utilizador"],
-      ));
-
-      if ($stmt->rowCount() == 1) {
-          echo "<div class='alert alert-success' role='alert'>Imagem inserida com sucesso!</div>";
-      } else {
-          echo "<div class='alert alert-danger' role='alert'>Erro ao inserir imagem!</div>";
-      }
-} catch(PDOException $e) {
-      echo "<div class='alert alert-danger' role='alert'>$e->getMessage()</div>";
-}
-
-}else {
-
-    $id = $_SESSION["id_utilizador"];
-    
-try{
+    if(empty($_FILES['imagemperfil']['name'])) {
 
     $stmt = $db->prepare("UPDATE utilizador SET nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador WHERE id_utilizador = $id");
     $stmt->execute(array(
@@ -86,12 +61,42 @@ try{
         ':genero' => $_REQUEST["genero"],
         ':tipo_utilizador' => $_REQUEST["tipo_utilizador"],
       ));
+
+    } else {
+
+
+  $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador WHERE id_utilizador = $id");
+    $stmt->execute(array(
+        ':imagemperfil' => 'http://localhost/projetofinal/img/uploads/'.basename($_FILES['imagemperfil']['name']),
+        ':nome' => $_REQUEST["nome"],
+        ':biografia' => $_REQUEST["biografia"],
+        ':email' => $_REQUEST["email"],
+        ':genero' => $_REQUEST["genero"],
+        ':tipo_utilizador' => $_REQUEST["tipo_utilizador"],
+      ));
+
+
+
+    }
+
+
+      if ($stmt->rowCount() == 1) {
+          
+          echo "<script type= 'text/javascript'>alert('Informações de Perfil Atualizadas!');</script>";
+          echo '<script type="text/javascript"> window.location="../index.php?op=userpage";</script>';
+         
+      } else {
+          
+          echo "<script type= 'text/javascript'>alert('Erro ao atualizar informações de perfil!');</script>";
+          echo '<script type="text/javascript"> window.location="../index.php?op=userpage";</script>';
+        ;
+
+      }
 } catch(PDOException $e) {
       echo "<div class='alert alert-danger' role='alert'>$e->getMessage()</div>";
 }
 
 }
-}
-echo '<script> alert ("Perfil atualizado com sucesso! Parabéns :D"); </script>';
-echo '<meta HTTP-EQUIV="Refresh" CONTENT="0.1; URL=../index.php?op=usersettings">';
+
+
 ?>

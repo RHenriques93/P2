@@ -125,18 +125,37 @@ if(isset($_REQUEST["submitservice"])) {
     $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
 
+
+    if(empty($_FILES['imagemservico']['name'])) {
+    
+      $sql = $db->prepare("UPDATE servico SET id_utilizador = $id, id_subarea = :id_subarea, descricao = :descricao WHERE servico.id_servico = $id_servico");
+
+      $sql->execute(array(
+        ':id_subarea' => $_REQUEST["subareaupdate"], 
+        ':descricao' => $_REQUEST["descricao"],
+        
+        ));
+
+
+      } else {
+
     $sql = $db->prepare("UPDATE servico SET id_utilizador = $id, id_subarea = :id_subarea, descricao = :descricao, img_service = :img_service WHERE servico.id_servico = $id_servico");
 
-    $sql->execute(array(
-      ':id_subarea' => $_REQUEST["subareaupdate"], 
-      ':descricao' => $_REQUEST["descricao"],
-      ':img_service' => 'http://localhost/projetofinal/img/uploads/'.basename($_FILES['imagemservico']['name']),  
-    ));
+ 
 
+        $sql->execute(array(
+          ':id_subarea' => $_REQUEST["subareaupdate"], 
+          ':descricao' => $_REQUEST["descricao"],
+          ':img_service' => 'http://localhost/projetofinal/img/uploads/'.basename($_FILES['imagemservico']['name']),  
+        
+          ));
 
+        }
+   
     if ($sql->rowCount() == 1) {
     echo "<script type= 'text/javascript'>alert('Serviço Atualizado com Sucesso');</script>";
    
+ 
     echo '<script type="text/javascript"> window.location="index.php?op=listarservicos";</script>';
     }
     else{

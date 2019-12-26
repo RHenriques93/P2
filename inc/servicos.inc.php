@@ -4,20 +4,30 @@
                     <h2 class="text-center text-dark">Serviços</h2>
                     <span class="underline mb-3"></span>
             </header>
-            <div class="row">
+            <div class="row justify-content-center">
 
             <?php
 
              require("db_projetofinal.php");
 
-$dados = $db->query("SELECT area.nome, area.descricao, area.id_area FROM area");
+$dados = $db->query("SELECT * FROM area");
 
 foreach ($dados as $row) {
 
-           echo '<div class="col-md-4 col-sm-6 col-xs-12 my-1">
-                    <div class="grad p-2 rounded">
+           echo '
+           
+                <div class="col-md-4 col-sm-6 col-xs-12 my-1 text-center">
+                    <div class="grad p-4 rounded">
+                        
                         <a href="index.php?op=area&id='.$row["id_area"].'" class="text-light">
-                            <h3 class="px-2"><i class="fas fa-pen-nib pr-2"></i>'.$row["nome"].'</h3>
+                            
+                        
+                                <h3 class="px-2"><div class="panel-body">
+                                <img src="img/'.$row["img_area"].'" width="100px" class="img-fluid">
+                                <hr>
+                                </div>'.$row["nome"].'</h3>
+                            
+                            
                         </a>
                     </div>
                 </div>';

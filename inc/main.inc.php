@@ -129,7 +129,7 @@ $dados = $db->query("SELECT * FROM area");
                             <div class="contador">
                             <?php
                                     $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-                                    $dados = $db->query("SELECT * FROM utilizador WHERE tipo_utilizador LIKE 2");
+                                    $dados = $db->query("SELECT * FROM utilizador WHERE tipo_utilizador = 2");
                                     $count = 0;
                                     
                                     foreach($dados as $row) {
@@ -171,7 +171,7 @@ $dados = $db->query("SELECT * FROM area");
               
               require("db_projetofinal.php");
             
-              $dados = $db->query("SELECT utilizador.id_utilizador, utilizador.nome AS 'utilizador nome', subarea.nome AS 'nome subarea', area.nome AS 'nome area' FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area ORDER BY rand() LIMIT 4");
+              $dados = $db->query("SELECT utilizador.id_utilizador, utilizador.nome AS 'utilizador nome', subarea.id_subarea, subarea.nome AS 'nome subarea', area.nome AS 'nome area', preco_servico.base, preco_servico.padrao, preco_servico.premium FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area JOIN preco_servico ON servico.id_servico = preco_servico.id_servico ORDER BY rand() LIMIT 4");
 
                 foreach ($dados as $row) {
 
@@ -181,11 +181,40 @@ $dados = $db->query("SELECT * FROM area");
                             <div class="preco-detalhe">
                                 <h2>'.$row["nome area"].'</h2>
                                 <h3 class="text-success">'.$row["nome subarea"].'</h3><hr>
-                                <span style="margin: 0">100€</span>
-                                <span style="font-size: 15px">Desde</span><hr>
                                 
-                                <h4 class="text-danger">'.$row["utilizador nome"].'</h4><hr>
-                                
+
+                               <div id="'.$row["id_subarea"].'" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner">
+
+                                                <div class="carousel-item active">
+
+                                                <p class="text-danger">Base</p>
+                                                <span style="margin: 0">'.$row["base"].'€</span>
+                                                </div>
+
+                                                <div class="carousel-item">
+                                                <p class="text-danger">Padrão</p>
+                                                <span style="margin: 0">'.$row["padrao"].'€</span>
+                                                </div>
+
+                                                <div class="carousel-item">
+                                                <p class="text-danger">Premium</p>
+                                                <span style="margin: 0">'.$row["premium"].'€</span>
+                                                </div>
+
+                                            </div>
+                                            <a class="carousel-control-prev" href="#'.$row["id_subarea"].'" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#'.$row["id_subarea"].'" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                </div>
+
+                                <hr>
+                               
                                 <div class="preco-btn mb-2">
                                     <a href="index.php?op=servicepage&id='.$row["id_utilizador"].'" class="btn btn-preco">+ Informação</a>
                                 </div>

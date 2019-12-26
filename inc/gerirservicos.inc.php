@@ -23,7 +23,7 @@ $id = $_SESSION["id_utilizador"];
    $id_servico = $_REQUEST["idservico"];
   
   $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-  $dados = $db->query("SELECT subarea.nome, servico.descricao, servico.id_subarea AS 'servico associado', servico.id_servico, servico.img_service FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id AND servico.id_servico = $id_servico");
+  $dados = $db->query("SELECT preco_servico.id_preco_servico, preco_servico.base, preco_servico.padrao, preco_servico.premium, subarea.nome, servico.descricao, servico.id_subarea AS 'servico associado', servico.id_servico, servico.img_service FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area JOIN preco_servico ON servico.id_servico = preco_servico.id_servico WHERE utilizador.id_utilizador = $id AND servico.id_servico = $id_servico");
                          
   foreach($dados as $row) {
 
@@ -58,7 +58,18 @@ $id = $_SESSION["id_utilizador"];
     <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="3">'.$row["descricao"].'</textarea>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Preço Base</label><br>
+    <input class="text-dark" type="number" name="precobase" value="'.$row["base"].'"><br>
+    <label for="exampleFormControlTextarea1">Preço Padrão</label><br>
+    <input class="text-dark"  type="number" name="precopadrao" value="'.$row["padrao"].'"><br>
+    <label for="exampleFormControlTextarea1">Preço Premium</label><br>
+    <input class="text-dark"  type="number" name="precopremium" value="'.$row["premium"].'">
+  </div>';
+
+      $id_preco = $row["id_preco_servico"];
+
+  echo '<div class="row justify-content-center">
       <img src="'.$row["img_service"].'" class="rounded-circle" width="200px" height="200px";>
       <input type="file" name="imagemservico" class="form-control-file my-3 text-dark" accept="image/x-png,image/jpeg"/>
   </div><br>
@@ -128,18 +139,21 @@ if(isset($_REQUEST["submitservice"])) {
 
     if(empty($_FILES['imagemservico']['name'])) {
     
-      $sql = $db->prepare("UPDATE servico SET id_utilizador = $id, id_subarea = :id_subarea, descricao = :descricao WHERE servico.id_servico = $id_servico");
+      $sql = $db->prepare("UPDATE servico JOIN preco_servico ON servico.id_servico = preco_servico.id_servico SET servico.id_utilizador = $id, servico.id_subarea = :id_subarea, servico.descricao = :descricao, preco_servico.base = :base, preco_servico.padrao = :padrao, preco_servico.premium = :premium, preco_servico.id_servico = $id_servico WHERE servico.id_servico = $id_servico");
 
       $sql->execute(array(
         ':id_subarea' => $_REQUEST["subareaupdate"], 
         ':descricao' => $_REQUEST["descricao"],
-        
+        ':base' => $_REQUEST["precobase"],
+        ':padrao' => $_REQUEST["precopadrao"],
+        ':premium' => $_REQUEST["precopremium"],
+              
         ));
 
 
       } else {
 
-    $sql = $db->prepare("UPDATE servico SET id_utilizador = $id, id_subarea = :id_subarea, descricao = :descricao, img_service = :img_service WHERE servico.id_servico = $id_servico");
+    $sql = $db->prepare("UPDATE servico JOIN preco_servico ON servico.id_servico = preco_servico.id_servico SET servico.id_utilizador = $id, servico.id_subarea = :id_subarea, servico.descricao = :descricao, servico.img_service = :img_service, preco_servico.base = :base, preco_servico.padrao = :padrao, preco_servico.premium = :premium, preco_servico.id_servico = $id_servico WHERE servico.id_servico = $id_servico");
 
  
 
@@ -150,8 +164,9 @@ if(isset($_REQUEST["submitservice"])) {
         
           ));
 
-        }
-   
+        }     
+
+         
     if ($sql->rowCount() == 1) {
     echo "<script type= 'text/javascript'>alert('Serviço Atualizado com Sucesso');</script>";
    

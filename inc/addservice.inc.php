@@ -47,6 +47,16 @@ $id = $_SESSION["id_utilizador"];
     <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="3"></textarea>
   </div>
 
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Preço Base</label><br>
+    <input class="text-dark" type="number" name="precobase"><br>
+    <label for="exampleFormControlTextarea1">Preço Padrão</label><br>
+    <input class="text-dark"  type="number" name="precopadrao"><br>
+    <label for="exampleFormControlTextarea1">Preço Premium</label><br>
+    <input class="text-dark"  type="number" name="precopremium">
+  </div>';
+
+     
   <div class="form-actions">
      <button type="submit" name="submitservice" class="btn btn-primary ml-auto">Criar Serviço</button>
    </div>
@@ -66,10 +76,14 @@ if(isset($_POST["submitservice"])){
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
     $sql = "INSERT INTO servico (id_utilizador, id_subarea, descricao)
-    VALUES ('".$id."','".$_POST["subarea"]."','".$_POST["descricao"]."')";
+    VALUES ('".$id."','".$_POST["subarea"]."','".$_POST["descricao"]."'); INSERT INTO preco_servico (id_servico, base, padrao, premium) VALUES ((SELECT id_servico FROM servico ORDER BY id_servico DESC limit 1),'".$_POST["precobase"]."','".$_POST["precopadrao"]."','".$_POST["precopremium"]."')";
+    
+   
+     
     if ($db->query($sql)) {
     echo "<script type= 'text/javascript'>alert('Serviço Associado com Sucesso');</script>";
     echo '<script type="text/javascript"> window.location="index.php?op=listarservicos";</script>';
+   
     }
     else{
     echo "<script type= 'text/javascript'>alert('Inválido.');</script>";

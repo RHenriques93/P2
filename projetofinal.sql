@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 25-Dez-2019 às 19:19
+-- Generation Time: 26-Dez-2019 às 15:06
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `area` (
   `descricao` varchar(200) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_area`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `area`
@@ -107,6 +107,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_servico` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(255) NOT NULL,
+  `img_service` varchar(255) NOT NULL DEFAULT 'http://localhost/projetofinal/img/uploads/exemplo.jpg',
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`)
@@ -116,16 +117,15 @@ CREATE TABLE IF NOT EXISTS `servico` (
 -- Extraindo dados da tabela `servico`
 --
 
-INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`) VALUES
-(2, 7, '2019-12-24 11:40:59', 17, 'teste'),
-(1, 9, '2019-12-25 13:58:35', 18, 'Crio vÃ­deos para vÃ¡rioss tipo de empresas .'),
-(1, 6, '2019-12-25 14:02:07', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.'),
-(2, 12, '2019-12-12 13:14:31', 21, ''),
-(1, 7, '2019-12-25 14:03:36', 22, 'CriaÃ§Ã£o de Flyers para todo o tipo de eventos.'),
-(11, 7, '2019-12-24 15:49:47', 30, 'SADSAD'),
-(11, 7, '2019-12-24 16:07:21', 33, 'xdvfsdfdsf'),
-(4, 12, '2019-12-25 15:44:54', 45, 'CriaÃ§Ã£o de vÃ­deos do tipo motion graphics'),
-(4, 13, '2019-12-25 15:46:03', 46, 'realizo serviÃ§os de web design, linguagens html, javascript, php');
+INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`, `img_service`) VALUES
+(2, 7, '2019-12-26 12:52:19', 17, 'teste', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
+(1, 9, '2019-12-26 12:52:19', 18, 'Crio vÃ­deos para vÃ¡rioss tipo de empresas .', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
+(1, 6, '2019-12-26 12:52:19', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
+(2, 12, '2019-12-26 12:52:19', 21, '', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
+(1, 7, '2019-12-26 12:52:19', 22, 'CriaÃ§Ã£o de Flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
+(11, 7, '2019-12-26 12:52:19', 30, 'CriaÃ§Ã£o de flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg'),
+(4, 6, '2019-12-26 15:02:08', 45, 'CriaÃ§Ã£o de vÃ­deos do tipo motion graphicss.jdsadsas', 'http://localhost/projetofinal/img/uploads/'),
+(4, 13, '2019-12-26 14:45:41', 46, 'realizo serviÃ§os de web design, linguagens html, javascript, php ETCs', 'http://localhost/projetofinal/img/uploads/');
 
 -- --------------------------------------------------------
 
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
   UNIQUE KEY `id_area` (`id_utilizador`),
   KEY `fk_id_tipo_tipo_utilizador` (`tipo_utilizador`),
   KEY `fk_id_genero_genero_utilizador` (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `utilizador`
@@ -218,7 +218,7 @@ INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `ema
 (8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-25 15:54:34', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (9, '', 'Zé Borrego', 1, 'zeborrego@gmail.com', '2019-12-18', '2019-12-24 12:02:45', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (10, '', 'Sofia Ssdfsdfsd', 2, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-24 12:02:45', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-24 19:16:09', '12345', 2, NULL, 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg');
+(11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-26 11:09:29', '12345', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg');
 
 --
 -- Constraints for dumped tables

@@ -41,7 +41,8 @@ $username = $_SESSION["username"];
       </header>
 
       <div class="row justify-content-center">
-      <img src="'.$row["imagem"].'" class="rounded-circle border-border-dark" width="250px">class="rounded-circle border-grad" width="200px">
+      <img src="'.$row["imagem"].'" class="rounded-circle border-grad" width="200px" height="200px">
+       </div><br>
 
       <div class="row justify-content-center">
         <div class="col-md-4">

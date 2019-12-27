@@ -56,7 +56,10 @@ if($host == "index.php") {
         case "usersettings": require("inc/user_settings.inc.php"); break;
         case "gerirservicos": require("inc/gerirservicos.inc.php"); break;
         case "listarservicos": require("inc/listarservicos.inc.php"); break;
-        case "addservice": require("inc/addservice.inc.php"); break; 
+        case "addservice": require("inc/addservice.inc.php"); break;
+        case "listarreq": require("inc/listarreq.inc.php"); break;
+        case "addreq": require("inc/addreq.inc.php"); break;
+        case "gerirreq": require("inc/gerirreq.inc.php"); break;
         
         
         

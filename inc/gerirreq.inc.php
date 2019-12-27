@@ -12,7 +12,7 @@ $id = $_SESSION["id_utilizador"];
 <div class="col-md-6">
 
           <div class="col-md-12 text-center p-2">
-                <h3 class="">Atualizar ou Eliminar Serviço</h3>
+                <h3 class="">Atualizar ou Eliminar Pedido</h3>
           </div>
 
             
@@ -20,24 +20,31 @@ $id = $_SESSION["id_utilizador"];
 
 <?php
    
-   $id_servico = $_REQUEST["idservico"];
+   $id_req = $_REQUEST["idreq"];
   
   $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-  $dados = $db->query("SELECT preco_servico.id_preco_servico, preco_servico.base, preco_servico.padrao, preco_servico.premium, subarea.nome, servico.descricao, servico.id_subarea AS 'servico associado', servico.id_servico, servico.img_service FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area JOIN preco_servico ON servico.id_servico = preco_servico.id_servico WHERE utilizador.id_utilizador = $id AND servico.id_servico = $id_servico");
+  $dados = $db->query("SELECT subarea.nome, requisicao.descricao, requisicao.nome_projeto, requisicao.id_subarea AS 'requisicao associada', requisicao.id_requisicao, requisicao.preco, requisicao.img_req FROM requisicao JOIN utilizador ON requisicao.id_utilizador = utilizador.id_utilizador JOIN subarea ON requisicao.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id AND requisicao.id_requisicao = $id_req");
                          
   foreach($dados as $row) {
 
-    $id_servico = $row["id_servico"] ;
+    $id_req = $row["id_requisicao"] ;
 
 
     echo'
 <form method="post" action="" enctype="multipart/form-data">
-  
+
+
+         
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Sub Area</label>
+              <label class="grad-txt f-20 font-weight-bold" for="name">Nome</label>
+              <input type="text" class="form-control" id="name" name="nome_projeto" aria-describedby="nameHelp" value="'.$row['nome_projeto'].'">
+        </div>
+        
+  <div class="form-group">
+  <label class="grad-txt f-20 font-weight-bold"for="exampleFormControlSelect2">Sub Area</label>
     <select class="form-control" name="subareaupdate">
 
-    <option class="bg-dark" value="'.$row['servico associado'].'"selected>'.$row['nome'].'</option>';
+    <option class="bg-dark" value="'.$row['requisicao associada'].'"selected>'.$row['nome'].'</option>';
 
          $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
       $dados = $db->query("SELECT * FROM subarea");
@@ -54,23 +61,18 @@ $id = $_SESSION["id_utilizador"];
   </div>
   
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Descrição</label>
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Descrição</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="3">'.$row["descricao"].'</textarea>
   </div>
 
+  
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Preço Base</label><br>
-    <input class="text-dark" type="number" name="precobase" value="'.$row["base"].'"><br>
-    <label for="exampleFormControlTextarea1">Preço Padrão</label><br>
-    <input class="text-dark"  type="number" name="precopadrao" value="'.$row["padrao"].'"><br>
-    <label for="exampleFormControlTextarea1">Preço Premium</label><br>
-    <input class="text-dark"  type="number" name="precopremium" value="'.$row["premium"].'">
-  </div>';
-
-      $id_preco = $row["id_preco_servico"];
+  <label class="grad-txt f-20 font-weight-bold" for="preco">Quantia que pretende gastar?</label>
+  <input type="text" class="form-control" id="name" name="preco" aria-describedby="nameHelp" value="'.$row['preco'].'">
+</div>';
 
   echo '<div class="row justify-content-center">
-      <img src="'.$row["img_service"].'" class="rounded-circle" width="200px" height="200px";>
+      <img src="'.$row["img_req"].'" class="rounded-circle" width="200px" height="200px";>
       <input type="file" name="imagemservico" class="form-control-file my-3 text-dark" accept="image/x-png,image/jpeg"/>
   </div><br>
 

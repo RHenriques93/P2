@@ -7,10 +7,16 @@ $id = $_SESSION["id_utilizador"];
 
 <div class="container py-3">
     <section class="mb-4">
-    <header class="col-md-12 mb-4">
-      <h2 class="text-center text-dark">Associar Serviço</h2>
-      <span class="underline-rosa mb-3"></span>    
-    </header>
+
+
+    
+<br>
+<header class="col-md-12 mb-4">
+          <h2 class="text-center text-dark">Associar Serviço<br><span class="f-700 text-dark"></span></h2>
+          <span class="underline-rosa mb-3"></span>
+        </header>
+
+
 <div class="container">
 <div class="col-md-6">
 <ul class="nav navbar-nav list-group">
@@ -26,7 +32,7 @@ $id = $_SESSION["id_utilizador"];
 <form method="post" action="" enctype="multipart/form-data">
   
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Sub Area</label>
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Sub Area</label>
     <select multiple class="form-control" name="subarea" id="exampleFormControlSelect1">
 
     <?php
@@ -43,17 +49,17 @@ $id = $_SESSION["id_utilizador"];
   
   </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Descrição</label>
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Descrição</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="3"></textarea>
   </div>
 
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Preço Base</label><br>
-    <input class="text-dark" type="number" name="precobase"><br>
-    <label for="exampleFormControlTextarea1">Preço Padrão</label><br>
-    <input class="text-dark"  type="number" name="precopadrao"><br>
-    <label for="exampleFormControlTextarea1">Preço Premium</label><br>
-    <input class="text-dark"  type="number" name="precopremium">
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Preço Base</label><br>
+    <input class="text-dark form-control" type="number" name="precobase"><br>
+    <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Preço Padrão</label><br>
+    <input class="text-dark form-control"  type="number" name="precopadrao"><br>
+    <label class="grad-txt f-20 font-weight-bold"for="exampleFormControlTextarea1">Preço Premium</label><br>
+    <input class="text-dark form-control"  type="number" name="precopremium">
   </div>';
 
      

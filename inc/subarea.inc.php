@@ -22,6 +22,11 @@ foreach ($dados as $linha)
 
 $dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador, utilizador.imagem, servico.id_servico, servico.descricao, servico.img_service FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_subarea = $id");
 
+
+if ($dados->rowCount() > 0)
+  {
+
+
 foreach ($dados as $row) {
 
                 echo '<div class="col-md-3 col-sm-6 col-xs-12 m-2">
@@ -51,12 +56,21 @@ foreach ($dados as $row) {
                         <div class="card-body">
                             <h3 class="card-title grad-txt">'.$row["nome"].'</h3>
                             <p class="text-dark card-subtitle">'.$row["descricao"].'</p>
-                            <a href="index.php?op=servicepage&id='.$row["id_utilizador"].'" class="btn btn-primary mt-2">Go somewhere</a>
+                            <a href="index.php?op=servicepage&id_utilizador='.$row["id_utilizador"].'&id_service='.$row["id_servico"].'" class="btn btn-primary mt-2">+ Info</a>
                         </div>
                     </div>
                 </div>';
 
 }
+
+
+  } else {
+
+
+    echo '<div class="row justify-content-center"><div class="col-md-5 text-center p-2"> <h1>Ainda não existem serviços associados. Associe um serviço.</h1></div></div>';
+
+
+  }
 
                
 ?>

@@ -11,9 +11,11 @@ $id = $_SESSION["id_utilizador"];
 <div class="row justify-content-center">
 <div class="col-md-6">
 
-          <div class="col-md-12 text-center p-2">
-                <h3 class="">Atualizar ou Eliminar Serviço</h3>
-          </div>
+<br>
+<header class="col-md-12 mb-4">
+          <h2 class="text-center text-dark">Atualizar ou Eliminar Serviço <br><span class="f-700 text-dark"></span></h2>
+          <span class="underline-rosa mb-3"></span>
+        </header>
 
             
 
@@ -34,7 +36,7 @@ $id = $_SESSION["id_utilizador"];
 <form method="post" action="" enctype="multipart/form-data">
   
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Sub Area</label>
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Sub Area</label>
     <select class="form-control" name="subareaupdate">
 
     <option class="bg-dark" value="'.$row['servico associado'].'"selected>'.$row['nome'].'</option>';
@@ -54,17 +56,17 @@ $id = $_SESSION["id_utilizador"];
   </div>
   
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Descrição</label>
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Descrição</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="3">'.$row["descricao"].'</textarea>
   </div>
 
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Preço Base</label><br>
-    <input class="text-dark" type="number" name="precobase" value="'.$row["base"].'"><br>
-    <label for="exampleFormControlTextarea1">Preço Padrão</label><br>
-    <input class="text-dark"  type="number" name="precopadrao" value="'.$row["padrao"].'"><br>
-    <label for="exampleFormControlTextarea1">Preço Premium</label><br>
-    <input class="text-dark"  type="number" name="precopremium" value="'.$row["premium"].'">
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Preço Base</label><br>
+    <input class="text-dark form-control" type="number" name="precobase" value="'.$row["base"].'"><br>
+    <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Preço Padrão</label><br>
+    <input class="text-dark form-control"  type="number" name="precopadrao" value="'.$row["padrao"].'"><br>
+    <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Preço Premium</label><br>
+    <input class="text-dark form-control"  type="number" name="precopremium" value="'.$row["premium"].'">
   </div>';
 
       $id_preco = $row["id_preco_servico"];
@@ -204,8 +206,8 @@ if(isset($_POST["deleteservice"])){
      $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
  
-     $sql = "DELETE FROM servico WHERE servico.id_servico = $id_servico";
- 
+     $sql = "DELETE FROM servico WHERE id_servico = $id_servico";
+    
     
      if ($db->query($sql)) {
      echo "<script type= 'text/javascript'>alert('Serviço Eleminado com Sucesso');</script>";

@@ -1,6 +1,4 @@
-    <div class="container">
         <div class="container-fluid py-3">
-          
             <div class="row justify-content-center">
 
 
@@ -10,24 +8,174 @@
 
 
 require("db_projetofinal.php");
-if(isset($_REQUEST["id"])){
-$id = $_REQUEST["id"];
+if(isset($_REQUEST["id_utilizador"],$_REQUEST["id_service"])){
+
+$id = $_REQUEST["id_utilizador"];
+$id_serv = $_REQUEST["id_service"];
 
 
-$dados = $db->query("SELECT  * FROM utilizador WHERE utilizador.id_utilizador = '$id'");
+$dados = $db->query("SELECT utilizador.nome AS 'Nome Utilizador', utilizador.biografia, utilizador.imagem, genero_utilizador.genero, area.nome AS 'Nome Area', subarea.nome AS 'Nome Subarea', servico.descricao, servico.img_service, preco_servico.base, preco_servico.padrao, preco_servico.premium FROM utilizador JOIN genero_utilizador ON utilizador.id_genero = genero_utilizador.id_genero JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area JOIN preco_servico ON servico.id_servico = preco_servico.id_servico WHERE utilizador.id_utilizador = $id AND servico.id_servico = '$id_serv'");
 
 foreach ($dados as $row) {
 
-                echo '<div class="col-md-3 col-sm-6 col-xs-12 m-2">
-                    <div class="card" style="width: 18rem">
-                        <img src="'.$row["imagem"].'" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title grad-txt">'.$row["nome"].'</h3>
-                            <p class="card-text text-dark">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>';
+
+    
+                echo '
+                                            
+                    <div class="card" style="width: auto;">
+                        <div class="card-body grad rounded">
+
+                                        <div class="media">
+                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3" width="150px" alt="...">
+                                            
+                                                <div class="media-body">
+                                                    <h5 class="mt-0">Prestador de Serviço</h5><hr>
+                                                    <p class="text-black">'.$row["Nome Utilizador"].'</p><hr>
+                                                    <p>'.$row["biografia"].'</p><hr>
+                                                    <p>Género:'.$row["genero"].'</p>
+                                                </div>
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="media">
+                                                    <img src="'.$row["img_service"].'" class="align-self-center mr-3" width="150px" alt="...">
+                                        
+                                            <div class="media-body">
+                                                    <label class="grad-white f-20 font-weight-bold">Serviço</label>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item text-dark">Área: '.$row["Nome Area"].'</li>
+                                                                <li class="list-group-item text-dark">Subarea: '.$row["Nome Subarea"].'</li>
+                                                                <li class="list-group-item text-dark">Descrição: '.$row["descricao"].'</li>
+                                                                <li class="list-group-item text-dark">Preço do Serviço
+                                                                        <ul class="list-group">
+                                                                            <li class="list-group-item text-dark">Base: '.$row["base"].'</li>
+                                                                            <li class="list-group-item text-dark">Padrão: '.$row["padrao"].'</li>
+                                                                            <li class="list-group-item text-dark">Premium: '.$row["premium"].'</li>
+                                                                        </ul>
+                                                                </li>
+                                                            </ul>
+                                                            <br>
+                                            </div>
+
+                                        </div>
+                                        
+                                                  
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                                      Contratar Serviço
+                                    </button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                      
+                                        <div class="modal-content">
+                                         
+                                          <div class="modal-body">
+                                            
+
+
+                                                                    <div class="row justify-content-center">
+                                                                    
+                                                                    <div class="col-md-8 order-md-1">
+                                                                        <h4 class="grad-txt f-30 font-weight-bold">Informações de Pagamento</h4><hr>
+                                                                        <form class="needs-validation" novalidate>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 mb-3">
+                                                                            <label class="grad-txt f-20 font-weight-bold" for="firstName">Primeiro Nome</label>
+                                                                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                                                                            <div class="invalid-feedback">
+                                                                                Valid first name is required.
+                                                                            </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 mb-3">
+                                                                            <label class="grad-txt f-20 font-weight-bold"  for="lastName">Último Nome</label>
+                                                                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                                                                            <div class="invalid-feedback">
+                                                                                Valid last name is required.
+                                                                            </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 mb-3">
+                                                                            <label class="grad-txt f-20 font-weight-bold"  for="lastName">E-Mail</label>
+                                                                            <input type="email" class="form-control" id="lastName" placeholder="" value="" required>
+                                                                            <div class="invalid-feedback">
+                                                                                Valid last name is required.
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+                                                            
+                                                                                                                                   
+                                                                        <hr>                                                                                                                 
+                                                                        <h4 class="mb-3 grad-txt f-20 font-weight-bold"">Método de Pagamento</h4>
+                                                            
+                                                                        
+                                                                        <div class="d-block my-3">
+                                                                            <div class="custom-control custom-radio">
+                                                                           
+                                                                            <input type="radio">
+                                                                            <label class="grad-txt f-20 font-weight-bold custom-control-label" for="credit">Cartão de Crédito</label>
+                                                                            </div>
+                                                                            <div class="custom-control custom-radio">
+                                                                            <input type="radio">
+                                                                            <label class="grad-txt f-20 font-weight-bold custom-control-label" for="debit">Cartão de Débito</label>
+                                                                            </div>
+                                                                            
+                                                                            <div class="custom-control custom-radio">
+                                                                            <input type="radio">
+                                                                            <label class="grad-txt f-20 font-weight-bold custom-control-label" for="paypal">Paypal</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 mb-3">
+                                                                                <label class="grad-txt f-20 font-weight-bold" for="cc-name">Nome no Cartão de Crédito</label>
+                                                                                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                                                                <small class="text-muted">Nome Completo como aparece no Cartão de Crédito</small>
+
+                                                                                    <div class="invalid-feedback">
+                                                                                        Name on card is required
+                                                                                    </div>
+
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-md-6 mb-3">
+                                                                            <label class="grad-txt f-20 font-weight-bold" for="cc-number">Nº de Cartão de Crédito</label>
+                                                                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                                                            <div class="invalid-feedback">
+                                                                                Credit card number is required
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-3 mb-3">
+                                                                            <label class="grad-txt f-20 font-weight-bold" for="cc-expiration">Validade</label>
+                                                                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                                                                            <div class="invalid-feedback">
+                                                                                Expiration date required
+                                                                            </div>
+                                                                            </div>
+                                                                            <div class="col-md-3 mb-3">
+                                                                            <label class="grad-txt f-20 font-weight-bold" for="cc-expiration">CVV</label>
+                                                                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                                                            <div class="invalid-feedback">
+                                                                                Security code required
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <hr class="mb-4">
+                                                                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue para o Checkout</button>
+                                                                        </form>
+                                                                    </div>
+                                                                    </div>
+                                                            
+                                                                    
+                                                                </div>
+                                                            
+                                                                    
+                                                                    
+                        </div> 
+                    </div>';
 
 }
 }
@@ -36,6 +184,6 @@ foreach ($dados as $row) {
 
             </div>
         </div>
-    </div>
+    
 
  

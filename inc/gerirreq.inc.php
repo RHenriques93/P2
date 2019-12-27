@@ -209,7 +209,7 @@ if(isset($_POST["deleteservice"])){
     
      if ($db->query($sql)) {
      echo "<script type= 'text/javascript'>alert('Pedido Eliminado com Sucesso');</script>";
-     echo '<script type="text/javascript"> window.location="index.php?op=listarservicos";</script>';
+     echo '<script type="text/javascript"> window.location="index.php?op=listarreq";</script>';
      }
      else{
      echo "<script type= 'text/javascript'>alert('O seu pedido não foi eliminado.');</script>";

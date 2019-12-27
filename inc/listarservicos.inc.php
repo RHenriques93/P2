@@ -6,9 +6,11 @@ $id = $_SESSION["id_utilizador"];
 ?>
 
 
-                 <div class="col-12 text-center p-2">
-                <h3 class="">Seus Servicos</h3>
-            </div>
+<br>
+<header class="col-md-12 mb-4">
+          <h2 class="text-center text-dark">Seus Serviços<br><span class="f-700 text-dark"></span></h2>
+          <span class="underline-rosa mb-3"></span>
+        </header>
 
 <?php
    
@@ -24,17 +26,15 @@ $id = $_SESSION["id_utilizador"];
     foreach($dados as $row) {
     
 
-      echo '<div class="row justify-content-center"><div class="col-md-5 text-center p-2"> 
-   <ul class="list-group">
- 
-   <li class="list-group-item"><a href="index.php?op=gerirservicos&idservico='.$row["id_servico"].'">'.$row["nome"].'</a></li>
-  
-   </ul>
+      echo '<div class="row justify-content-center">
+                <div class="col-md-5 text-center p-2"> 
 
+                    <ul class="list-group bg-white rounded">
+                         <li class="list-group-item grad-txt f-12 font-weight-bold"><a href="index.php?op=gerirservicos&idservico='.$row["id_servico"].'">'.$row["nome"].'</a></li>
+                   </ul>
 
-   </div>
-  
-</div>';
+               </div>
+            </div>';
     
     }
    

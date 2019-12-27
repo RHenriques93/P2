@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 27-Dez-2019 às 21:43
+-- Generation Time: 27-Dez-2019 às 22:54
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -246,11 +246,11 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 
 INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`) VALUES
 (1, 'rafaelxoxota', 'Rafael', 1, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-27 11:12:10', '12345', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
-(2, 'andreferreira', 'André Ferreira', 1, 'andreferreira@gmail.com', '1999-12-18', '2019-12-24 18:43:36', '12345678', 1, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
+(2, 'andreferreira', 'André Ferreira', 1, 'andreferreira@gmail.com', '1999-12-18', '2019-12-27 21:56:12', '12345678', 2, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
 (4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-26 16:52:22', '123456', 2, 'teste', 'http://localhost/projetofinal/img/uploads/78-2-e1574805386187.jpg'),
 (6, '', 'Jacinta Paes', 2, 'sdsadsad@gmail.com', '2019-12-11', '2019-12-24 12:02:45', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (7, '', 'Nuno Conceição', 2, 'nuno@gmail.com', '2019-12-17', '2019-12-24 12:02:45', '1234567890', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-27 13:52:26', 'asdfgh', 3, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-27 22:33:06', 'asdfgh', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (9, '', 'Zé Borrego', 1, 'zeborrego@gmail.com', '2019-12-18', '2019-12-24 12:02:45', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (10, '', 'Sofia Ssdfsdfsd', 2, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-24 12:02:45', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-26 11:09:29', '12345', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg');

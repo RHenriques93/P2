@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 27-Dez-2019 às 13:50
+-- Generation Time: 27-Dez-2019 às 21:43
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -83,25 +83,20 @@ CREATE TABLE IF NOT EXISTS `preco_servico` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_preco_servico`),
   KEY `fk_id_servico_servico` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `preco_servico`
 --
 
 INSERT INTO `preco_servico` (`id_preco_servico`, `base`, `padrao`, `premium`, `id_servico`) VALUES
-(5, 200, 245, 310, 61),
 (6, 10, 20, 30, 17),
-(7, 200, 350, 500, 18),
+(7, 210, 350, 500, 18),
 (8, 25, 50, 100, 19),
 (9, 25, 35, 50, 21),
-(10, 10, 15, 20, 22),
 (11, 40, 50, 60, 30),
 (12, 30, 40, 50, 45),
-(13, 10, 20, 30, 46),
-(14, 55, 60, 70, 47),
-(15, 100, 200, 300, 48),
-(16, 10, 20, 30, 61);
+(13, 10, 20, 30, 46);
 
 -- --------------------------------------------------------
 
@@ -122,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
   PRIMARY KEY (`id_requisicao`),
   KEY `fk_id_utilizador_req_utilizador_req` (`id_utilizador`),
   KEY `fk_id_subarea_req_subarea_req` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `requisicao`
@@ -151,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`),
   KEY `fk_id_preco_servico_preco_servico` (`id_preco_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `servico`
@@ -162,13 +157,9 @@ INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `des
 (1, 9, '2019-12-27 13:17:14', 18, 'Crio vÃ­deos para vÃ¡rios tipo de empresas .', 'http://localhost/projetofinal/img/uploads/83519.png', 1),
 (1, 6, '2019-12-26 22:01:41', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
 (2, 12, '2019-12-26 22:01:41', 21, '', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
-(1, 7, '2019-12-26 22:01:41', 22, 'CriaÃ§Ã£o de Flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
 (11, 7, '2019-12-26 22:01:41', 30, 'CriaÃ§Ã£o de flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
 (4, 6, '2019-12-26 22:01:41', 45, 'CriaÃ§Ã£o de vÃ­deos do tipo motion graphicss.jdsadsas sddfdddeexxxxt4rrttffxxxx', 'http://localhost/projetofinal/img/uploads/11-11.png', 1),
-(4, 13, '2019-12-26 22:01:41', 46, 'realizo serviÃ§os de web design, linguagens html, javascript, php ETCs - xxx', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
-(1, 14, '2019-12-26 22:01:41', 47, 'dsfdsfdsfds', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
-(1, 13, '2019-12-26 22:11:52', 48, 'sadsasdasd', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', NULL),
-(1, 7, '2019-12-26 23:03:32', 61, 'ilustraÃ§Ã£o e cenas maradassdfds23', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', NULL);
+(4, 13, '2019-12-26 22:01:41', 46, 'realizo serviÃ§os de web design, linguagens html, javascript, php ETCs - xxx', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -259,7 +250,7 @@ INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `ema
 (4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-26 16:52:22', '123456', 2, 'teste', 'http://localhost/projetofinal/img/uploads/78-2-e1574805386187.jpg'),
 (6, '', 'Jacinta Paes', 2, 'sdsadsad@gmail.com', '2019-12-11', '2019-12-24 12:02:45', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (7, '', 'Nuno Conceição', 2, 'nuno@gmail.com', '2019-12-17', '2019-12-24 12:02:45', '1234567890', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-27 12:00:51', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-27 13:52:26', 'asdfgh', 3, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (9, '', 'Zé Borrego', 1, 'zeborrego@gmail.com', '2019-12-18', '2019-12-24 12:02:45', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (10, '', 'Sofia Ssdfsdfsd', 2, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-24 12:02:45', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-26 11:09:29', '12345', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg');
@@ -272,7 +263,7 @@ INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `ema
 -- Limitadores para a tabela `preco_servico`
 --
 ALTER TABLE `preco_servico`
-  ADD CONSTRAINT `fk_id_servico_servico` FOREIGN KEY (`id_servico`) REFERENCES `servico` (`id_servico`);
+  ADD CONSTRAINT `fk_id_servico_servico` FOREIGN KEY (`id_servico`) REFERENCES `servico` (`id_servico`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `requisicao`

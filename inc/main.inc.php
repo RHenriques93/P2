@@ -216,7 +216,7 @@ $dados = $db->query("SELECT * FROM area");
                                 <hr>
                                
                                 <div class="preco-btn mb-2">
-                                    <a href="index.php?op=servicepage&id='.$row["id_utilizador"].'" class="btn btn-preco">+ Informação</a>
+                                <a href="index.php?op=servicepage&id_utilizador='.$row["id_utilizador"].'&id_service='.$row["id_servico"].'" class="btn btn-preco">+ Informação</a>
                                 </div>
                                 
                             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 27-Dez-2019 às 12:41
+-- Generation Time: 27-Dez-2019 às 13:50
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -122,14 +122,15 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
   PRIMARY KEY (`id_requisicao`),
   KEY `fk_id_utilizador_req_utilizador_req` (`id_utilizador`),
   KEY `fk_id_subarea_req_subarea_req` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `requisicao`
 --
 
 INSERT INTO `requisicao` (`id_requisicao`, `id_subarea`, `nome_projeto`, `descricao`, `data`, `id_utilizador`, `preco`, `img_req`) VALUES
-(1, 6, 'AutoCarlos Stand', 'Criação de um logotipo para um stand de automoveis com o nome Auto Carlos.', '2019-12-27 12:39:07', 8, 100, 'http://localhost/projetofinal/img/uploads/exemplo.jpg');
+(1, 6, 'Auto Carlos Stand 2019', 'CriaÃ§Ã£o de um logÃ³tipo para um stand de automÃ³veis com o nome Auto Carlos.', '2019-12-27 13:21:47', 8, 200, 'http://localhost/projetofinal/img/uploads/83519.png'),
+(2, 7, 'Evento de Natal ', 'CriaÃ§Ã£o de um flyer para um evento de natal onde  irÃ£o decorrer concertos etc.', '2019-12-27 13:50:01', 8, 100, 'http://localhost/projetofinal/img/uploads/83519.png');
 
 -- --------------------------------------------------------
 
@@ -158,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
 
 INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`, `img_service`, `id_preco_servico`) VALUES
 (2, 7, '2019-12-26 22:01:41', 17, 'teste', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
-(1, 9, '2019-12-27 11:13:45', 18, 'Crio vÃ­deos para vÃ¡rioss tipo de empresas .', 'http://localhost/projetofinal/img/uploads/83519.png', 1),
+(1, 9, '2019-12-27 13:17:14', 18, 'Crio vÃ­deos para vÃ¡rios tipo de empresas .', 'http://localhost/projetofinal/img/uploads/83519.png', 1),
 (1, 6, '2019-12-26 22:01:41', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
 (2, 12, '2019-12-26 22:01:41', 21, '', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
 (1, 7, '2019-12-26 22:01:41', 22, 'CriaÃ§Ã£o de Flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),

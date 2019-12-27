@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 26-Dez-2019 às 23:11
+-- Generation Time: 27-Dez-2019 às 12:41
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `preco_servico` (
 INSERT INTO `preco_servico` (`id_preco_servico`, `base`, `padrao`, `premium`, `id_servico`) VALUES
 (5, 200, 245, 310, 61),
 (6, 10, 20, 30, 17),
-(7, 200, 300, 500, 18),
+(7, 200, 350, 500, 18),
 (8, 25, 50, 100, 19),
 (9, 25, 35, 50, 21),
 (10, 10, 15, 20, 22),
@@ -118,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_utilizador` int(11) NOT NULL,
   `preco` int(11) NOT NULL,
+  `img_req` varchar(255) NOT NULL DEFAULT 'http://localhost/projetofinal/img/uploads/exemplo.jpg',
   PRIMARY KEY (`id_requisicao`),
   KEY `fk_id_utilizador_req_utilizador_req` (`id_utilizador`),
   KEY `fk_id_subarea_req_subarea_req` (`id_subarea`)
@@ -127,8 +128,8 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
 -- Extraindo dados da tabela `requisicao`
 --
 
-INSERT INTO `requisicao` (`id_requisicao`, `id_subarea`, `nome_projeto`, `descricao`, `data`, `id_utilizador`, `preco`) VALUES
-(1, 6, 'AutoCarlos Stand', 'Criação de um logotipo para um stand de automoveis com o nome Auto Carlos.', '2019-12-11 00:48:48', 8, 100);
+INSERT INTO `requisicao` (`id_requisicao`, `id_subarea`, `nome_projeto`, `descricao`, `data`, `id_utilizador`, `preco`, `img_req`) VALUES
+(1, 6, 'AutoCarlos Stand', 'Criação de um logotipo para um stand de automoveis com o nome Auto Carlos.', '2019-12-27 12:39:07', 8, 100, 'http://localhost/projetofinal/img/uploads/exemplo.jpg');
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
 
 INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`, `img_service`, `id_preco_servico`) VALUES
 (2, 7, '2019-12-26 22:01:41', 17, 'teste', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
-(1, 9, '2019-12-26 22:01:41', 18, 'Crio vÃ­deos para vÃ¡rioss tipo de empresas .', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
+(1, 9, '2019-12-27 11:13:45', 18, 'Crio vÃ­deos para vÃ¡rioss tipo de empresas .', 'http://localhost/projetofinal/img/uploads/83519.png', 1),
 (1, 6, '2019-12-26 22:01:41', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
 (2, 12, '2019-12-26 22:01:41', 21, '', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
 (1, 7, '2019-12-26 22:01:41', 22, 'CriaÃ§Ã£o de Flyers para todo o tipo de eventos.', 'http://localhost/projetofinal/img/uploads/exemplo.jpg', 1),
@@ -252,12 +253,12 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 --
 
 INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`) VALUES
-(1, 'rafaelxoxota', 'Rafael', 1, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-24 19:40:42', '12345', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
+(1, 'rafaelxoxota', 'Rafael', 1, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-27 11:12:10', '12345', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
 (2, 'andreferreira', 'André Ferreira', 1, 'andreferreira@gmail.com', '1999-12-18', '2019-12-24 18:43:36', '12345678', 1, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
 (4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-26 16:52:22', '123456', 2, 'teste', 'http://localhost/projetofinal/img/uploads/78-2-e1574805386187.jpg'),
 (6, '', 'Jacinta Paes', 2, 'sdsadsad@gmail.com', '2019-12-11', '2019-12-24 12:02:45', '12345678', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (7, '', 'Nuno Conceição', 2, 'nuno@gmail.com', '2019-12-17', '2019-12-24 12:02:45', '1234567890', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-25 15:54:34', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
+(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-27 12:00:51', 'asdfgh', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (9, '', 'Zé Borrego', 1, 'zeborrego@gmail.com', '2019-12-18', '2019-12-24 12:02:45', 'zeborrego', 2, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (10, '', 'Sofia Ssdfsdfsd', 2, 'sofiasbarreira@gmail.com', '2008-12-12', '2019-12-24 12:02:45', '123456789', 1, '', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
 (11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-26 11:09:29', '12345', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg');

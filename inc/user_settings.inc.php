@@ -87,7 +87,8 @@ foreach ($dados as $linha) {
         </div>
         <div class="col-md-4 text-center bg-light rounded p-3 border border-secondary grad">
             <img src="'.$linha["imagem"].'" class="rounded-circle" width="250px">
-            <input type="file" name="imagemperfil" class="form-control-file my-3 text-dark" accept="image/x-png,image/jpeg"/>
+            <hr>
+            <input type="file" name="imagemperfil" class="form-control-file my-3" accept="image/x-png,image/jpeg"/>
         </div>
         <hr>
         </form>

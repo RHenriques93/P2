@@ -5104,6 +5104,7 @@ button.close {
       justify-content: center;
   width: 15%;
   color: #fff;
+  -webkit-background-clip: text;;
   text-align: center;
   opacity: 0.5;
 }

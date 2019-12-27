@@ -33,7 +33,7 @@ $id = $_SESSION["id_utilizador"];
   
   <div class="form-group">
   <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Sub Area</label>
-    <select multiple class="form-control" name="subarea" id="exampleFormControlSelect1">
+    <select class="form-control" name="subarea" id="exampleFormControlSelect1">
 
     <?php
       $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
@@ -60,11 +60,11 @@ $id = $_SESSION["id_utilizador"];
     <input class="text-dark form-control"  type="number" name="precopadrao"><br>
     <label class="grad-txt f-20 font-weight-bold"for="exampleFormControlTextarea1">Preço Premium</label><br>
     <input class="text-dark form-control"  type="number" name="precopremium">
-  </div>';
+  </div>
 
      
   <div class="form-actions">
-     <button type="submit" name="submitservice" class="btn btn-primary ml-auto">Criar Serviço</button>
+     <button type="submit" name="submitservice" class="btn btn-primary ml-auto mt-2">Criar Serviço</button>
    </div>
 </form>
 

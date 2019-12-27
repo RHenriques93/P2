@@ -1,4 +1,4 @@
-        <div class="container-fluid py-3">
+        <div class="container-fluid">
             <div class="row justify-content-center">
 
 
@@ -22,11 +22,11 @@ foreach ($dados as $row) {
     
                 echo '
                                             
-                    <div class="card" style="width: auto;">
+                    <div class="card m-4" style="width: auto;">
                         <div class="card-body grad rounded">
 
                                         <div class="media">
-                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3" width="150px" alt="...">
+                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3 rounded-circle" width="150px" height="150px" alt="...">
                                             
                                                 <div class="media-body">
                                                     <h5 class="mt-0">Prestador de Serviço</h5><hr>

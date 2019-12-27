@@ -5,12 +5,12 @@ require("db_projetofinal.php");
 $id = $_SESSION["id_utilizador"];
 ?>
 
-
-<br>
-<header class="col-md-12 mb-4">
-          <h2 class="text-center text-dark">Seus Serviços<br><span class="f-700 text-dark"></span></h2>
-          <span class="underline-rosa mb-3"></span>
-        </header>
+<div class="container py-3">
+    <section class="mb-4">
+    <header class="col-md-12 mb-4">
+                    <h2 class="text-center text-dark">Os Seus Serviços</h2>
+                    <span class="underline mb-3"></span>
+            </header>
 
 <?php
    
@@ -52,9 +52,10 @@ echo '<div class="row justify-content-center"><div class="col-md-5 text-center p
 
   ?>
 
-
-<br>
-<div class="row justify-content-center">
-      <div class="col-md-4">
+    <div class="row justify-content-center">
+      <div class="col-md-4 mt-4">
         <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href="index.php?op=addservice">Associar Serviço</a></h5></button>
       </div>
+    </div>
+  </div>
+</div>

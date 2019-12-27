@@ -1,4 +1,4 @@
-<div class="container-fluid py-3">
+<div class="container-fluid">
             <div class="row justify-content-center">
 
 
@@ -22,25 +22,24 @@ foreach ($dados as $row) {
     
                 echo '
                                             
-                    <div class="card" style="width: auto;">
+                    <div class="card m-4" style="width: auto;">
                         <div class="card-body grad rounded">
 
                                         <div class="media">
-                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3" width="150px" alt="...">
+                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3 rounded-circle" width="150px" height="150px" alt="...">
                                             
                                                 <div class="media-body">
-                                                    <h5 class="mt-0">Requisitador de Serviço</h5><hr>
+                                                    <h5 class="mt-0 f-20 font-weight-bold">Requisitador de Serviço</h5><hr>
                                                     <p class="text-black">'.$row["Nome Utilizador"].'</p><hr>
                                                     <p>'.$row["biografia"].'</p><hr>
-                                                    <p>Género:'.$row["genero"].'</p>
+                                                    <p>Género: '.$row["genero"].'</p>
                                                 </div>
                                         </div>
 
                                         <hr>
 
                                         <div class="media">
-                                                    <img src="'.$row["img_req"].'" class="align-self-center mr-3" width="150px" alt="...">
-                                        
+                                                    <img src="'.$row["img_req"].'" class="align-self-center mr-3" width="150px" height="150px" alt="...">
                                             <div class="media-body">
                                                     <label class="grad-white f-20 font-weight-bold">Serviço Requisitado</label>
                                                             <ul class="list-group">
@@ -76,7 +75,7 @@ foreach ($dados as $row) {
                                                                 <label class="grad-txt f-20 font-weight-bold" for="email">
                                                                     Email do requisitador de Serviço -> '.$row["Nome Utilizador"].':</label>
                                                                 <input type="email" class="form-control"
-                                                                id="email" name="email" required maxlength="50" value="'.$row["email"].'">
+                                                                id="email" name="email" required maxlength="50" value="'.$row["email"].'" disabled>
                                                             </div>
 
                                                             <div class="form-group">

@@ -8,7 +8,7 @@ $id = $_SESSION["id_utilizador"];
 <div class="container py-3">
     <section class="mb-4">
     <header class="col-md-12 mb-4">
-      <h2 class="text-center text-dark">Associar Serviço</h2>
+      <h2 class="text-center text-dark">Efetuar Pedido</h2>
       <span class="underline-rosa mb-3"></span>    
     </header>
 <div class="container">
@@ -25,8 +25,15 @@ $id = $_SESSION["id_utilizador"];
 
 <form method="post" action="" enctype="multipart/form-data">
   
+
+        
+<div class="form-group">
+              <label class="grad-txt f-20 font-weight-bold" for="name">Nome do Projeto</label>
+              <input type="text" class="form-control" id="name" name="nome_projeto" aria-describedby="nameHelp">
+        </div>
+
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Sub Area</label>
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Sub Area</label>
     <select multiple class="form-control" name="subarea" id="exampleFormControlSelect1">
 
     <?php
@@ -43,22 +50,18 @@ $id = $_SESSION["id_utilizador"];
   
   </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Descrição</label>
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlTextarea1">Descrição</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="3"></textarea>
   </div>
 
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Preço Base</label><br>
-    <input class="text-dark" type="number" name="precobase"><br>
-    <label for="exampleFormControlTextarea1">Preço Padrão</label><br>
-    <input class="text-dark"  type="number" name="precopadrao"><br>
-    <label for="exampleFormControlTextarea1">Preço Premium</label><br>
-    <input class="text-dark"  type="number" name="precopremium">
-  </div>';
+  <label class="grad-txt f-20 font-weight-bold" for="preco">Quantia que pretende gastar?</label>
+  <input type="text" class="form-control" id="name" name="preco" aria-describedby="nameHelp">
+</div>
 
      
   <div class="form-actions">
-     <button type="submit" name="submitservice" class="btn btn-primary ml-auto">Criar Serviço</button>
+     <button type="submit" name="submitservice" class="btn btn-primary ml-auto">Efetuar Pedido</button>
    </div>
 </form>
 
@@ -75,14 +78,14 @@ if(isset($_POST["submitservice"])){
     $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
-    $sql = "INSERT INTO servico (id_utilizador, id_subarea, descricao)
-    VALUES ('".$id."','".$_POST["subarea"]."','".$_POST["descricao"]."'); INSERT INTO preco_servico (id_servico, base, padrao, premium) VALUES ((SELECT id_servico FROM servico ORDER BY id_servico DESC limit 1),'".$_POST["precobase"]."','".$_POST["precopadrao"]."','".$_POST["precopremium"]."')";
+    $sql = "INSERT INTO requisicao (id_utilizador, id_subarea, descricao, preco, nome_projeto)
+    VALUES ('".$id."','".$_POST["subarea"]."','".$_POST["descricao"]."','".$_POST["preco"]."','".$_POST["nome_projeto"]."')";
     
    
      
     if ($db->query($sql)) {
     echo "<script type= 'text/javascript'>alert('Serviço Associado com Sucesso');</script>";
-    echo '<script type="text/javascript"> window.location="index.php?op=listarservicos";</script>';
+    echo '<script type="text/javascript"> window.location="index.php?op=listarreq";</script>';
    
     }
     else{

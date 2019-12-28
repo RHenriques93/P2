@@ -105,7 +105,7 @@ $username = $_SESSION["username"];
           </header>
     
           <div class="row justify-content-center">
-          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px">
+          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad myborder" width="200px">
            </div><br>
     
           <div class="row justify-content-center">
@@ -116,8 +116,8 @@ $username = $_SESSION["username"];
             <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href ="index.php?op=listarservicos">Seus Serviços</a></h5></button>
           </div>
          
-            <div class="col-md-12 text-center my-2 mt-4">
-                <button class="btn btn-danger"><a class="text-white" href="index.php?op=logout"><h5>Logout</a></h5></button>
+          <div class="col-md-12 text-center my-2 mt-4">
+                <button class="btn btn-danger btn-lg "><a class="text-white" href="index.php?op=logout"><h5>Logout</a></h5></button>
             </div>
           </div>
           ';

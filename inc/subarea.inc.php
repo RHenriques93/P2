@@ -20,7 +20,8 @@ foreach ($dados as $linha)
             ?>         
 <?php 
 
-$dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador, utilizador.imagem, servico.id_servico, servico.descricao, servico.img_service FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_subarea = $id");
+$db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+$dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador, utilizador.imagem, servico.id_servico, servico.descricao FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_subarea = $id");
 
 
 if ($dados->rowCount() > 0)
@@ -31,28 +32,45 @@ foreach ($dados as $row) {
 
                 echo '<div class="col-md-3 col-sm-6 col-xs-12 m-2">
                     <div class="card" style="width: 18rem">
-    <div id="'.$row["id_servico"].'" class="carousel slide" data-ride="carousel">
+                    
+                    <div id="'.$row["id_servico"].'" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="'.$row["img_service"].'" class="card-img-top" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="'.$row["imagem"].'" class="card-img-top" alt="...">
-        </div>
-    </div>
-
-  <a class="carousel-control-prev" href="#'.$row["id_servico"].'" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#'.$row["id_servico"].'" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+    <div class="carousel-item active">
+    <img src="'.$row["imagem"].'" class="card-img-top" alt="...">
 </div>
 
+         ';
+    
+$id_serv = $row["id_servico"];
+
+                    $dados = $db->query("SELECT img_serv FROM img_service JOIN servico ON img_service.id_servico = servico.id_servico WHERE servico.id_servico = $id_serv");
+
+     foreach ($dados as $linha) {
+     echo ' 
+     <div class="carousel-item">
+            <img src="'.$linha["img_serv"].'" class="card-img-top" alt="...">
+        </div>
+       
+      ';
+
+    
+
+}
 
 
+        echo           '   
+        </div>
+        
+        
+  <a class="carousel-control-prev" href="#'.$row["id_servico"].'" role="button" data-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#'.$row["id_servico"].'" role="button" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
+</div>
                         <div class="card-body">
                             <h3 class="card-title grad-txt">'.$row["nome"].'</h3>
                             <p class="text-dark card-subtitle">'.$row["descricao"].'</p>

@@ -23,8 +23,18 @@ foreach ($dados as $linha) {
       <form method="post" action="inc/upload.inc.php" enctype="multipart/form-data">
       <div class="row justify-content-center">
         <div class="col-md-8">
-          <div class="row">
-          <div class="col-md-12 mb-3">
+          <div class="row justify-content-center">
+
+                  <div class="col-md-4 text-center p-3 justify-content-center">
+                    
+                        <img src="'.$linha["imagem"].'" class="rounded-circle border border-grad" width="200px">
+                        <input type="file" name="imagemperfil" class="form-control-file my-3 btn btn-primary btn-sm" accept="image/x-png,image/jpeg"/>
+                        
+                  </div>
+           
+            
+            
+            <div class="col-md-12 mb-3"> <hr>
             <label class="grad-txt f-20 font-weight-bold" for="name">Nome</label>
             <input type="text" class="form-control" id="name" name="nome" aria-describedby="nameHelp" value="'.$linha['nome'].'">
           </div>
@@ -85,12 +95,9 @@ foreach ($dados as $linha) {
           </div>
           </div>
         </div>
-        <div class="col-md-4 text-center bg-light rounded p-3 border border-secondary grad">
-            <img src="'.$linha["imagem"].'" class="rounded-circle" width="250px">
-            <hr>
-            <input type="file" name="imagemperfil" class="form-control-file my-3" accept="image/x-png,image/jpeg"/>
-        </div>
-        <hr>
+
+      
+        
         </form>
       </div>
     </div>'; 

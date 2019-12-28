@@ -60,6 +60,8 @@ if($host == "index.php") {
         case "listarreq": require("inc/listarreq.inc.php"); break;
         case "addreq": require("inc/addreq.inc.php"); break;
         case "gerirreq": require("inc/gerirreq.inc.php"); break;
+        case "listarimagens": require("inc/listarimagens.inc.php"); break;
+        case "geririmagensserv": require("inc/gerir_img_services.inc.php"); break;
         
         
         

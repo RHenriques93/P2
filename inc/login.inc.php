@@ -89,9 +89,10 @@
 
             }
         }
+    
 ?>
 
-    <form class="col-8 text-center d-flex justify-content-center m-4 vdivider">
+    <form method="post" class="col-8 text-center d-flex justify-content-center m-4 vdivider">
         <div class="modal" id="demoModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -101,7 +102,9 @@
                     <div class="modal-body">
                         <p class="txt-gr">Para recuperar a sua password por favor preencha o formulário a baixo.</p>
                         <input type="text" class="form-control text-center" name="email" placeholder="E-Mail" required>
-                        <button type="button" class="btn btn-grad grad text-center m-2">Confirmar</button>
+                        <button type="submit" name="submit_email" class="btn btn-grad grad text-center m-2">Confirmar</button>
+                            
+                                                 
                     </div>
                 </div>
             </div>
@@ -128,13 +131,77 @@
                 <button type="submit" name="submit" class="btn btn-grad grad text-center m-2"><i class="fas fa-sign-in-alt"></i> Login</button>
             </form>
             <div class="col-12 text-center p-2">
-                <button type="button" class="btn grad-txt text-center m-2" data-toggle="modal" data-target="#demoModal">Recuperar Password</button>
+                <button type="button" class="btn grad-txt text-center m-2" data-toggle="modal" data-target="#demoModal">Recuperar Password</a></button>
             </div>
-            <?php
+            
+<?php
                 if(isset($message)){
                     echo $message;
                 }
             ?>
+         
         </div>
     </div>
+
+<?php
+        if(isset($_REQUEST["submit_email"])){
+          
+
+            $email = $_POST['email'];
+           
+            
+            $query = "SELECT id_utilizador FROM utilizador WHERE email = :email LIMIT 1";
+
+            $stmt = $db->prepare($query);
+                       
+            $stmt->execute(array(':email'=>$email));
+            $row = $stmt->fetch(PDO::FETCH_ASSOC); 
+            
+            
+            if($stmt->rowCount() == 1) {
+
+                                   
+                        $id = $row["id_utilizador"];
+
+                        $password = md5(uniqid(rand()));
+                        
+                        $query="UPDATE utilizador SET repor_pass=:repor_pass WHERE email=:email";
+
+                        $stmt = $db->prepare($query);
+
+                        $stmt->execute(array(":repor_pass"=>$password,"email"=>$email));
+                        
+                        $message= "
+                            Olá , $email
+                            
+                            Clique no link a baixo para fazer reset à sua password.
+                           
+                            http://localhost/projetofinal/index.php?op=resetpassword&id_utilizador=$id&repor_pass=$password
+                        
+                           
+                            Obrigado.
+                            Hire-Frame
+                            ";
+                        $subject = "password reset";
+
+                        $header = "From: webthings99@gmail.com"."X=Mailer:PHP/".phpversion();
+
+                       mail($email,$message,$subject);
+                        $msg = "Enviámos um email para $email.Por favor clique no link que lhe enviámos para fazer reset à sua password.";
+            
+
+            } else {
+            $msg = "Pedimos Desculpa, mas o e-mail que introduziu não corresponde a nenhum mail na nossa base de dados.";
+            }
+        }
+
+            ?>
+            
+            <?php
+                                if(isset($msg)) {
+                                    echo $msg;
+                                } else {
+                                echo '<div>Please enter your email address. You will receive a link to create a new password via email.!</div>';  
+                                }
+                            ?>
 

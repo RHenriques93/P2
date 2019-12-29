@@ -159,8 +159,6 @@
             
             
             if($stmt->rowCount() == 1) {
-
-                                   
                         $id = $row["id_utilizador"];
 
                         $password = md5(uniqid(rand()));
@@ -171,37 +169,37 @@
 
                         $stmt->execute(array(":repor_pass"=>$password,"email"=>$email));
                         
-                        $message= "
-                            Olá , $email
-                            
-                            Clique no link a baixo para fazer reset à sua password.
-                           
-                            http://localhost/projetofinal/index.php?op=resetpassword&id_utilizador=$id&repor_pass=$password
-                        
-                           
-                            Obrigado.
-                            Hire-Frame
-                            ";
                         $subject = "password reset";
+
+                        $message= "
+Olá , $email
+                        
+Clique no link a baixo para fazer reset à sua password.
+                       
+http://localhost/projetofinal/index.php?op=resetpassword&id_utilizador=$id&repor_pass=$password
+                    
+                       
+Obrigado.
+Hire-Frame
+";
 
                         $header = "From: webthings99@gmail.com"."X=Mailer:PHP/".phpversion();
 
                        mail($email,$subject,$message);
                         $msg = "Enviámos um email para $email.Por favor clique no link que lhe enviámos para fazer reset à sua password.";
-            
-
             } else {
             $msg = "Pedimos Desculpa, mas o e-mail que introduziu não corresponde a nenhum mail na nossa base de dados.";
             }
         }
-
             ?>
             
             <?php
-                                if(isset($msg)) {
-                                    echo $msg;
-                                } else {
-                                echo '<div>Please enter your email address. You will receive a link to create a new password via email.!</div>';  
-                                }
-                            ?>
+
+                if(isset($msg)) {
+                    echo $msg;
+                } else {
+                    echo '<div>Please enter your email address. You will receive a link to create a new password via email.!</div>';  
+                }
+
+            ?>
 

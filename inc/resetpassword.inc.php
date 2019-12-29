@@ -53,8 +53,8 @@ require("db_projetofinal.php");
    echo $msg;
   }
   ?>
-        <input type="password" placeholder="New Password" name="pass" required />
-        <input type="password" placeholder="Confirme a sua Nova Password" name="confirm-pass" required />
+        <input type="password" placeholder="New Password" name="pass" required>
+        <input type="password" placeholder="Confirme a sua Nova Password" name="confirm-pass" required>
         <button type="submit" name="resetpass">Faça Reset à sua Password</button>
         
       </form>

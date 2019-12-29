@@ -186,7 +186,7 @@
 
                         $header = "From: webthings99@gmail.com"."X=Mailer:PHP/".phpversion();
 
-                       mail($email,$message,$subject);
+                       mail($email,$subject,$message);
                         $msg = "Enviámos um email para $email.Por favor clique no link que lhe enviámos para fazer reset à sua password.";
             
 

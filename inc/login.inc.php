@@ -172,10 +172,9 @@
                         $subject = "password reset";
 
                         $message= "
-Olá , $email
+Olá, $email
                         
-Clique no link a baixo para fazer reset à sua password.
-                       
+Clique no link a baixo para fazer reset à sua password:
 http://localhost/projetofinal/index.php?op=resetpassword&id_utilizador=$id&repor_pass=$password
                     
                        

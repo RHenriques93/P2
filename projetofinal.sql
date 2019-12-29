@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 29-Dez-2019 às 17:02
+-- Generation Time: 29-Dez-2019 às 22:38
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `preco_servico` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_preco_servico`),
   KEY `fk_id_servico_servico` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `preco_servico`
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
   PRIMARY KEY (`id_requisicao`),
   KEY `fk_id_utilizador_req_utilizador_req` (`id_utilizador`),
   KEY `fk_id_subarea_req_subarea_req` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `requisicao`
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `servico`
@@ -256,6 +256,7 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
   `tipo_utilizador` int(11) NOT NULL,
   `biografia` varchar(255) DEFAULT NULL,
   `imagem` varchar(255) DEFAULT NULL,
+  `repor_pass` varchar(255) NOT NULL,
   PRIMARY KEY (`id_utilizador`),
   UNIQUE KEY `id_area` (`id_utilizador`),
   KEY `fk_id_tipo_tipo_utilizador` (`tipo_utilizador`),
@@ -266,13 +267,13 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 -- Extraindo dados da tabela `utilizador`
 --
 
-INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`) VALUES
-(1, 'rafaelxoxota', 'Rafael', 1, 'rafae.xpto@gmail.com', '1993-10-16', '2019-12-29 16:51:05', '$2y$10$OezU9qs21AUvWAkF9OucsOPwBgWmB5FW6DFCHeVcr3jhkfYYugwmO', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg'),
-(2, 'andreferreira', 'André Ferreira', 1, 'andreferreira@gmail.com', '1999-12-18', '2019-12-29 16:53:34', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg'),
-(4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-29 16:54:20', '$2y$10$c2HUo1QlvB1mdAiAYvuDg.KMhIvIdKEjwDL3mepJTVY2jueM4eD4m', 2, 'teste', 'http://localhost/projetofinal/img/uploads/78-2-e1574805386187.jpg'),
-(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-29 16:55:55', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg'),
-(11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-29 16:56:37', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg'),
-(13, 'testehash', 'testehash', 1, 'testehash@gmail.com', '2019-12-04', '2019-12-29 15:10:13', '$2y$10$/hmbGqB63IP2f8DmvBGrK..VliYoMMGrtqr4S/u1cGIi.Ap7HZ/NC', 1, NULL, NULL);
+INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`, `repor_pass`) VALUES
+(1, 'rafaelxoxota', 'Rafael', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2019-12-29 22:36:43', '$2y$10$OezU9qs21AUvWAkF9OucsOPwBgWmB5FW6DFCHeVcr3jhkfYYugwmO', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', '16e6e48f00a4b933497467063244bf62'),
+(2, 'andreferreira', 'André Ferreira', 1, 'andreferreira@gmail.com', '1999-12-18', '2019-12-29 16:53:34', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg', ''),
+(4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-29 16:54:20', '$2y$10$c2HUo1QlvB1mdAiAYvuDg.KMhIvIdKEjwDL3mepJTVY2jueM4eD4m', 2, 'teste', 'http://localhost/projetofinal/img/uploads/78-2-e1574805386187.jpg', ''),
+(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-29 16:55:55', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg', ''),
+(11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-29 16:56:37', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg', ''),
+(13, 'testehash', 'testehash', 1, 'webthings99@gmail.com', '2019-12-04', '2019-12-29 21:53:52', '$2y$10$/hmbGqB63IP2f8DmvBGrK..VliYoMMGrtqr4S/u1cGIi.Ap7HZ/NC', 1, NULL, NULL, '0686b2b58683e8140fe593b4b8c76232');
 
 --
 -- Constraints for dumped tables

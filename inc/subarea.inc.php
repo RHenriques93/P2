@@ -85,7 +85,7 @@ $id_serv = $row["id_servico"];
   } else {
 
 
-    echo '<div class="row justify-content-center"><div class="col-md-5 text-center p-2"> <h1>Ainda não existem serviços associados. Associe um serviço.</h1></div></div>';
+    echo '<div class="row justify-content-center"><div class="col-md-8 text-center p-2"> <h1>Ainda não existem serviços associados</h1><h5 class="text-dark"><a href="index.php?op=addservice">Associe um serviço</a><h5></div></div>';
 
 
   }

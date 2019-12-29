@@ -4,7 +4,7 @@
                     <h2 class="text-center text-dark">Sub-Serviços</h2>
                     <span class="underline mb-3"></span>
             </header>
-            <div class="row">
+            <div class="row justify-content-center">
 
             <?php 
             $id = $_REQUEST["id"];

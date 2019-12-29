@@ -54,20 +54,10 @@ $dados = $db->query("SELECT * FROM area");
                             
                         </a>
                     </div>
-                </div>';
-
-
-
-
-                      
-                      
-                      
-                     
+                </div>';        
                 }
-                ?>
-                
-                
-                    
+                ?>  
+
                 </div>
                     <br>
                     <hr class="mx-5">
@@ -90,7 +80,7 @@ $dados = $db->query("SELECT * FROM area");
                     <p class="my-2 text-center text-light">Estes são alguns dos números que temos vindo a angariar</p>
                 </header>
                 <div class="row py-2">
-                    <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="col-sm-3 col-md-3 col-lg-3 col-xs-6 mb-4">
                         <div class="fatos">
                             <div class="icon">
                                 <i class="fas fa-briefcase"></i>
@@ -110,18 +100,18 @@ $dados = $db->query("SELECT * FROM area");
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="col-sm-3 col-md-3 col-lg-3 col-xs-6 mb-4">
                         <div class="fatos">
                             <div class="icon">
                                 <i class="fas fa-shopping-cart"></i>
                             </div>
                             <div class="contador">
-                                <h3>+ <span class="contar">7</span></h3>
+                                <h3>+<span class="contar">7</span></h3>
                                 <h4>Vendas</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-4">
                         <div class="fatos">
                             <div class="icon">
                                 <i class="fa fa-users"></i>
@@ -135,13 +125,13 @@ $dados = $db->query("SELECT * FROM area");
                                     foreach($dados as $row) {
                                         $count++;
                                     }
-                                    echo '<h3>+  <span class="contar">'.$count.'</span></h3>';
+                                    echo '<h3>+<span class="contar">'.$count.'</span></h3>';
                             ?>
                                 <h4>Clientes</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-4">
                         <div class="fatos">
                             <div class="icon">
                                 <i class="fa fa-star"></i>
@@ -176,7 +166,7 @@ $dados = $db->query("SELECT * FROM area");
                 foreach ($dados as $row) {
 
                 echo '
-                    <div class="col-sm-6 col-md-3 col-xs-12">
+                    <div class="col-sm-6 col-md-3 col-xs-12 mb-2">
                         <div class="tabela-preco sombra">
                             <div class="preco-detalhe">
                                 <h2>'.$row["nome area"].'</h2>
@@ -203,12 +193,12 @@ $dados = $db->query("SELECT * FROM area");
                                                 </div>
 
                                             </div>
-                                            <a class="carousel-control-prev" href="#'.$row["id_servico"].'" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon grad rounded-circle" aria-hidden="true"></span>
+                                            <a class="carousel-control-prev grad rounded-right pt-3" href="#'.$row["id_servico"].'" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Previous</span>
                                             </a>
-                                            <a class="carousel-control-next" href="#'.$row["id_servico"].'" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon grad rounded-circle" aria-hidden="true"></span>
+                                            <a class="carousel-control-next grad rounded-left pt-3" href="#'.$row["id_servico"].'" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Next</span>
                                             </a>
                                 </div>

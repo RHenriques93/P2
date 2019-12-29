@@ -9,22 +9,40 @@
             } else {
 
                 $username = $_REQUEST["username"];
-                $pass =$_REQUEST["pass"];
+                $password =$_REQUEST["pass"];
+             
+                                    
+                $sql = "SELECT * FROM utilizador WHERE username = :username";
+
+                $statement = $db->prepare($sql);
+                $statement->execute(array('username'=>$_REQUEST["username"]));
+
+          
+                foreach ($statement as $row) {
+
+                        $hashed_password = $row["pass"];
+                                           }
+                
+                        $hashed_password = $row["pass"];
 
 
+                        if (password_verify($password, $hashed_password)) {
+                            echo 'Password is valid!';
+                                                   
+                             
                 $query = "SELECT * FROM utilizador WHERE username = :username AND pass = :pass";
 
-            $dados = $db->query("SELECT * FROM utilizador WHERE username = '$username' AND pass = '$pass'");
+                $statement = $db->prepare($query);
+                $statement->execute(array('username'=>$_REQUEST["username"], 'pass'=>$hashed_password));
 
-                    foreach ($dados as $row) {
+          
+                foreach ($statement as $row) {
 
                         $id = $row["id_utilizador"];
-                    }
-
-            
-                        $statement = $db->prepare($query);
-                $statement->execute(array('username'=>$_REQUEST["username"], 'pass'=>$_REQUEST["pass"]));
-
+                                           }
+                   
+              
+                  
                 
                 $count = $statement->rowCount();
                 if($count > 0){
@@ -55,6 +73,20 @@
                     </div>
                 </div>';
                 }
+            
+            } else {
+                $message = '<div class="row">
+                <div class="col-12">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                            <span aria-hidden="true" class="text-dark">&times;</span>
+                        </button>
+                        Username ou Password incorretos, verifique se inseriu corretamente os dados!
+                    </div>
+                </div>
+            </div>';
+            }
+
             }
         }
 ?>

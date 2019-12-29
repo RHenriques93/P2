@@ -46,13 +46,17 @@
 
 
 if(isset($_POST["submit"])){
-   
+
+    $password = $_REQUEST["pass"];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    
     try {
         $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // <== add this line
 
         $sql = "INSERT INTO utilizador (nome, username, email, data_nascimento, pass, tipo_utilizador, id_genero)
-        VALUES ('".$_POST["nome"]."','".$_POST["username"]."','".$_POST["email"]."','".$_POST["data_nascimento"]."','".$_POST["pass"]."','".$_POST["tipo_utilizador"]."','".$_POST["genero"]."')";
+        VALUES ('".$_POST["nome"]."','".$_POST["username"]."','".$_POST["email"]."','".$_POST["data_nascimento"]."','".$hashed_password."','".$_POST["tipo_utilizador"]."','".$_POST["genero"]."')";
         if ($db->query($sql)) {
         echo "<script type= 'text/javascript'>alert('Registo Efetuado com Sucesso');</script>";
         }

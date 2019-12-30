@@ -77,9 +77,13 @@ foreach ($dados as $linha) {
             echo  '
             </select>
           </div>
-          <div class="col-md-12 mb-3">
+          <div class="col-md-6 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="user">Username</label>
             <input type="text" class="form-control" id="user" aria-describedby="userHelp" value="'.$linha['username'].'" disabled>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="grad-txt f-20 font-weight-bold" for="pass">Password</label><br>
+            <button class="btn grad col-md-12"><a class="text-light" href="#">Alterar Password</a></button>
           </div>
           <div class="col-md-12 mb-1">
             <label class="grad-txt f-20 font-weight-bold" for="biografia">Biografia</label>

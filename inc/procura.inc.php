@@ -91,7 +91,7 @@ if ($dados->rowCount() > 0)
 } else {
 
 
-    echo '<div class="row justify-content-center"><div class="col-md-5 text-center p-2"> <h1>Lamentamos, mas a sua pesquisa não retornou qualquer resultado.</h1></div></div>';
+    echo '<div class="row justify-content-center"><div class="col-md-8 text-center p-2"> <h1>Lamentamos, mas a sua pesquisa não retornou qualquer resultado.</h1></div></div>';
 
 
 

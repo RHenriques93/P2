@@ -19,7 +19,6 @@ foreach ($dados as $linha)
 
             ?>         
 <?php 
-
 $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
 $dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador, utilizador.imagem, servico.id_servico, servico.descricao FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_subarea = $id");
 

@@ -49,7 +49,7 @@ echo '<div class="row justify-content-center">
 <div class="form-actions">
     <div class="row justify-content-center">  
 
-        <input type="file" name="imagemservico" class="form-control-file my-3 btn btn-primary form-control-file my-3"" accept="image/x-png,image/jpeg" required/>
+        <input type="file" name="imagemservico" class="form-control-file my-3 btn btn-primary form-control-file my-3" accept="image/x-png,image/jpeg" required/>
     </div>
     <div class="row justify-content-center">    
         <button type="submit" name="submitservice" class="btn btn-primary mr-2">Atualizar Imagem</button>

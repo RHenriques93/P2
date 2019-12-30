@@ -65,7 +65,7 @@ $id = $_SESSION["id_utilizador"];
   } else {
 
 
-    echo '<div class="row justify-content-center"><div class="col-md-5 text-center p-2"> <h1>Ainda não tem imagens associadas a este serviço. Adicione imagens ao serviço.</h1></div></div>';
+    echo '<div class="row justify-content-center"><div class="col-md-8 text-center p-2"> <h1>Ainda não tem imagens associadas a este serviço.</h1></div></div>';
 
 
 
@@ -87,7 +87,7 @@ $id = $_SESSION["id_utilizador"];
                 <form method="post" action="" enctype="multipart/form-data">
                     <button type="submit" name="submitservice" class="btn btn-success ml-auto">Adicionar Nova Imagem</button>
                             <div class="form-actions">
-                                    <input type="file" name="imagemservico" class="btn btn-success form-control-file my-3" accept="image/x-png,image/jpeg" required/>
+                                    <input type="file" name="imagemservico" class="btn border-dark form-control-file my-3" accept="image/x-png,image/jpeg" required/>
                             </div>
                 </form>
                  

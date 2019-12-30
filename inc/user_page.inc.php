@@ -195,19 +195,6 @@ $username = $_SESSION["username"];
           </div>
           ';
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
   }

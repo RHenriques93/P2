@@ -185,9 +185,9 @@ Hire-Frame
                         $header = "From: webthings99@gmail.com"."X=Mailer:PHP/".phpversion();
 
                        mail($email,$subject,$message);
-                        $msg = "Enviámos um email para $email.Por favor clique no link que lhe enviámos para fazer reset à sua password.";
+                        $msg = "<script> alert(Enviámos um email para $email.Por favor clique no link que lhe enviámos para fazer reset à sua password) </script>";
             } else {
-            $msg = "Pedimos Desculpa, mas o e-mail que introduziu não corresponde a nenhum mail na nossa base de dados.";
+            $msg = "<script> alert(Pedimos Desculpa, mas o e-mail que introduziu não corresponde a nenhum mail na nossa base de dados) </script>";
             }
         }
             ?>
@@ -197,7 +197,7 @@ Hire-Frame
                 if(isset($msg)) {
                     echo $msg;
                 } else {
-                    echo '<div>Please enter your email address. You will receive a link to create a new password via email.!</div>';  
+                    //echo '<div>Please enter your email address. You will receive a link to create a new password via email.!</div>';  
                 }
 
             ?>

@@ -14,7 +14,7 @@ $id = $_SESSION["id_utilizador"];
 <br>
 <header class="col-md-12 mb-4">
           <h2 class="text-center text-dark">Atualizar ou Eliminar Imagem do Serviço<br><span class="f-700 text-dark"></span></h2>
-          <span class="underline-rosa mb-3"></span>
+          <span class="underline mb-3"></span>
 </header>
 
             

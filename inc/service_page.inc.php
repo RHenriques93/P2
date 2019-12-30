@@ -32,7 +32,7 @@ foreach ($dados as $row) {
                                                     <h5 class="mt-0">Prestador de Serviço</h5><hr>
                                                     <p class="text-black">'.$row["Nome Utilizador"].'</p><hr>
                                                     <p>'.$row["biografia"].'</p><hr>
-                                                    <p>Género:'.$row["genero"].'</p>
+                                                    <p>Género: '.$row["genero"].'</p>
                                                 </div>
                                         </div>
 
@@ -55,51 +55,25 @@ foreach ($dados as $row) {
                                                             </ul>
                                                             <br>
                                             </div>
-                                            
-                                            <div class="row justify-content-center">
-                                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                            
-                                            <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img class="" src="'.$row["imagem"].'" width="auto" height="350px" alt="First slide">
-                                              </div>
-                                                                                          
-                                            ';
+                                            <div class="container"> 
+                                                <div class="row justify-content-center">                    
+                                                ';
 
-                        $dados = $db->query("SELECT img_serv FROM img_service JOIN servico ON img_service.id_servico = servico.id_servico WHERE img_service.id_servico = '$id_serv'");
+                                            $dados = $db->query("SELECT img_serv FROM img_service JOIN servico ON img_service.id_servico = servico.id_servico WHERE img_service.id_servico = '$id_serv'");
 
-                            foreach ($dados as $linha) {
-
-                                           echo '
-                                           
-                                              <div class="carousel-item">
-                                                <img class="" src="'.$linha["img_serv"].'" width="auto" height="350px" alt="Second slide">
-                                              </div>
-                                              
-                                            ';
-
-                                        }       
-                                        
-                                                  
+                                                foreach ($dados as $linha) {
+                                                    echo '   
+                                                    <div class="col-md-3 col-sm-4 col-xs-6 m-2">
+                                                        <figure class="figure">  
+                                                            <img class="figure-img" src="'.$linha["img_serv"].'" width="auto" height="350px" alt="Imagem do Serviço">
+                                                        </figure>
+                                                    </div>
+                                                        ';
+                                                    }       
+            
                                     echo '
-                                    
-                                    </div>
-                                    
-                                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                              <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                            
-                                          </div>
-                                          </div>
-                                    
-                                    <hr>
-                                    
-                                    
+                                        </div>
+                                     </div>                 
                                    
                                     <!-- Button trigger modal -->
                                     <div class="form-row justify-content-center">

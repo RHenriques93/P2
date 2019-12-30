@@ -8,42 +8,44 @@ require("../db_projetofinal.php");
 <?php
 
 if(isset($_REQUEST['submitimg'])){
-    
 
-    $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
+    if(!empty($_FILES['imagemperfil']['name'])) {
 
-	if (move_uploaded_file($_FILES['imagemperfil']['tmp_name'], $ficheiro)) {
-	    echo "<div class='alert alert-success' role='alert'>Ficheiro copiado com sucesso!</div>\n";
-	} else {
-		/* retirado da documentação oficial do PHP em https://www.php.net/manual/pt_BR/features.file-upload.errors.php */
-	    switch ($_FILES['imagemperfil']['error']) {
-            case UPLOAD_ERR_INI_SIZE:
-                $message = "The uploaded file exceeds the upload_max_filesize directive in php.ini";
-                break;
-            case UPLOAD_ERR_FORM_SIZE:
-                $message = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
-                break;
-            case UPLOAD_ERR_PARTIAL:
-                $message = "The uploaded file was only partially uploaded";
-                break;
-            case UPLOAD_ERR_NO_FILE:
-                $message = "No file was uploaded";
-                break;
-            case UPLOAD_ERR_NO_TMP_DIR:
-                $message = "Missing a temporary folder";
-                break;
-            case UPLOAD_ERR_CANT_WRITE:
-                $message = "Failed to write file to disk";
-                break;
-            case UPLOAD_ERR_EXTENSION:
-                $message = "File upload stopped by extension";
-                break;
+        $ficheiro = '../img/uploads/'.basename($_FILES['imagemperfil']['name']);
 
-            default:
-                $message = "Unknown upload error";
-                break;
+        if (move_uploaded_file($_FILES['imagemperfil']['tmp_name'], $ficheiro)) {
+            echo "<div class='alert alert-success' role='alert'>Ficheiro copiado com sucesso!</div>\n";
+        } else {
+            /* retirado da documentação oficial do PHP em https://www.php.net/manual/pt_BR/features.file-upload.errors.php */
+            switch ($_FILES['imagemperfil']['error']) {
+                case UPLOAD_ERR_INI_SIZE:
+                    $message = "The uploaded file exceeds the upload_max_filesize directive in php.ini";
+                    break;
+                case UPLOAD_ERR_FORM_SIZE:
+                    $message = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    $message = "The uploaded file was only partially uploaded";
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    $message = "No file was uploaded";
+                    break;
+                case UPLOAD_ERR_NO_TMP_DIR:
+                    $message = "Missing a temporary folder";
+                    break;
+                case UPLOAD_ERR_CANT_WRITE:
+                    $message = "Failed to write file to disk";
+                    break;
+                case UPLOAD_ERR_EXTENSION:
+                    $message = "File upload stopped by extension";
+                    break;
+
+                default:
+                    $message = "Unknown upload error";
+                    break;
+            }
+            echo "<div class='alert alert-danger' role='alert'>$message</div>";
         }
-        echo "<div class='alert alert-danger' role='alert'>$message</div>";
     }
 
 
@@ -83,13 +85,12 @@ try{
       if ($stmt->rowCount() == 1) {
           
           echo "<script type= 'text/javascript'>alert('Informações de Perfil Atualizadas!');</script>";
-          echo '<script type="text/javascript"> window.location="../index.php?op=userpage";</script>';
+          echo '<meta HTTP-EQUIV="Refresh" CONTENT="0.1; URL=../index.php?op=usersettings">';
          
       } else {
           
           echo "<script type= 'text/javascript'>alert('Erro ao atualizar informações de perfil!');</script>";
-          echo '<script type="text/javascript"> window.location="../index.php?op=userpage";</script>';
-        ;
+          echo '<meta HTTP-EQUIV="Refresh" CONTENT="0.1; URL=../index.php?op=usersettings">';
 
       }
 } catch(PDOException $e) {
@@ -97,6 +98,5 @@ try{
 }
 
 }
-
 
 ?>

@@ -46,7 +46,7 @@ require("db_projetofinal.php");
   <strong>Olá</strong>  <?php echo $rows['email']?> Faça Reset à sua password.
   </div>
         <form method="post">
-        <h3>Password Reset.</h3><hr />
+        <h3>Password Reset.</h3>
         <?php
         if(isset($msg))
   {

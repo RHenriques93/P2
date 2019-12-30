@@ -169,7 +169,7 @@
 
                         $stmt->execute(array(":repor_pass"=>$password,"email"=>$email));
                         
-                        $subject = "password reset";
+                        $subject = "Recuperação de Password";
 
                         $message= "
 Olá, $email

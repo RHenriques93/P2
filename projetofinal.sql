@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 29-Dez-2019 às 22:38
+-- Generation Time: 30-Dez-2019 às 16:14
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `preco_servico` (
 
 INSERT INTO `preco_servico` (`id_preco_servico`, `base`, `padrao`, `premium`, `id_servico`) VALUES
 (6, 10, 20, 30, 17),
-(7, 210, 300, 500, 18),
+(7, 200, 300, 500, 18),
 (8, 25, 75, 100, 19),
 (9, 25, 35, 50, 21),
 (11, 40, 50, 60, 30),
@@ -268,9 +268,9 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 --
 
 INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`, `repor_pass`) VALUES
-(1, 'rafaelxoxota', 'Rafael', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2019-12-29 22:36:43', '$2y$10$OezU9qs21AUvWAkF9OucsOPwBgWmB5FW6DFCHeVcr3jhkfYYugwmO', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', '16e6e48f00a4b933497467063244bf62'),
-(2, 'andreferreira', 'André Ferreira', 1, 'andreferreira@gmail.com', '1999-12-18', '2019-12-29 16:53:34', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg', ''),
-(4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-29 16:54:20', '$2y$10$c2HUo1QlvB1mdAiAYvuDg.KMhIvIdKEjwDL3mepJTVY2jueM4eD4m', 2, 'teste', 'http://localhost/projetofinal/img/uploads/78-2-e1574805386187.jpg', ''),
+(1, 'rafaelxoxota', 'Rafael Henriques', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2019-12-30 16:10:53', '$2y$10$R.OAhO7k57dmmCXt5LvaNOl1EMZcsXJ/5l1Z.UlUyljDzEkWUWaAy', 2, 'Estudante de Multimédia no ISMT.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', '27d85242f335079d07dd253f817abb4f'),
+(2, 'andreferreira', 'André Ferreira', 1, 'falcon.oficialyt@gmail.com', '1999-12-18', '2019-12-30 00:00:51', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg', 'ad394df9cbcaeeb677f1648d8483fdd4'),
+(4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-30 16:07:54', '$2y$10$QrmSsaCxzibpYURl/BjkvuUI1pN/UO3KNgCXny4VBNfZfqu38J./y', 2, 'teste', 'http://localhost/projetofinal/img/uploads/78-2-e1574805386187.jpg', ''),
 (8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-29 16:55:55', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg', ''),
 (11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-29 16:56:37', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg', ''),
 (13, 'testehash', 'testehash', 1, 'webthings99@gmail.com', '2019-12-04', '2019-12-29 21:53:52', '$2y$10$/hmbGqB63IP2f8DmvBGrK..VliYoMMGrtqr4S/u1cGIi.Ap7HZ/NC', 1, NULL, NULL, '0686b2b58683e8140fe593b4b8c76232');

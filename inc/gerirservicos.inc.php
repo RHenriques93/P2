@@ -39,7 +39,7 @@ $id = $_SESSION["id_utilizador"];
   <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Sub Area</label>
     <select class="form-control" name="subareaupdate">
 
-    <option class="bg-dark" value="'.$row['servico associado'].'"selected>'.$row['nome'].'</option>';
+    <option class="bg-dark text-dark" value="'.$row['servico associado'].'"selected>'.$row['nome'].'</option>';
 
          $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
       $dados = $db->query("SELECT * FROM subarea");

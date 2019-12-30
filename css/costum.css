@@ -186,7 +186,7 @@ a, a:hover, a:focus, .footer-copyright>a:hover {
 .underline {
   content: '';
   border-top: 2px solid #4069E4;
-  width: 70px;
+  width: 175px;
   display: block;
   margin-bottom: 8px;
   margin: 0 auto;
@@ -195,7 +195,7 @@ a, a:hover, a:focus, .footer-copyright>a:hover {
 .underline-rosa {
   content: '';
   border-top: 2px solid #D672D9;
-  width: 70px;
+  width: 175px;
   display: block;
   margin-bottom: 8px;
   margin: 0 auto;

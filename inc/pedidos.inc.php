@@ -10,6 +10,7 @@
 
      
 <?php require("db_projetofinal.php");
+=======
 $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
 $dados = $db->query("SELECT DISTINCT utilizador.imagem, utilizador.nome, utilizador.id_utilizador, requisicao.nome_projeto, requisicao.descricao, requisicao.preco, requisicao.id_requisicao FROM utilizador JOIN requisicao ON utilizador.id_utilizador = requisicao.id_utilizador JOIN subarea ON requisicao.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area");
 

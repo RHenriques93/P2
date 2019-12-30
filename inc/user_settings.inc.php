@@ -83,7 +83,8 @@ foreach ($dados as $linha) {
           </div>
           <div class="col-md-6 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="pass">Password</label><br>
-            <button class="btn grad col-md-12"><a class="text-light" href="#">Alterar Password</a></button>
+            <button class="btn grad col-md-12"><a class="text-light" href="index.php?op=alterarpassword&id_utilizador='.$id.'">Alterar Password</a></button>
+            
           </div>
           <div class="col-md-12 mb-1">
             <label class="grad-txt f-20 font-weight-bold" for="biografia">Biografia</label>

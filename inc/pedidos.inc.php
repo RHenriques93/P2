@@ -1,16 +1,14 @@
-
    <div class="container">
         <div class="container-fluid py-3">
             <header class="col-md-12 mb-4">
                     <h2 class="text-center text-dark">Pedidos</h2>
-                    <span class="underline-rosa mb-3"></span>
+                    <span class="underline mb-3"></span>
                                 </header>
             <div class="row justify-content-center">
 
 
      
 <?php require("db_projetofinal.php");
-=======
 $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
 $dados = $db->query("SELECT DISTINCT utilizador.imagem, utilizador.nome, utilizador.id_utilizador, requisicao.nome_projeto, requisicao.descricao, requisicao.preco, requisicao.id_requisicao FROM utilizador JOIN requisicao ON utilizador.id_utilizador = requisicao.id_utilizador JOIN subarea ON requisicao.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area");
 
@@ -37,5 +35,3 @@ foreach ($dados as $row) {
             </div>
         </div>
     </div>
-
- 

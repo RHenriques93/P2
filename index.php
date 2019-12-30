@@ -63,6 +63,7 @@ if($host == "index.php") {
         case "listarimagens": require("inc/listarimagens.inc.php"); break;
         case "geririmagensserv": require("inc/gerir_img_services.inc.php"); break;
         case "resetpassword": require("inc/resetpassword.inc.php"); break;
+        case "alterarpassword": require("inc/alterarpassword.inc.php"); break;
         
         
         

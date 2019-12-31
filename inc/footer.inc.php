@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-6 mt-md-0 mt-3">
         <h5>Informações Adicionais</h5>
-        <p>Este website foi criado no âmbito da cadeira de Programação 2 na Licenciatura de Multimédia 
+        <p>Este website foi criado no âmbito da unidade curricular de Programação II que integra o plano de estudos da Licenciatura de Multimédia 
             do Instituto Superior Miguel Torga.</p>
       </div>
       <hr class="clearfix w-100 d-md-none">

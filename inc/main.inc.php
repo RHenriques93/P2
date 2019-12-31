@@ -3,7 +3,7 @@
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-8 text-center">
-                <h1 class="text-uppercase"><img width="200px" src="img/hire-frame.png"></h1>
+                <h1 class="text-uppercase"><img width="250px" src="img/hire-frame_yellow.png"></h1>
                 <p class="lead">Aqui poderás encontrar diversos tipos de serviços realizados por trabalhadores freelancers
             nas diversas áreas abrangidas.</p>
             </div>
@@ -157,8 +157,9 @@ $dados = $db->query("SELECT * FROM area");
                         <div class="tabela-preco sombra">
                             <div class="preco-detalhe">
                                 <h2>'.$row["nome area"].'</h2>
-                                <h3 class="text-success">'.$row["nome subarea"].'</h3><hr>
-                                
+                                <h4 class="text-success">'.$row["nome subarea"].'</h4><hr>
+                                <p class="grad-txt font-weight-bold">'.$row["utilizador nome"].'</p><hr>
+                            
 
                                <div id="'.$row["id_servico"].'" class="carousel slide" data-ride="carousel">
                                             <div class="carousel-inner">
@@ -180,11 +181,11 @@ $dados = $db->query("SELECT * FROM area");
                                                 </div>
 
                                             </div>
-                                            <a class="carousel-control-prev grad rounded-right pt-3" href="#'.$row["id_servico"].'" role="button" data-slide="prev">
+                                            <a class="carousel-control-prev rounded-right pt-3" href="#'.$row["id_servico"].'" role="button" data-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Previous</span>
                                             </a>
-                                            <a class="carousel-control-next grad rounded-left pt-3" href="#'.$row["id_servico"].'" role="button" data-slide="next">
+                                            <a class="carousel-control-next rounded-left pt-3" href="#'.$row["id_servico"].'" role="button" data-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Next</span>
                                             </a>

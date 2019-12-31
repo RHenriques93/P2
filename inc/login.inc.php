@@ -31,6 +31,7 @@
                 foreach ($statement as $row) {
 
                         $id = $row["id_utilizador"];
+                        
                                            }
                    
               
@@ -51,6 +52,7 @@
                 $_SESSION["username"] = $_POST["username"];
                 $logado = true;
                 $_SESSION["id_utilizador"] = $id;
+               
                 header("location:index.php?op=userpage");
                     
                 } 

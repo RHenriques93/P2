@@ -3,8 +3,8 @@ session_start();
 ?>
 
 <div class="container-fluid bg-dark">
-        <header class="menu-font-20">
-            <nav class="navbar navbar-expand-lg navbar-dark">
+        <header class="menu-font-20 ">
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
                 <a href="index.php" class="navbar-brand">
                     <img src="img/hire-frame.png" height="70" class="d-inline-block align-top <?php if (isset($_GET["op"])) if ($_GET["op"] == 0) echo "active";?>">
                 </a>
@@ -13,26 +13,32 @@ session_start();
                     <span class="navbar-toggler-icon text-light"></span>
                 </button>
                 <div id="menu" class="collapse navbar-collapse">
+                    <hr>
                     <ul class="navbar-nav mr-auto text-light">
-                        <li class="nav-item">
-                            <a href="index.php?op=sobre" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == 1) echo "active";?> text-light f-600">Sobre</a>
+                        <li class="nav-item text-light f-600">
+                            <a href="index.php?op=sobre" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == "sobre") echo "active";?>">Sobre</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="index.php?op=servicos" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == 2) echo "active";?> text-light f-600">Serviços</a>
+                        <hr>
+                        <li class="nav-item text-light f-600">
+                            <a href="index.php?op=servicos" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == "servicos") echo "active";?>">Serviços</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="index.php?op=contactos" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == 3) echo "active";?> text-light f-600">Contactos</a>
+                        <hr>
+                        <li class="nav-item text-light f-600">
+                            <a href="index.php?op=contactos" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == "contactos") echo "active";?>">Contactos</a>
                         </li>
+                        <hr>
 
                         <?php
                         if(isset($_SESSION["username"]))
-                        { ?>                        
-                        <li class="nav-item">
-                            <a href="index.php?op=pedidos" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == 4) echo "active"; ?> text-light f-600">Pedidos</a>
+                        { ?>
+                                    
+                        <li class="nav-item text-light f-600">
+                            <a href="index.php?op=pedidos" class="nav-link <?php if (isset($_GET["op"])) if ($_GET["op"] == "pedidos") echo "active"; ?>">Pedidos</a>
                         </li>
                         <?php
                         }
                         ?>
+                         <hr>
                     </ul>
 
 
@@ -47,6 +53,7 @@ session_start();
                           
                         </div>
                     </form>
+                    <hr>
 
                 
 
@@ -58,7 +65,19 @@ session_start();
 
 if(isset($_SESSION["username"]))
  {
-      echo '<a href="index.php?op=userpage" class="btn m-1 btn-default f-500 f-17">'.$_SESSION["username"].'</a>
+    
+    $username = $_SESSION["username"];
+    require("db_projetofinal.php");
+
+
+    $dados = $db->query("SELECT imagem FROM utilizador WHERE username = '$username'");
+    foreach ($dados as $row) {
+
+        $imagem = $row["imagem"];
+
+    }
+
+      echo '<a href="index.php?op=userpage" class="btn m-1 btn-default f-500 f-17">'.$_SESSION["username"].'<img src="'.$imagem.'" class="rounded-circle border border-grad ml-2" width="50px"></a>
       <a href="index.php?op=logout" class="btn btn-login">Logout</a>';
  } else {
 
@@ -73,4 +92,6 @@ if(isset($_SESSION["username"]))
                 </div>
             </nav>
         </header>
+        
     </div>
+

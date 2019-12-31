@@ -1,11 +1,10 @@
 <div class="container">
   <div class="container-fluid py-3 justify-content-center">
 <?php
-if(isset($_SESSION['username'],$_SESSION['id_utilizador'])){
+if(isset($_SESSION['id_utilizador'])){
+$id = $_SESSION["id_utilizador"];
 
 require("db_projetofinal.php");
-
-$id = $_SESSION["id_utilizador"];
 $dados = $db->query("SELECT * FROM utilizador 
 JOIN genero_utilizador ON utilizador.id_genero = genero_utilizador.id_genero
 JOIN tipo_utilizador ON utilizador.tipo_utilizador = tipo_utilizador.id_tipo
@@ -83,7 +82,7 @@ foreach ($dados as $linha) {
           </div>
           <div class="col-md-6 mb-3">
             <label class="grad-txt f-20 font-weight-bold" for="pass">Password</label><br>
-            <button class="btn grad col-md-12"><a class="text-light" href="index.php?op=alterarpassword&id_utilizador='.$id.'">Alterar Password</a></button>
+            <button class="btn grad col-md-12"><a class="text-light" href="index.php?op=alterarpassword">Alterar Password</a></button>
             
           </div>
           <div class="col-md-12 mb-1">

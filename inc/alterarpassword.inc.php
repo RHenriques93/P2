@@ -5,6 +5,10 @@ require("db_projetofinal.php");
 
         if(isset($_POST['resetpass'])) {
 
+                if(isset($_SESSION['id_utilizador'])){
+
+                        $id_utilizador = $_SESSION["id_utilizador"];
+
                     $password = $_POST['pass'];
                     $confirmpass = $_POST['confirm-pass'];
 
@@ -28,7 +32,7 @@ require("db_projetofinal.php");
                                 
                                 $stmt = $db->prepare($query);
 
-                                $stmt->execute(array(":hashed_pass"=>$password_hashed,":id_utilizador"=>$_REQUEST["id_utilizador"]));
+                                $stmt->execute(array(":hashed_pass"=>$password_hashed,":id_utilizador"=>$id_utilizador));
                                 
                                 $msg = "
                                 <div class='row'>
@@ -41,7 +45,8 @@ require("db_projetofinal.php");
                                 header("refresh:5;index.php");
 
                         }
-            
+                        
+                }
         } 
 ?>
 

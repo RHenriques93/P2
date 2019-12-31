@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION['username'],$_SESSION['id_utilizador'])){
+if(isset($_SESSION['id_utilizador'])){
 
 require("db_projetofinal.php");
 $id = $_SESSION["id_utilizador"];

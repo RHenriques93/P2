@@ -1,8 +1,8 @@
 <div class="container py-3">
     <section class="mb-4">
     <header class="col-md-12 mb-4">
-                    <h2 class="text-center text-dark">Contacto</h2>
-                    <span class="underline-rosa mb-3"></span>
+                    <h2 class="text-center text-dark">Contactos</h2>
+                    <span class="underline mb-3"></span>
                     <p class="text-center w-responsive mx-auto mb-5 btn-grad grad p-2">Alguma questão? Entre em contacto connosco para qualquer dúvida ou sugestão que tenha
         para nos ajudar a melhorar.</p>
             </header>

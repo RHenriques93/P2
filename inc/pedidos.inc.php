@@ -22,7 +22,7 @@ foreach ($dados as $row) {
                             <h4 class="card-title grad-txt">Descrição:</h4><p class="text-dark card-subtitle">'.$row["descricao"].'</p><hr>
                             <h4 class="card-title grad-txt">Utilizador:</h4><p class="text-dark card-subtitle">'.$row["nome"].'</p><hr>
                             <h4 class="card-title grad-txt">Orçamento:</h4><p class="text-dark card-subtitle">'.$row["preco"].'€</p>
-                            <a href="index.php?op=reqpage&id_utilizador='.$row["id_utilizador"].'&id_req='.$row["id_requisicao"].'" class="btn btn-primary mt-2">Go somewhere</a>
+                            <a href="index.php?op=reqpage&id_utilizador='.$row["id_utilizador"].'&id_req='.$row["id_requisicao"].'" class="btn btn-primary mt-2">+ Info</a>
                         </div>
                     </div>
                 </div>';

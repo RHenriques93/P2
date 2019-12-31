@@ -1,15 +1,11 @@
 <div class="container">
   <div class="container-fluid py-3 justify-content-center">
 <?php
-if(isset($_SESSION['username'],$_SESSION['id_utilizador'])){
-require("db_projetofinal.php");
-
+if(isset($_SESSION['id_utilizador'])){
 $id = $_SESSION["id_utilizador"];
-$username = $_SESSION["username"];
-  $dados = $db->query("SELECT * FROM utilizador WHERE username = '$username'");
 
-
-
+require("db_projetofinal.php");
+  $dados = $db->query("SELECT * FROM utilizador WHERE id_utilizador = '$id'");
   foreach ($dados as $row){
 
     // se o utilizador for -> cliente

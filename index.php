@@ -65,9 +65,8 @@ if($host == "index.php") {
         case "resetpassword": require("inc/resetpassword.inc.php"); break;
         case "alterarpassword": require("inc/alterarpassword.inc.php"); break;
         
-        
-        
-        default: require("inc/main.inc.php"); break;
+     
+         default: require("inc/main.inc.php"); break;
       }
   } else {
       require("inc/main.inc.php");
@@ -76,11 +75,6 @@ if($host == "index.php") {
 
 
 
-
-
-if (strpos($host, "search=") !== false) {
- require("inc/procura.inc.php");
-}
 
 ?>
     <?php 

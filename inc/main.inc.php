@@ -33,37 +33,24 @@
 
 
                 <?php require("db_projetofinal.php");
-
 $dados = $db->query("SELECT * FROM area");
-
              foreach ($dados as $linha) {       
-
-                echo '                    
-
-                       <div class="col-md-4 col-sm-6 col-xs-12 my-1 text-center">
-                    <div class="grad p-4 rounded">
-                        
-                        <a href="index.php?op=area&id='.$linha["id_area"].'" class="text-light">
-                            
-                        
-                                <h3 class="px-2"><div class="panel-body">
-                                <img src="img/'.$linha["img_area"].'" width="100px" class="img-fluid">
-                                <hr>
-                                </div>'.$linha["nome"].'</h3>
-                            
-                            
+                echo '<div class="col-md-4 col-sm-6 col-xs-12 my-1 text-center">
+                        <div class="grad p-4 rounded">
+                        <a href="index.php?op=area&id='.$linha["id_area"].'" class="text-light">              
+                        <h3 class="px-2"><div class="panel-body">
+                        <img src="img/'.$linha["img_area"].'" width="100px" class="img-fluid"><hr>
+                        </div>'.$linha["nome"].'</h3> 
                         </a>
-                    </div>
-                </div>';        
-                }
+                        </div>
+                        </div>'; }
                 ?>  
 
-                </div>
-                    <br>
-                    <hr class="mx-5">
-                    <div class="col-md-12 justify-content-center text-center">
-                        <button class="btn btn-grad grad text-center mt-2"><a href="index.php?op=servicos" class="text-light">Ver Todos<i class="far fa-plus-square ml-2"></i></a></button>
                     </div>
+                    <br><hr class="mx-5">
+                        <div class="col-md-12 justify-content-center text-center">
+                            <button class="btn btn-grad grad text-center mt-2"><a href="index.php?op=servicos" class="text-light">Ver Todos<i class="far fa-plus-square ml-2"></i></a></button>
+                        </div>
             </section>
         </div>
     </div>

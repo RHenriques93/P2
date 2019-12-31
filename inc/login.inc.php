@@ -3,11 +3,7 @@
 
         if(isset($_REQUEST["submit"])) {
 
-            if(empty($_REQUEST["username"]) || empty($_REQUEST["pass"])){
-
-                $message = $error->getMessage();
-            } else {
-
+         
                 $username = $_REQUEST["username"];
                 $password =$_REQUEST["pass"];
              
@@ -22,13 +18,9 @@
 
                         $hashed_password = $row["pass"];
                                            }
-                
-                        $hashed_password = $row["pass"];
-
-
+                                      
                         if (password_verify($password, $hashed_password)) {
-                            echo 'Password is valid!';
-                                                   
+                                                                          
                              
                 $query = "SELECT * FROM utilizador WHERE username = :username AND pass = :pass";
 
@@ -61,18 +53,7 @@
                 $_SESSION["id_utilizador"] = $id;
                 header("location:index.php?op=userpage");
                     
-                } else {
-                    $message = '<div class="row">
-                    <div class="col-12">
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
-                                <span aria-hidden="true" class="text-dark">&times;</span>
-                            </button>
-                            Username ou Password incorretos, verifique se inseriu corretamente os dados!
-                        </div>
-                    </div>
-                </div>';
-                }
+                } 
             
             } else {
                 $message = '<div class="row">
@@ -87,7 +68,7 @@
             </div>';
             }
 
-            }
+            
         }
     
 ?>

@@ -1,9 +1,11 @@
 <?php
+
         require("db_projetofinal.php");
+       
 
         if(isset($_REQUEST["submit"])) {
 
-         
+            
                 $username = $_REQUEST["username"];
                 $password =$_REQUEST["pass"];
              
@@ -75,7 +77,7 @@
     
 ?>
 
-    <form method="post" class="col-8 text-center d-flex justify-content-center m-4 vdivider">
+    <form method="post" class="col-md-8 text-center d-flex justify-content-center m-4 vdivider">
         <div class="modal" id="demoModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -94,9 +96,13 @@
         </div>
     </form>
 
-    <div class="container w-50">
+    <div class="container">
+
+    <div class="row justify-content-center">
+    <div class="col-md-7">
         <div class="row area justify-content-center">
-            <div class="col-12 text-center p-2">
+        
+            <div class="col-md-12  text-center p-2">
                 <h1 class="grad-txt">Área de Utilizador</h1>
             </div>
             <div class="col-12 text-center d-flex justify-content-center">
@@ -124,6 +130,8 @@
             ?>
          
         </div>
+    </div>
+    </div>
     </div>
 
 <?php

@@ -18,17 +18,17 @@ foreach ($dados as $row) {
     
                 echo '
                                             
-                    <div class="card m-4" style="width: auto;">
+                    <div class="col-md-8 mt-4">
                         <div class="card-body grad rounded">
 
                                         <div class="media">
-                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3 rounded-circle" width="150px" height="150px" alt="...">
+                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3 rounded-circle border border-grad" width="150px" height="150px" alt="...">
                                             
                                                 <div class="media-body">
                                                     <h5 class="mt-0 f-20 font-weight-bold">Requisitador de Serviço</h5><hr>
-                                                    <p class="text-black">'.$row["Nome Utilizador"].'</p><hr>
-                                                    <p>'.$row["biografia"].'</p><hr>
-                                                    <p>Género: '.$row["genero"].'</p>
+                                                    <p><strong>Nome: </strong>'.$row["Nome Utilizador"].'</p><hr>
+                                                    <p><strong>Biografia: </strong>'.$row["biografia"].'</p><hr>
+                                                    <p><strong>Género: </strong>'.$row["genero"].'</p>
                                                 </div>
                                         </div>
 
@@ -39,10 +39,10 @@ foreach ($dados as $row) {
                                             <div class="media-body">
                                                     <label class="grad-white f-20 font-weight-bold">Serviço Requisitado</label>
                                                             <ul class="list-group">
-                                                                <li class="list-group-item text-dark">Área: '.$row["Nome Area"].'</li>
-                                                                <li class="list-group-item text-dark">Subarea: '.$row["Nome Subarea"].'</li>
-                                                                <li class="list-group-item text-dark">Descrição: '.$row["descricao"].'</li>
-                                                                <li class="list-group-item text-dark">Orçamento que estou disposto a gastar: '.$row["preco"].'€</li>  </li>
+                                                                <li class="list-group-item text-dark"><span class="grad-txt font-weight-bold">Área: </span>'.$row["Nome Area"].'</li>
+                                                                <li class="list-group-item text-dark"><span class="grad-txt font-weight-bold">Subarea: </span>'.$row["Nome Subarea"].'</li>
+                                                                <li class="list-group-item text-dark"><span class="grad-txt font-weight-bold">Descrição: </span>'.$row["descricao"].'</li>
+                                                                <li class="list-group-item text-dark"><span class="grad-txt font-weight-bold">Orçamento que estou disposto a gastar: </span>'.$row["preco"].'€</li>  </li>
                                                             </ul>
                                                             <br>
                                             </div>

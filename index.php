@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-UA-compatible" content="IE-edge">
-    <title>Projeto Final</title>
+    <title>Hire-Frame</title>
     <meta name="description" content="Projeto Final">
     <meta name="keywords" content="Programação, ISMT">
     <meta name="author" content="André Ferreira e Rafael Henriques">
@@ -20,7 +20,11 @@
 
 
 
-    <?php include("inc/menu.inc.php"); ?>
+    <?php 
+    
+ 
+    
+    include("inc/menu.inc.php"); ?>
 
 
    

@@ -14,15 +14,15 @@ $dados = $db->query("SELECT DISTINCT utilizador.imagem, utilizador.nome, utiliza
 
 foreach ($dados as $row) {
 
-                echo '<div class="col-md-3 col-sm-6 col-xs-12 m-2">
-                    <div class="card" style="width: 18rem">
+                echo '<div class="col-md-4 col-sm-6 col-xs-12 mb-4">
+                    <div class="card" >
                         <img src="'.$row["imagem"].'" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h3 class="card-title grad-txt">Nome do Projeto:</h3><p class="text-dark card-subtitle">'.$row["nome_projeto"].'<p><hr>
-                            <h4 class="card-title grad-txt">Descrição:</h4><p class="text-dark card-subtitle">'.$row["descricao"].'</p><hr>
-                            <h4 class="card-title grad-txt">Utilizador:</h4><p class="text-dark card-subtitle">'.$row["nome"].'</p><hr>
-                            <h4 class="card-title grad-txt">Orçamento:</h4><p class="text-dark card-subtitle">'.$row["preco"].'€</p>
-                            <a href="index.php?op=reqpage&id_utilizador='.$row["id_utilizador"].'&id_req='.$row["id_requisicao"].'" class="btn btn-primary mt-2">+ Info</a>
+                           <p class="text-dark card-subtitle"><span class="font-weight-bold grad-txt">Nome do Projeto:</span> '.$row["nome_projeto"].'<p><hr>
+                            <p class="text-dark card-subtitle"><span class="font-weight-bold grad-txt">Descrição: </span>'.$row["descricao"].'</p><hr>
+                            <p class="text-dark card-subtitle"><span class="font-weight-bold grad-txt">Requisitador: </span>'.$row["nome"].'</p><hr>
+                            <p class="text-dark card-subtitle"><span class="font-weight-bold grad-txt">Orçamento que Pretende Gastar: </span>'.$row["preco"].'€</p>
+                            <hr><a href="index.php?op=reqpage&id_utilizador='.$row["id_utilizador"].'&id_req='.$row["id_requisicao"].'" class="btn btn-primary">+ Info</a>
                         </div>
                     </div>
                 </div>';

@@ -1,4 +1,7 @@
-   <div class="container w-50">
+   <div class="container">
+   <div class="row justify-content-center">
+    <div class="col-md-7">
+   
         <div class="row area justify-content-center">
             <div class="col-12 text-center p-2">
                 <h1 class="grad-txt">Criar Registo</h1>
@@ -40,7 +43,8 @@
             </form>
         </div>
     </div>
-
+    </div>
+    </div>
 <?php 
 
 

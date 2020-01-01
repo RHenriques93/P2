@@ -1,10 +1,8 @@
-
 <?php require("db_projetofinal.php");
 
 $id = $_REQUEST["id"];
 
 $dados = $db->query("SELECT subarea.nome, subarea.id_area FROM subarea WHERE subarea.id_subarea = $id");
-
 
 foreach ($dados as $linha)
 
@@ -20,7 +18,7 @@ foreach ($dados as $linha)
             ?>         
 <?php 
 $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-$dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador, utilizador.imagem, servico.id_servico, servico.descricao FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_subarea = $id");
+$dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador, utilizador.imagem, servico.id_servico, servico.descricao, preco_servico.base FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area JOIN preco_servico ON servico.id_servico = preco_servico.id_servico WHERE subarea.id_subarea = $id");
 
 
 if ($dados->rowCount() > 0)
@@ -71,8 +69,11 @@ $id_serv = $row["id_servico"];
 </a>
 </div>
                         <div class="card-body">
-                            <h3 class="card-title grad-txt">'.$row["nome"].'</h3>
-                            <p class="text-dark card-subtitle">'.$row["descricao"].'</p>
+                            <h4 class="card-title grad-txt">'.$row["nome"].'</h4><hr>
+                            <p class="text-dark card-subtitle">'.$row["descricao"].'</p><hr>
+                            <h5 class="text-dark card-subtitle grad-txt">Preço Base: '.$row["base"].'€</h5><hr>
+                                                    
+
                             <a href="index.php?op=servicepage&id_utilizador='.$row["id_utilizador"].'&id_service='.$row["id_servico"].'" class="btn btn-primary mt-2">+ Info</a>
                         </div>
                     </div>

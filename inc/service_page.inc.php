@@ -1,5 +1,6 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
+            <div class="col-md-8">
 
 
             <?php 
@@ -20,58 +21,58 @@ foreach ($dados as $row) {
 
 
     
-                echo '
-                                            
-                    <div class="card m-4" style="width: auto;">
+                echo '                                    
+                        <div class="card m-4" style="width: auto;">
                         <div class="card-body grad rounded">
 
                                         <div class="media">
-                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3 rounded-circle" width="150px" height="150px" alt="...">
+                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3 rounded-circle border border-grad" width="150px" height="150px" alt="...">
                                             
                                                 <div class="media-body">
                                                     <h5 class="mt-0">Prestador de Serviço</h5><hr>
-                                                    <p class="text-black">'.$row["Nome Utilizador"].'</p><hr>
-                                                    <p>'.$row["biografia"].'</p><hr>
-                                                    <p>Género: '.$row["genero"].'</p>
+                                                    <p class="text-black"><span class="font-weight-bold">Nome: </span>'.$row["Nome Utilizador"].'</p><hr>
+                                                    <p><span class="font-weight-bold">Biografia: </span>'.$row["biografia"].'</p><hr>
+                                                    <p><span class="font-weight-bold">Género: </span>'.$row["genero"].'</p>
                                                 </div>
                                         </div>
 
                                         <hr>
 
                                                                                
-                                            <div class="media-body">
+                                            <div class="col-md-12">
                                                     <label class="grad-white f-20 font-weight-bold">Serviço</label>
                                                             <ul class="list-group">
-                                                                <li class="list-group-item text-dark">Área: '.$row["Nome Area"].'</li>
-                                                                <li class="list-group-item text-dark">Subarea: '.$row["Nome Subarea"].'</li>
-                                                                <li class="list-group-item text-dark">Descrição: '.$row["descricao"].'</li>
-                                                                <li class="list-group-item text-dark">Preço do Serviço
-                                                                        <ul class="list-group">
-                                                                            <li class="list-group-item text-dark">Base: '.$row["base"].'</li>
-                                                                            <li class="list-group-item text-dark">Padrão: '.$row["padrao"].'</li>
-                                                                            <li class="list-group-item text-dark">Premium: '.$row["premium"].'</li>
+                                                                <li class="list-group-item text-dark"><span class="font-weight-bold grad-txt">Área: </span>'.$row["Nome Area"].'</li>
+                                                                <li class="list-group-item text-dark"><span class="font-weight-bold grad-txt">Subarea: </span>'.$row["Nome Subarea"].'</li>
+                                                                <li class="list-group-item text-dark"><span class="font-weight-bold grad-txt">Descrição: </span>'.$row["descricao"].'</li>
+                                                                <li class="list-group-item text-dark">
+                                                                        <ul class="m-2">
+                                                                            <li class="text-dark"><span class="font-weight-bold grad-txt">Preço Base: </span>'.$row["base"].'€</li>
+                                                                            <hr><li class="text-dark"><span class="font-weight-bold grad-txt">Preço Padrão: </span>'.$row["padrao"].'€</li>
+                                                                            <hr><li class="text-dark"><span class="font-weight-bold grad-txt">Preço Premium: </span>'.$row["premium"].'€</li>
                                                                         </ul>
                                                                 </li>
                                                             </ul>
                                                             <br>
                                             </div>
                                             <div class="container"> 
-                                                <div class="row justify-content-center">                    
+                                                <div class="row justify-content-center"> 
+                                                                 
                                                 ';
 
                                             $dados = $db->query("SELECT img_serv FROM img_service JOIN servico ON img_service.id_servico = servico.id_servico WHERE img_service.id_servico = '$id_serv'");
 
                                                 foreach ($dados as $linha) {
                                                     echo '   
-                                                    <div class="col-md-3 col-sm-4 col-xs-6 m-2">
+                                                    <div class="col-md-5 col-sm-4 col-xs-6 m-2"> 
                                                         <figure class="figure">  
-                                                            <img class="figure-img" src="'.$linha["img_serv"].'" width="auto" height="350px" alt="Imagem do Serviço">
+                                                            <img class="figure-img" src="'.$linha["img_serv"].'" width="auto" height="250px" alt="Imagem do Serviço">
                                                         </figure>
                                                     </div>
                                                         ';
                                                     }       
             
-                                    echo '
+                                    echo ' 
                                         </div>
                                      </div>                 
                                    
@@ -200,8 +201,8 @@ foreach ($dados as $row) {
                
 ?>
 
-            </div>
+        </div>  
         </div>
-    
+        </div>
 
  

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 31-Dez-2019 às 17:02
+-- Generation Time: 01-Jan-2020 às 23:29
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -259,9 +259,10 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
   `repor_pass` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_utilizador`),
   UNIQUE KEY `id_area` (`id_utilizador`),
+  UNIQUE KEY `username` (`username`),
   KEY `fk_id_tipo_tipo_utilizador` (`tipo_utilizador`),
   KEY `fk_id_genero_genero_utilizador` (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `utilizador`
@@ -272,10 +273,7 @@ INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `ema
 (2, 'andreferreira', 'André Ferreira', 1, 'falcon.oficialyt@gmail.com', '1999-12-18', '2019-12-30 00:00:51', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'toque retal', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg', 'ad394df9cbcaeeb677f1648d8483fdd4'),
 (4, 'sofia', 'Sofia Santos Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2019-12-30 16:07:54', '$2y$10$QrmSsaCxzibpYURl/BjkvuUI1pN/UO3KNgCXny4VBNfZfqu38J./y', 2, 'teste', 'http://localhost/projetofinal/img/uploads/78-2-e1574805386187.jpg', ''),
 (8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-29 16:55:55', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg', ''),
-(11, 'putinha', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2019-12-29 16:56:37', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg', ''),
-(13, 'testehash', 'testehash', 1, 'webthings99@gmail.com', '2019-12-04', '2019-12-29 21:53:52', '$2y$10$/hmbGqB63IP2f8DmvBGrK..VliYoMMGrtqr4S/u1cGIi.Ap7HZ/NC', 1, NULL, NULL, '0686b2b58683e8140fe593b4b8c76232'),
-(17, 'teste', 'teste', 2, 'teste@gmail.com', '2019-12-11', '2019-12-31 13:06:39', '$2y$10$Tr/KHQ5Fc.SuUWoZFl5O/.lYpEV65V4uCm8rXlZuOM0fM4gJ4HOFi', 3, 'sdfdsfdsdfsdfsf', 'http://localhost/projetofinal/img/uploads/11-11.png', NULL),
-(18, 'teste2', 'teste2', 2, 'teste2@gmail.com', '2019-12-10', '2019-12-31 13:09:29', '$2y$10$SvuHbWvFJOrC6kNfxXETNu.cgn0KxV3.TxCYTO.bgUHxXSj1Dz2IK', 3, NULL, NULL, NULL);
+(11, 'sheila', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2020-01-01 15:44:38', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg', '');
 
 --
 -- Constraints for dumped tables

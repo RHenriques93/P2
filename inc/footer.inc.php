@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-6 mt-md-0 mt-3">
         <h5>Informações Adicionais</h5><hr>
-        <p>Este website foi criado no âmbito da unidade curricular de Programação II que integra o plano de estudos da Licenciatura de Multimédia 
+        <p>Este website foi desenvolvido no âmbito da unidade curricular de Programação II que integra o plano de estudos da Licenciatura de Multimédia 
             do Instituto Superior Miguel Torga.</p>
       </div>
       <hr class="clearfix w-100 d-md-none">
@@ -26,8 +26,8 @@
     </div>
   </div>
   <div class="page-footer font-small bg-dark mt-4">
-<div class="footer-copyright text-center py-3 nova-s">© 2019 Copyright |
-    <a target="_blank" href="https://www.falcondesign.pt/" class="nova-s">André Ferreira</a> e <a href="#" class="nova-s">Rafael Henriques</a>
+<div class="footer-copyright text-center py-3 nova-s">© 2020 Copyright |
+    <a target="_blank" href="https://www.falcondesign.pt/" class="nova-s">André Ferreira</a> e <a href="https://pt.pornhub.com/gayporn" class="nova-s">Rafael Henriques</a>
   </div>
 </div>
 </div>

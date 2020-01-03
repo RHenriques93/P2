@@ -55,14 +55,12 @@
   font-family: 'Dosis', sans-serif;
 }
 
-
 body {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-color: #c7c7c7;
 }
-
 
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23D672D9' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
@@ -72,12 +70,9 @@ body {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23D672D9' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
-
 .grad {
   background-image: linear-gradient(to right, #4069E4 , #D672D9);
 }
-
-
 
 .grad-txt {
   background: -webkit-linear-gradient(#4069E4 , #D672D9);
@@ -276,9 +271,6 @@ a, a:hover, a:focus, .footer-copyright>a:hover {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
-/*ICONS*/
-
 
 /*COUNTER*/
 .bordas {

@@ -4,7 +4,6 @@ error_reporting(0);
 
         require("db_projetofinal.php");
        
-
         if(isset($_REQUEST["submit"])) {
 
             
@@ -36,10 +35,7 @@ error_reporting(0);
 
                         $id = $row["id_utilizador"];
                         
-                                           }
-                   
-              
-                  
+                }  
                 
                 $count = $statement->rowCount();
                 if($count > 0){
@@ -61,22 +57,19 @@ error_reporting(0);
                     
                 } 
             
-            } else {
-                $message = '<div class="row">
-                <div class="col-12">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
-                            <span aria-hidden="true" class="text-dark">&times;</span>
-                        </button>
-                        Username ou Password incorretos, verifique se inseriu corretamente os dados!
+                } else {
+                    $message = '<div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                                <span aria-hidden="true" class="text-dark">&times;</span>
+                            </button>
+                            Username ou Password incorretos, verifique se inseriu corretamente os dados!
+                        </div>
                     </div>
-                </div>
-            </div>';
+                </div>';
+                }
             }
-
-            
-        }
-    
 ?>
 
     <form method="post" class="col-md-8 text-center d-flex justify-content-center m-4 vdivider">
@@ -126,12 +119,12 @@ error_reporting(0);
             </div>
             
 <?php
-                if(isset($message)){
-                    echo $message;
-                }
-            ?>
+    if(isset($message)){
+        echo $message;
+    }
+?>
          
-        </div>
+    </div>
     </div>
     </div>
     </div>
@@ -152,19 +145,19 @@ error_reporting(0);
             
             
             if($stmt->rowCount() == 1) {
-                        $id = $row["id_utilizador"];
+                $id = $row["id_utilizador"];
 
-                        $password = md5(uniqid(rand()));
+                $password = md5(uniqid(rand()));
                         
-                        $query="UPDATE utilizador SET repor_pass=:repor_pass WHERE email=:email";
+                $query="UPDATE utilizador SET repor_pass=:repor_pass WHERE email=:email";
 
-                        $stmt = $db->prepare($query);
+                $stmt = $db->prepare($query);
 
-                        $stmt->execute(array(":repor_pass"=>$password,"email"=>$email));
+                $stmt->execute(array(":repor_pass"=>$password,"email"=>$email));
                         
-                        $subject = "Recuperação de Password";
+                $subject = "Recuperação de Password";
 
-                        $message= "
+                $message= "
 Olá, $email
                         
 Clique no link a baixo para fazer reset à sua password:
@@ -174,24 +167,19 @@ http://localhost/projetofinal/index.php?op=resetpassword&id_utilizador=$id&repor
 Obrigado.
 Hire-Frame
 ";
+                $header = "From: webthings99@gmail.com"."X=Mailer:PHP/".phpversion();
 
-                        $header = "From: webthings99@gmail.com"."X=Mailer:PHP/".phpversion();
-
-                       mail($email,$subject,$message);
-                        $msg = "<script> alert(Enviámos um email para $email.Por favor clique no link que lhe enviámos para fazer reset à sua password) </script>";
+                mail($email,$subject,$message);
+                $msg = "<script type= 'text/javascript'> alert(Enviámos um email para $email.Por favor clique no link que lhe enviámos para fazer reset à sua password) </script>";
             } else {
-            $msg = "<script> alert(Pedimos Desculpa, mas o e-mail que introduziu não corresponde a nenhum mail na nossa base de dados) </script>";
+                $msg = "<script type= 'text/javascript'> alert(Pedimos Desculpa, mas o e-mail que introduziu não corresponde a nenhum mail na nossa base de dados) </script>";
             }
         }
-            ?>
-            
-            <?php
+?>
 
-                if(isset($msg)) {
-                    echo $msg;
-                } else {
-                    //echo '<div>Please enter your email address. You will receive a link to create a new password via email.!</div>';  
-                }
-
-            ?>
+<?php
+    if(isset($msg)) {
+        echo $msg;
+    }
+?>
 

@@ -64,9 +64,7 @@ if(isset($_POST["submit"])){
         if ($db->query($sql)) {
         echo "<script type= 'text/javascript'>alert('Registo Efetuado com Sucesso');</script>";
         
-    echo '<script type="text/javascript"> window.location="index.php?op=login";</script>';
-    
-
+        echo '<script type="text/javascript"> window.location="index.php?op=login";</script>';
         }
         else{
         echo "<script type= 'text/javascript'>alert('Registo Inválido.');</script>";

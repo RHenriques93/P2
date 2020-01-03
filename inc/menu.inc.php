@@ -77,7 +77,7 @@ if(isset($_SESSION["username"]))
 
     }
 
-      echo '<a href="index.php?op=userpage" class="btn m-1 btn-default f-500 f-17">'.$_SESSION["username"].'<img src="'.$imagem.'" class="rounded-circle border border-grad ml-2" width="50px"></a>
+      echo '<a href="index.php?op=userpage" class="btn m-1 btn-default f-500 f-17">'.$_SESSION["username"].'<img src="'.$imagem.'" class="rounded-circle border border-grad ml-2" width="50px" height="50px"></a>
       <a href="index.php?op=logout" class="btn btn-login">Logout</a>';
  } else {
 

@@ -25,10 +25,11 @@ $id = $_SESSION["id_utilizador"];
     foreach($dados as $row) {
     
 
-      echo '<div class="row justify-content-center"><div class="col-md-5 text-center p-2"> 
-   <ul class="list-group">
+      echo '<div class="row justify-content-center">
+      <div class="col-md-5 text-center p-2"> 
+   <ul class="list-group bg-white rounded">
  
-   <li class="list-group-item"><a href="index.php?op=gerirreq&idreq='.$row["id_requisicao"].'">'.$row["nome_projeto"].'</a></li>
+   <li class="list-group-item grad-txt f-12 font-weight-bold"><a href="index.php?op=gerirreq&idreq='.$row["id_requisicao"].'">'.$row["nome_projeto"].'</a></li>
   
    </ul>
 

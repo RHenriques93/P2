@@ -3,19 +3,15 @@
 require("db_projetofinal.php");
 $id = $_SESSION["id_utilizador"];
 
-
-
 ?>
 
-<div class ="container">
-<div class="row justify-content-center">
-<div class="col-md-6">
-
-          <div class="col-md-12 text-center p-2">
-                <h3 class="">Atualizar ou Eliminar Pedido</h3>
-          </div>
-
-            
+<div class="container">
+  <div class="container-fluid py-3">
+    <div class="row justify-content-center">
+      <header class="col-md-12 mb-4">
+        <h2 class="text-center text-dark">Atualizar ou Eliminar Serviços</h2>
+        <span class="underline mb-3"></span>
+      </header>
 
 
 <?php
@@ -31,14 +27,11 @@ $id = $_SESSION["id_utilizador"];
 
 
     echo'
-<form method="post" action="" enctype="multipart/form-data">
-
-
-         
+<form method="post" class="col-md-9" action="" enctype="multipart/form-data">
   <div class="form-group">
-              <label class="grad-txt f-20 font-weight-bold" for="name">Nome do Projeto</label>
-              <input type="text" class="form-control" id="name" name="nome_projeto" aria-describedby="nameHelp" value="'.$row['nome_projeto'].'">
-        </div>
+    <label class="grad-txt f-20 font-weight-bold" for="name">Nome do Projeto</label>
+     <input type="text" class="form-control" id="name" name="nome_projeto" aria-describedby="nameHelp" value="'.$row['nome_projeto'].'">
+  </div>
         
   <div class="form-group">
   <label class="grad-txt f-20 font-weight-bold"for="exampleFormControlSelect2">Sub Area</label>
@@ -72,11 +65,15 @@ $id = $_SESSION["id_utilizador"];
 </div>';
 
   echo '<div class="row justify-content-center">
-      <img src="'.$row["img_req"].'" class="rounded-circle" width="200px" height="200px";>
-      <input type="file" name="imagemrequisicao" class="form-control-file my-3 text-dark" accept="image/x-png,image/jpeg"/>
-  </div><br>
-
-  <div class="form-actions">
+      <div class="col-md-12 text-center">
+        <img src="'.$row["img_req"].'" class="rounded-circle" width="200px" height="200px";>
+        <div class="form-actions">
+                  <input type="file" name="imagemservico" class="btn border-dark form-control-file my-3" accept="image/x-png,image/jpeg" required>
+        </div>
+      </div>
+  </div>
+  <hr>
+  <div class="form-actions text-center my-2">
      <button type="submit" name="submitservice" class="btn btn-primary ml-auto">Atualizar Serviço</button>
      <button type="submit" name="deleteservice" class="btn btn-danger ml-auto">Apagar Serviço</button>
    </div>

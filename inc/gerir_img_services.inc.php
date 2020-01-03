@@ -48,7 +48,6 @@ echo '<div class="row justify-content-center">
  <hr>
 <div class="form-actions">
     <div class="row justify-content-center">  
-
         <input type="file" name="imagemservico" class="form-control-file my-3 btn btn-primary form-control-file my-3" accept="image/x-png,image/jpeg" required/>
     </div>
     <div class="row justify-content-center">    

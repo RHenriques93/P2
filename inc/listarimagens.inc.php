@@ -81,19 +81,14 @@ $id = $_SESSION["id_utilizador"];
 <hr>
 
 <div class="row justify-content-center">
-
-
-            <div class="col-md-5 text-center p-2">
-                <form method="post" action="" enctype="multipart/form-data">
-                    <button type="submit" name="submitservice" class="btn btn-success ml-auto">Adicionar Nova Imagem</button>
-                            <div class="form-actions">
-                                    <input type="file" name="imagemservico" class="btn border-dark form-control-file my-3" accept="image/x-png,image/jpeg" required/>
-                            </div>
-                </form>
-                 
+    <div class="col-md-5 text-center p-2">
+        <form method="post" action="" enctype="multipart/form-data">
+            <button type="submit" name="submitservice" class="btn btn-success ml-auto">Adicionar Nova Imagem</button>
+            <div class="form-actions">
+                <input type="file" name="imagemservico" class="btn border-dark form-control-file my-3" accept="image/x-png,image/jpeg" required>
             </div>
-
-
+        </form>
+    </div>
 </div>
 
 

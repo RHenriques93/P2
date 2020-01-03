@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 03-Jan-2020 às 14:15
+-- Generation Time: 03-Jan-2020 às 14:29
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -31,10 +31,10 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `area`;
 CREATE TABLE IF NOT EXISTS `area` (
   `id_area` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(150) CHARACTER SET utf8 NOT NULL,
-  `descricao` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `nome` varchar(150) NOT NULL,
+  `descricao` varchar(200) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `img_area` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `img_area` varchar(255) NOT NULL,
   PRIMARY KEY (`id_area`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
@@ -79,7 +79,7 @@ INSERT INTO `genero_utilizador` (`id_genero`, `genero`) VALUES
 DROP TABLE IF EXISTS `img_service`;
 CREATE TABLE IF NOT EXISTS `img_service` (
   `id_img_serv` int(11) NOT NULL AUTO_INCREMENT,
-  `img_serv` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT 'http://localhost/projetofinal/img/uploads/exemplo.jpg',
+  `img_serv` varchar(255) NOT NULL DEFAULT 'http://localhost/projetofinal/img/uploads/exemplo.jpg',
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_img_serv`),
   KEY `fk_id_servico_img_service` (`id_servico`)
@@ -135,12 +135,12 @@ DROP TABLE IF EXISTS `requisicao`;
 CREATE TABLE IF NOT EXISTS `requisicao` (
   `id_requisicao` int(11) NOT NULL AUTO_INCREMENT,
   `id_subarea` int(11) NOT NULL,
-  `nome_projeto` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `descricao` varchar(250) CHARACTER SET utf8 NOT NULL,
+  `nome_projeto` varchar(50) NOT NULL,
+  `descricao` varchar(250) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_utilizador` int(11) NOT NULL,
   `preco` int(11) NOT NULL,
-  `img_req` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT 'http://localhost/projetofinal/img/uploads/exemplo.jpg',
+  `img_req` varchar(255) NOT NULL DEFAULT 'http://localhost/projetofinal/img/uploads/exemplo.jpg',
   PRIMARY KEY (`id_requisicao`),
   KEY `fk_id_utilizador_req_utilizador_req` (`id_utilizador`),
   KEY `fk_id_subarea_req_subarea_req` (`id_subarea`)
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   `id_subarea` int(11) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_servico` int(11) NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `descricao` varchar(255) NOT NULL,
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`)
@@ -194,10 +194,10 @@ INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `des
 DROP TABLE IF EXISTS `subarea`;
 CREATE TABLE IF NOT EXISTS `subarea` (
   `id_subarea` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `nome` varchar(50) NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_area` int(11) NOT NULL,
-  `img_subarea` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `img_subarea` varchar(255) NOT NULL,
   PRIMARY KEY (`id_subarea`),
   KEY `fk_id_area_area` (`id_area`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
@@ -231,7 +231,7 @@ INSERT INTO `subarea` (`id_subarea`, `nome`, `data`, `id_area`, `img_subarea`) V
 DROP TABLE IF EXISTS `tipo_utilizador`;
 CREATE TABLE IF NOT EXISTS `tipo_utilizador` (
   `id_tipo` int(11) NOT NULL,
-  `nome_tipo` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `nome_tipo` varchar(255) NOT NULL,
   PRIMARY KEY (`id_tipo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -253,17 +253,17 @@ INSERT INTO `tipo_utilizador` (`id_tipo`, `nome_tipo`) VALUES
 DROP TABLE IF EXISTS `utilizador`;
 CREATE TABLE IF NOT EXISTS `utilizador` (
   `id_utilizador` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(15) CHARACTER SET utf8 NOT NULL,
-  `nome` varchar(150) CHARACTER SET utf8 NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `nome` varchar(150) NOT NULL,
   `id_genero` int(11) NOT NULL,
-  `email` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(100) NOT NULL,
   `data_nascimento` date NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `pass` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `tipo_utilizador` int(11) NOT NULL,
-  `biografia` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `imagem` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `repor_pass` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `biografia` varchar(255) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  `repor_pass` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_utilizador`),
   UNIQUE KEY `id_area` (`id_utilizador`),
   UNIQUE KEY `username` (`username`),
@@ -278,9 +278,9 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`, `repor_pass`) VALUES
 (1, 'rafaelhenriques', 'Rafael Henriques', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2020-01-03 13:50:31', '$2y$10$91mgWy.jEcoph.YuY7/ckerywZYyX13IFFGEp/NfYEqMWlgkQWUcC', 2, 'Estudante de Multimédia no ISMT.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', '27d85242f335079d07dd253f817abb4f'),
 (2, 'andreferreira', 'André Ferreira', 1, 'falcon.oficialyt@gmail.com', '1999-12-18', '2020-01-03 13:51:51', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'Estudante de Multimédia no Instituto Superior Miguel Torga.', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg', 'ad394df9cbcaeeb677f1648d8483fdd4'),
-(4, 'sofia', 'Sofia Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2020-01-03 14:08:10', '$2y$10$QrmSsaCxzibpYURl/BjkvuUI1pN/UO3KNgCXny4VBNfZfqu38J./y', 2, 'teste', 'http://localhost/projetofinal/img/uploads/sofiabarreira.jpg', ''),
+(4, 'sofiabarreira', 'Sofia Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2020-01-03 14:17:47', '$2y$10$QrmSsaCxzibpYURl/BjkvuUI1pN/UO3KNgCXny4VBNfZfqu38J./y', 2, 'teste', 'http://localhost/projetofinal/img/uploads/sofiabarreira.jpg', ''),
 (8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-29 16:55:55', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg', ''),
-(11, 'sheila', 'Sheila', 2, 'sheila@gmail.com', '2019-12-17', '2020-01-01 15:44:38', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg', '');
+(11, 'sheila', 'Sheila Margarida', 2, 'sheila@gmail.com', '2019-12-17', '2020-01-03 14:18:29', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg', '');
 
 --
 -- Constraints for dumped tables

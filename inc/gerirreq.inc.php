@@ -68,7 +68,7 @@ $id = $_SESSION["id_utilizador"];
       <div class="col-md-12 text-center">
         <img src="'.$row["img_req"].'" class="rounded-circle" width="200px" height="200px";>
         <div class="form-actions">
-                  <input type="file" name="imagemrequisicao" class="btn border-dark form-control-file my-3" accept="image/x-png,image/jpeg">
+          <input type="file" name="imagemrequisicao" class="btn border-dark form-control-file my-3" accept="image/x-png,image/jpeg">
         </div>
       </div>
   </div>
@@ -220,13 +220,6 @@ if(isset($_POST["deleteservice"])){
      }
  } 
  
-
-
-
-
-
-
-
 }
 ?>
 

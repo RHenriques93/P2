@@ -41,7 +41,7 @@ $id = $_SESSION["id_utilizador"];
   
 } else {
 
-echo '<div class="row justify-content-center"><div class="col-md-5 text-center p-2"> <h1>Ainda não tem serviços associados à sua conta. Associe um serviço.</h1></div></div>';
+echo '<div class="row justify-content-center"><div class="col-md-5 text-center p-2"> <h1>Ainda não tem serviços associados à sua conta. Associe um serviço.</div></div>';
 
 }
   

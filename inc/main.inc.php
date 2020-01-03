@@ -33,7 +33,7 @@
 
 
                 <?php require("db_projetofinal.php");
-$dados = $db->query("SELECT * FROM area");
+$dados = $db->query("SELECT * FROM area LIMIT 3");
              foreach ($dados as $linha) {       
                 echo '<div class="col-md-4 col-sm-6 col-xs-12 my-1 text-center">
                         <div class="grad p-4 rounded">

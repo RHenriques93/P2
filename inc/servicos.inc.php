@@ -16,7 +16,7 @@ foreach ($dados as $row) {
 
            echo '
            
-                <div class="col-md-4 col-sm-6 col-xs-12 my-1 text-center">
+                <div class="col-md-4 col-sm-6 col-xs-12 my-2 text-center">
                     <div class="grad p-4 rounded">
                         
                         <a href="index.php?op=area&id='.$row["id_area"].'" class="text-light">

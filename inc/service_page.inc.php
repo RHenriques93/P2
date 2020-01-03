@@ -22,7 +22,7 @@ foreach ($dados as $row) {
 
     
                 echo '                                    
-                        <div class="card m-4" style="width: auto;">
+                        <div class="card m-4">
                         <div class="card-body grad rounded">
 
                                         <div class="media">
@@ -64,9 +64,9 @@ foreach ($dados as $row) {
 
                                                 foreach ($dados as $linha) {
                                                     echo '   
-                                                    <div class="col-md-5 col-sm-4 col-xs-6 m-2 text-center"> 
+                                                    <div class="col-md-5 col-sm-5 col-xs-6 m-2"> 
                                                         <figure class="figure">  
-                                                            <img class="figure-img" src="'.$linha["img_serv"].'" width="auto" height="250px" alt="Imagem do Serviço">
+                                                            <img class="figure-img img-fluid mx-auto d-block" src="'.$linha["img_serv"].'" width="auto" height="250px" alt="Imagem do Serviço">
                                                         </figure>
                                                     </div>
                                                         ';

@@ -1,3 +1,6 @@
+<div class="container">
+    <div class="container-fluid py-3">
+    
 <?php require("db_projetofinal.php");
 
 $id = $_REQUEST["id"];
@@ -6,12 +9,12 @@ $dados = $db->query("SELECT subarea.nome, subarea.id_area FROM subarea WHERE sub
 
 foreach ($dados as $linha)
 
- echo   '<div class="container">
-        <div class="container-fluid py-3">
+ echo   '
             <header class="col-md-12 mb-4">
                     <h2 class="text-center text-dark">'.$linha["nome"].'</h2>
                     <span class="underline mb-3"></span>
-                                </header>
+            </header>
+            
             <div class="row justify-content-center">';
 
 
@@ -27,8 +30,9 @@ if ($dados->rowCount() > 0)
 
 foreach ($dados as $row) {
 
-                echo '<div class="col-md-3 col-sm-6 col-xs-12 m-2">
-                    <div class="card" style="width: 18rem">
+                echo '
+                <div class="col-md-3 col-sm-6 col-xs-12 m-2">
+                    <div class="card">
                     
                     <div id="'.$row["id_servico"].'" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -44,7 +48,7 @@ $id_serv = $row["id_servico"];
 
      foreach ($dados as $linha) {
      echo ' 
-     <div class="carousel-item">
+        <div class="carousel-item">
             <img src="'.$linha["img_serv"].'" class="card-img-top" alt="...">
         </div>
        
@@ -76,6 +80,7 @@ $id_serv = $row["id_servico"];
 
                             <a href="index.php?op=servicepage&id_utilizador='.$row["id_utilizador"].'&id_service='.$row["id_servico"].'" class="btn btn-primary mt-2">+ Info</a>
                         </div>
+
                     </div>
                 </div>';
 

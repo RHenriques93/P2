@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 03-Jan-2020 às 16:27
+-- Generation Time: 03-Jan-2020 às 22:35
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `img_service` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_img_serv`),
   KEY `fk_id_servico_img_service` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `img_service`
@@ -96,7 +96,8 @@ INSERT INTO `img_service` (`id_img_serv`, `img_serv`, `id_servico`) VALUES
 (16, 'http://localhost/projetofinal/img/uploads/logodesign2.jpg', 19),
 (17, 'http://localhost/projetofinal/img/uploads/motiongraphics.jpg', 21),
 (18, 'http://localhost/projetofinal/img/uploads/flyer.jpg', 17),
-(19, 'http://localhost/projetofinal/img/uploads/webdesing_img.jpg', 46);
+(19, 'http://localhost/projetofinal/img/uploads/webdesing_img.jpg', 46),
+(20, 'http://localhost/projetofinal/img/uploads/fotodeproduto.jpg', 48);
 
 -- --------------------------------------------------------
 
@@ -113,20 +114,21 @@ CREATE TABLE IF NOT EXISTS `preco_servico` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_preco_servico`),
   KEY `fk_id_servico_servico` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `preco_servico`
 --
 
 INSERT INTO `preco_servico` (`id_preco_servico`, `base`, `padrao`, `premium`, `id_servico`) VALUES
-(6, 10, 20, 30, 17),
-(7, 200, 300, 500, 18),
-(8, 25, 75, 100, 19),
-(9, 25, 35, 50, 21),
+(6, 25, 50, 75, 17),
+(7, 200, 350, 500, 18),
+(8, 50, 125, 200, 19),
+(9, 75, 125, 200, 21),
 (11, 40, 50, 60, 30),
-(12, 30, 465, 50, 45),
-(13, 10, 20, 30, 46);
+(12, 100, 175, 250, 45),
+(13, 500, 700, 1000, 46),
+(15, 100, 175, 250, 48);
 
 -- --------------------------------------------------------
 
@@ -173,20 +175,21 @@ CREATE TABLE IF NOT EXISTS `servico` (
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `servico`
 --
 
 INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `descricao`) VALUES
-(2, 7, '2019-12-26 22:01:41', 17, 'teste'),
-(1, 9, '2019-12-28 20:13:21', 18, 'CriaÃ§Ã£o de VÃ­deos para empresas etc.'),
-(1, 6, '2019-12-26 22:01:41', 19, 'CriaÃ§Ã£o de Logotipos para varios tipos de empresas ou individuos.'),
-(2, 12, '2019-12-26 22:01:41', 21, ''),
-(11, 7, '2019-12-26 22:01:41', 30, 'CriaÃ§Ã£o de flyers para todo o tipo de eventos.'),
-(4, 6, '2019-12-26 22:01:41', 45, 'CriaÃ§Ã£o de vÃ­deos do tipo motion graphicss.jdsadsas sddfdddeexxxxt4rrttffxxxx'),
-(4, 13, '2019-12-26 22:01:41', 46, 'realizo serviÃ§os de web design, linguagens html, javascript, php ETCs - xxx');
+(2, 7, '2020-01-03 22:32:34', 17, 'Realização de flyers para todo o tipo de eventos.'),
+(1, 9, '2020-01-03 22:33:17', 18, 'Melhore a comunicação da sua empresa através dos ví­deos instituicionais.'),
+(1, 6, '2020-01-03 22:33:50', 19, 'Criação de Logótipos para vários tipos de empresas ou indivíduos.'),
+(2, 12, '2020-01-03 21:13:18', 21, 'Desenvolvimento de grafismos animados.'),
+(11, 7, '2020-01-03 21:21:29', 30, 'Desenvolvimento de flyers para eventos.'),
+(4, 6, '2020-01-03 22:34:28', 45, 'Criação de logótipos para todos os tipos de marcas.'),
+(4, 13, '2020-01-03 21:15:45', 46, 'Desenvolvimento de Websites em PHP'),
+(2, 18, '2020-01-03 21:26:32', 48, 'Fotografias de Produto / Publicidade para o seu evento ou empresa. ');
 
 -- --------------------------------------------------------
 
@@ -270,6 +273,7 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
   PRIMARY KEY (`id_utilizador`),
   UNIQUE KEY `id_area` (`id_utilizador`),
   UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`),
   KEY `fk_id_tipo_tipo_utilizador` (`tipo_utilizador`),
   KEY `fk_id_genero_genero_utilizador` (`id_genero`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
@@ -279,11 +283,11 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 --
 
 INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`, `repor_pass`) VALUES
-(1, 'rafaelhenriques', 'Rafael Henriques', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2020-01-03 13:50:31', '$2y$10$91mgWy.jEcoph.YuY7/ckerywZYyX13IFFGEp/NfYEqMWlgkQWUcC', 2, 'Estudante de Multimédia no ISMT.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', '27d85242f335079d07dd253f817abb4f'),
+(1, 'rafaelhenriques', 'Rafael Henriques', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2020-01-03 17:09:32', '$2y$10$91mgWy.jEcoph.YuY7/ckerywZYyX13IFFGEp/NfYEqMWlgkQWUcC', 2, 'Estudante de Multimédia no ISMT.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', 'a38a1d64322708af4d3a07e72bad391a'),
 (2, 'andreferreira', 'André Ferreira', 1, 'falcon.oficialyt@gmail.com', '1999-12-18', '2020-01-03 13:51:51', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'Estudante de Multimédia no Instituto Superior Miguel Torga.', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg', 'ad394df9cbcaeeb677f1648d8483fdd4'),
 (4, 'sofiabarreira', 'Sofia Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2020-01-03 14:17:47', '$2y$10$QrmSsaCxzibpYURl/BjkvuUI1pN/UO3KNgCXny4VBNfZfqu38J./y', 2, 'teste', 'http://localhost/projetofinal/img/uploads/sofiabarreira.jpg', ''),
-(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2020-01-03 14:33:58', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/carlos.jpg', ''),
-(11, 'sheila', 'Sheila Margarida', 2, 'sheila@gmail.com', '2019-12-17', '2020-01-03 14:36:37', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/sheila.jpg', '');
+(8, 'Carlos1999', 'Carlos Xavier', 1, 'carlos@gmail.com', '2019-12-18', '2020-01-03 21:18:38', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Carlos, 36 Anos, Negociante de Automóveis.', 'http://localhost/projetofinal/img/uploads/carlos.jpg', ''),
+(11, 'sheila', 'Sheila Margarida', 2, 'sheila@gmail.com', '2019-12-17', '2020-01-03 21:20:36', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, 'Designer Gráfica em Part-Time', 'http://localhost/projetofinal/img/uploads/sheila.jpg', '');
 
 --
 -- Constraints for dumped tables

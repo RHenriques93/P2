@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 03-Jan-2020 às 14:29
+-- Generation Time: 03-Jan-2020 às 14:37
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -279,8 +279,8 @@ INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `ema
 (1, 'rafaelhenriques', 'Rafael Henriques', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2020-01-03 13:50:31', '$2y$10$91mgWy.jEcoph.YuY7/ckerywZYyX13IFFGEp/NfYEqMWlgkQWUcC', 2, 'Estudante de Multimédia no ISMT.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', '27d85242f335079d07dd253f817abb4f'),
 (2, 'andreferreira', 'André Ferreira', 1, 'falcon.oficialyt@gmail.com', '1999-12-18', '2020-01-03 13:51:51', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'Estudante de Multimédia no Instituto Superior Miguel Torga.', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg', 'ad394df9cbcaeeb677f1648d8483fdd4'),
 (4, 'sofiabarreira', 'Sofia Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2020-01-03 14:17:47', '$2y$10$QrmSsaCxzibpYURl/BjkvuUI1pN/UO3KNgCXny4VBNfZfqu38J./y', 2, 'teste', 'http://localhost/projetofinal/img/uploads/sofiabarreira.jpg', ''),
-(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2019-12-29 16:55:55', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/hacksawridge.jpg', ''),
-(11, 'sheila', 'Sheila Margarida', 2, 'sheila@gmail.com', '2019-12-17', '2020-01-03 14:18:29', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/thehatefuleight.jpg', '');
+(8, 'Carlos1999', 'Carlos ', 1, 'carlos@gmail.com', '2019-12-18', '2020-01-03 14:33:58', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Olá o meu nome é Carlos.', 'http://localhost/projetofinal/img/uploads/carlos.jpg', ''),
+(11, 'sheila', 'Sheila Margarida', 2, 'sheila@gmail.com', '2019-12-17', '2020-01-03 14:36:37', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, '', 'http://localhost/projetofinal/img/uploads/sheila.jpg', '');
 
 --
 -- Constraints for dumped tables

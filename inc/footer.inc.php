@@ -27,7 +27,7 @@
   </div>
   <div class="page-footer font-small bg-dark mt-4">
 <div class="footer-copyright text-center py-3 nova-s">© 2020 Copyright |
-    <a target="_blank" href="https://www.falcondesign.pt/" class="nova-s">André Ferreira</a> e <a href="https://pt.pornhub.com/gayporn" class="nova-s">Rafael Henriques</a>
+    <a target="_blank" href="https://www.falcondesign.pt/" class="nova-s">André Ferreira</a> e <a href="https://www.behance.net/rafael_hen06b4?tracking_source=search-all%7Crafael%20henriques" class="nova-s">Rafael Henriques</a>
   </div>
 </div>
 </div>

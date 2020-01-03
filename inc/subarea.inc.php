@@ -23,7 +23,7 @@ if ($dados->rowCount() > 0){
 
 foreach ($dados as $row) {
 
-  echo '<div class="col-md-3 col-sm-6 col-xs-12 m-2">
+  echo '<div class="col-md-4 col-sm-6 col-xs-12 m-2">
           <div class="card">
             <div id="'.$row["id_servico"].'" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">

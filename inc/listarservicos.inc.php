@@ -15,8 +15,8 @@ $id = $_SESSION["id_utilizador"];
 <?php
    
   
-  $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-  $dados = $db->query("SELECT subarea.nome, servico.descricao, servico.id_subarea AS 'servico associado', servico.id_servico FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id");
+
+  $dados = $db->query("SELECT subarea.nome, area.nome AS 'area nome', servico.descricao, servico.id_subarea AS 'servico associado', servico.id_servico FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id");
      
   
   
@@ -30,7 +30,7 @@ $id = $_SESSION["id_utilizador"];
                 <div class="col-md-5 text-center p-2"> 
 
                     <ul class="list-group bg-white rounded">
-                         <li class="list-group-item grad-txt f-12 font-weight-bold"><a href="index.php?op=gerirservicos&idservico='.$row["id_servico"].'">'.$row["nome"].'</a></li>
+                         <li class="list-group-item f-12 font-weight-bold"><a href="index.php?op=gerirservicos&idservico='.$row["id_servico"].'">'.$row["area nome"].' / <span class="grad-txt">'.$row["nome"].'</span></a></li>
                    </ul>
 
                </div>

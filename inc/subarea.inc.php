@@ -5,6 +5,7 @@
 
 $id = $_REQUEST["id"];
 
+
 $dados = $db->query("SELECT subarea.nome, subarea.id_area FROM subarea WHERE subarea.id_subarea = $id");
 
 foreach ($dados as $linha)
@@ -13,9 +14,11 @@ foreach ($dados as $linha)
 ?>
       <span class="underline mb-3"></span>
     </header>
-    <div class="row justify-content-center">         
+    <div class="row justify-content-center">   
+
 <?php 
-$db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+
+$db = new PDO("mysql:host=localhost; dbname=projetofinal; charset=utf8","root","");
 $dados = $db->query("SELECT DISTINCT utilizador.nome, utilizador.id_utilizador, utilizador.imagem, servico.id_servico, servico.descricao, preco_servico.base FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area JOIN preco_servico ON servico.id_servico = preco_servico.id_servico WHERE subarea.id_subarea = $id");
 
 

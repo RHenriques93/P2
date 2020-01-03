@@ -24,7 +24,7 @@ $id = $_SESSION["id_utilizador"];
    
    $id_servico = $_REQUEST["idservico"];
   
-  $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+  
   $dados = $db->query("SELECT preco_servico.id_preco_servico, preco_servico.base, preco_servico.padrao, preco_servico.premium, subarea.nome, servico.descricao, servico.id_subarea AS 'servico associado', servico.id_servico FROM servico JOIN utilizador ON servico.id_utilizador = utilizador.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area JOIN preco_servico ON servico.id_servico = preco_servico.id_servico WHERE utilizador.id_utilizador = $id AND servico.id_servico = $id_servico");
                          
   foreach($dados as $row) {
@@ -41,7 +41,7 @@ $id = $_SESSION["id_utilizador"];
 
     <option class="bg-dark text-dark" value="'.$row['servico associado'].'"selected>'.$row['nome'].'</option>';
 
-         $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+         
       $dados = $db->query("SELECT * FROM subarea");
                                                                 
       foreach($dados as $linha) {
@@ -108,7 +108,7 @@ $id = $_SESSION["id_utilizador"];
 if(isset($_REQUEST["submitservice"])) {
     
  
-    $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
+             
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
 
 

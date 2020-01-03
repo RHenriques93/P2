@@ -8,7 +8,7 @@ if(isset($_REQUEST["id_utilizador"],$_REQUEST["id_service"])){
 $id = $_REQUEST["id_utilizador"];
 $id_serv = $_REQUEST["id_service"];
 
-$db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+
 $dados = $db->query("SELECT utilizador.nome AS 'Nome Utilizador', utilizador.biografia, utilizador.imagem, genero_utilizador.genero, area.nome AS 'Nome Area', subarea.nome AS 'Nome Subarea', servico.descricao, preco_servico.base, preco_servico.padrao, preco_servico.premium FROM utilizador JOIN genero_utilizador ON utilizador.id_genero = genero_utilizador.id_genero JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area JOIN preco_servico ON servico.id_servico = preco_servico.id_servico WHERE utilizador.id_utilizador = $id AND servico.id_servico = '$id_serv'");
 
 foreach ($dados as $row) {

@@ -19,9 +19,9 @@ require("db_projetofinal.php");
           <span class="underline-rosa mb-3"></span>
         </header>
     
-         <div class="row justify-content-center">
-        <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px">
-         </div><br>
+        <div class="row justify-content-center">
+          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px" height="200px">
+        </div><br>
     
         <div class="row justify-content-center">
           <div class="col-md-4">
@@ -42,7 +42,7 @@ require("db_projetofinal.php");
           </header>
     
           <div class="row justify-content-center">
-          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px">
+          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px" height="200px">
            </div><br>
     
           <div class="row justify-content-center">
@@ -78,7 +78,7 @@ require("db_projetofinal.php");
         </header>
     
          <div class="row justify-content-center">
-        <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px">
+        <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px" height="200px">
          </div><br>
     
         <div class="row justify-content-center">
@@ -101,7 +101,7 @@ require("db_projetofinal.php");
           </header>
     
           <div class="row justify-content-center">
-          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad myborder" width="200px">
+          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad myborder" width="200px" height="200px">
            </div><br>
     
           <div class="row justify-content-center">
@@ -140,7 +140,7 @@ require("db_projetofinal.php");
         </header>
     
          <div class="row justify-content-center">
-        <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px">
+        <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px" height="200px">
          </div><br>
     
         <div class="row justify-content-center">
@@ -169,7 +169,7 @@ require("db_projetofinal.php");
           </header>
     
           <div class="row justify-content-center">
-          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px">
+          <img src="'.$row["imagem"].'" class="rounded-circle border border-grad" width="200px" height="200px">
            </div><br>
     
           <div class="row justify-content-center">

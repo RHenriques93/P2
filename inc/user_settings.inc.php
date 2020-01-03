@@ -26,7 +26,7 @@ foreach ($dados as $linha) {
 
                   <div class="col-md-4 text-center p-3 justify-content-center">
                     
-                        <img src="'.$linha["imagem"].'" class="rounded-circle border border-grad" width="200px">
+                        <img src="'.$linha["imagem"].'" class="rounded-circle border border-grad" width="200px" height="200px">
                         <input type="file" name="imagemperfil" class="form-control-file my-3 btn btn-primary btn-sm" accept="image/x-png,image/jpeg"/>
                         
                   </div>

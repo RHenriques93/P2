@@ -5,10 +5,11 @@ require("db_projetofinal.php");
 $id = $_SESSION["id_utilizador"];
 ?>
 
-
-                 <div class="col-12 text-center p-2">
-                <h3 class="">Seus Pedidos</h3>
-            </div>
+<div class="container py-3">
+      <header class="col-md-12 mb-4">
+        <h2 class="text-center text-dark">Efetuar Pedido</h2>
+        <span class="underline-rosa mb-3"></span>    
+      </header>
 
 <?php
    
@@ -58,3 +59,5 @@ echo '<div class="row justify-content-center"><div class="col-md-5 text-center p
       <div class="col-md-4">
         <button class="btn btn-grad grad col-12 mb-2"><h5><a class="text-light" href="index.php?op=addreq">Efetuar Pedido</a></h5></button>
       </div>
+</div>
+</div>

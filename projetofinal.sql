@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 03-Jan-2020 às 14:37
+-- Generation Time: 03-Jan-2020 às 16:07
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -83,17 +83,19 @@ CREATE TABLE IF NOT EXISTS `img_service` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_img_serv`),
   KEY `fk_id_servico_img_service` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `img_service`
 --
 
 INSERT INTO `img_service` (`id_img_serv`, `img_serv`, `id_servico`) VALUES
-(2, 'http://localhost/projetofinal/img/uploads/83519.png', 19),
-(7, 'http://localhost/projetofinal/img/uploads/11-11.png', 19),
-(10, 'http://localhost/projetofinal/img/uploads/273248_pt (1).jpg', 18),
-(15, 'http://localhost/projetofinal/img/uploads/dark_knight.jpg', 45);
+(2, 'http://localhost/projetofinal/img/uploads/logodesign.jpg', 19),
+(10, 'http://localhost/projetofinal/img/uploads/videoinstiticional.jpg', 18),
+(15, 'http://localhost/projetofinal/img/uploads/dark_knight.jpg', 45),
+(16, 'http://localhost/projetofinal/img/uploads/logodesign2.jpg', 19),
+(17, 'http://localhost/projetofinal/img/uploads/motiongraphics.jpg', 21),
+(18, 'http://localhost/projetofinal/img/uploads/flyer.jpg', 17);
 
 -- --------------------------------------------------------
 
@@ -151,8 +153,8 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
 --
 
 INSERT INTO `requisicao` (`id_requisicao`, `id_subarea`, `nome_projeto`, `descricao`, `data`, `id_utilizador`, `preco`, `img_req`) VALUES
-(1, 6, 'Auto Carlos Stand 2019', 'CriaÃ§Ã£o de um logÃ³tipo para um stand de automÃ³veis com o nome Auto Carlos.', '2019-12-27 13:21:47', 8, 200, 'http://localhost/projetofinal/img/uploads/83519.png'),
-(2, 7, 'Evento de Natal ', 'CriaÃ§Ã£o de um flyer para um evento de natal onde  irÃ£o decorrer concertos etc.', '2019-12-27 13:50:01', 8, 100, 'http://localhost/projetofinal/img/uploads/83519.png');
+(1, 6, 'Auto Carlos Stand 2019', 'CriaÃ§Ã£o de um logÃ³tipo para um stand de automÃ³veis com o nome Auto Carlos.', '2020-01-03 15:44:02', 8, 200, 'http://localhost/projetofinal/img/uploads/logotipostand.png'),
+(2, 7, 'Evento de Natal ', 'CriaÃ§Ã£o de um flyer para um evento de natal onde  irÃ£o decorrer concertos etc.', '2020-01-03 15:53:26', 8, 100, 'http://localhost/projetofinal/img/uploads/christmasevent.jpg');
 
 -- --------------------------------------------------------
 

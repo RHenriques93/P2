@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 03-Jan-2020 às 16:07
+-- Generation Time: 03-Jan-2020 às 16:27
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `img_service` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_img_serv`),
   KEY `fk_id_servico_img_service` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `img_service`
@@ -92,10 +92,11 @@ CREATE TABLE IF NOT EXISTS `img_service` (
 INSERT INTO `img_service` (`id_img_serv`, `img_serv`, `id_servico`) VALUES
 (2, 'http://localhost/projetofinal/img/uploads/logodesign.jpg', 19),
 (10, 'http://localhost/projetofinal/img/uploads/videoinstiticional.jpg', 18),
-(15, 'http://localhost/projetofinal/img/uploads/dark_knight.jpg', 45),
+(15, 'http://localhost/projetofinal/img/uploads/logodesign3.png', 45),
 (16, 'http://localhost/projetofinal/img/uploads/logodesign2.jpg', 19),
 (17, 'http://localhost/projetofinal/img/uploads/motiongraphics.jpg', 21),
-(18, 'http://localhost/projetofinal/img/uploads/flyer.jpg', 17);
+(18, 'http://localhost/projetofinal/img/uploads/flyer.jpg', 17),
+(19, 'http://localhost/projetofinal/img/uploads/webdesing_img.jpg', 46);
 
 -- --------------------------------------------------------
 

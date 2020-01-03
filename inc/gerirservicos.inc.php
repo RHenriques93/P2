@@ -106,29 +106,49 @@ $id = $_SESSION["id_utilizador"];
 <?php
 
 if(isset($_REQUEST["submitservice"])) {
-
     
- try {
+ 
     $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
 
 
-    
-      $sql = $db->prepare("UPDATE servico JOIN preco_servico ON servico.id_servico = preco_servico.id_servico SET servico.id_utilizador = $id, servico.id_subarea = :id_subarea, servico.descricao = :descricao, preco_servico.base = :base, preco_servico.padrao = :padrao, preco_servico.premium = :premium, preco_servico.id_servico = $id_servico WHERE servico.id_servico = $id_servico");
+    try{ 
+      
+      $db->beginTransaction();
+
+    $sql = $db->prepare("UPDATE servico SET servico.id_utilizador = $id, servico.id_subarea = :id_subarea, servico.descricao = :descricao WHERE servico.id_servico = $id_servico");
 
       $sql->execute(array(
         ':id_subarea' => $_REQUEST["subareaupdate"], 
         ':descricao' => $_REQUEST["descricao"],
-        ':base' => $_REQUEST["precobase"],
-        ':padrao' => $_REQUEST["precopadrao"],
-        ':premium' => $_REQUEST["precopremium"],
-              
+                      
         ));
 
+    $sql1 = $db->prepare("UPDATE preco_servico SET preco_servico.base = :base, preco_servico.padrao = :padrao, preco_servico.premium = :premium WHERE preco_servico.id_servico = $id_servico");
 
-     
+    $sql1->execute(array(
+      ':base' => $_REQUEST["precobase"],
+      ':padrao' => $_REQUEST["precopadrao"],
+      ':premium' => $_REQUEST["precopremium"],
+            
+      ));
+
+      $db->commit();
+
+
+      } 
+      
+      catch(Exception $e) {
+
+        echo $e->getMessage();
+        $db->rollBack();
+      
+
+      }
+      
+    $check = $sql->rowCount() + $sql1->rowCount();
          
-    if ($sql->rowCount() == 1) {
+    if ($check > 0) {
     echo "<script type= 'text/javascript'>alert('Serviço Atualizado com Sucesso');</script>";
    
  
@@ -138,14 +158,7 @@ if(isset($_REQUEST["submitservice"])) {
     echo "<script type= 'text/javascript'>alert('Serviço Não Atualizado.');</script>";
     }
     
-    $dbh = null;
-    }
-    catch(PDOException $e)
-    {
-    echo $e->getMessage();
-    }
-
-
+   
     
     
 
@@ -166,14 +179,14 @@ if(isset($_POST["deleteservice"])){
     
     
      if ($db->query($sql)) {
-     echo "<script type= 'text/javascript'>alert('Serviço Eleminado com Sucesso');</script>";
+     echo "<script type= 'text/javascript'>alert('Serviço Eliminado com Sucesso');</script>";
      echo '<script type="text/javascript"> window.location="index.php?op=listarservicos";</script>';
      }
      else{
      echo "<script type= 'text/javascript'>alert('O seu serviço não foi eliminado.');</script>";
      }
      
-     $dbh = null;
+     $db = null;
      }
      catch(PDOException $e)
      {

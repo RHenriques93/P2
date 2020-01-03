@@ -1,13 +1,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
-            <div class="col-md-8">
-
-
+                <div class="col-md-8">
             <?php 
-            
-           
-
-
 require("db_projetofinal.php");
 if(isset($_REQUEST["id_utilizador"],$_REQUEST["id_service"])){
 
@@ -26,8 +20,7 @@ foreach ($dados as $row) {
                         <div class="card-body grad rounded">
 
                                         <div class="media">
-                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3 rounded-circle border border-grad" width="150px" height="150px" alt="...">
-                                            
+                                                <img src="'.$row["imagem"].'" class="align-self-center mr-3 rounded-circle border border-grad" width="150px" height="150px" alt="Avatar">
                                                 <div class="media-body">
                                                     <h5 class="mt-0">Prestador de Serviço</h5><hr>
                                                     <p class="text-black"><span class="font-weight-bold">Nome: </span>'.$row["Nome Utilizador"].'</p><hr>
@@ -56,17 +49,16 @@ foreach ($dados as $row) {
                                                             <br>
                                             </div>
                                             <div class="container"> 
-                                                <div class="row justify-content-center"> 
-                                                                 
+                                                <div class="row justify-content-center">                                                                  
                                                 ';
 
                                             $dados = $db->query("SELECT img_serv FROM img_service JOIN servico ON img_service.id_servico = servico.id_servico WHERE img_service.id_servico = '$id_serv'");
 
                                                 foreach ($dados as $linha) {
                                                     echo '   
-                                                    <div class="col-md-5 col-sm-5 col-xs-6 m-2"> 
-                                                        <figure class="figure">  
-                                                            <img class="figure-img img-fluid mx-auto d-block" src="'.$linha["img_serv"].'" width="auto" height="250px" alt="Imagem do Serviço">
+                                                    <div class="col-md-5 col-sm-4 col-xs-6 m-2 text-center"> 
+                                                        <figure class="figure">
+                                                            <img class="figure-img img-fluid" src="'.$linha["img_serv"].'" width="auto" height="250px" alt="Imagem do Serviço">
                                                         </figure>
                                                     </div>
                                                         ';

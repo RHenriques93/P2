@@ -106,7 +106,7 @@ $dados = $db->query("SELECT * FROM area");
                             <div class="contador">
                             <?php
                                     $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-                                    $dados = $db->query("SELECT * FROM utilizador WHERE tipo_utilizador = 1");
+                                    $dados = $db->query("SELECT * FROM utilizador WHERE tipo_utilizador != 2");
                                     $count = 0;
                                     
                                     foreach($dados as $row) {

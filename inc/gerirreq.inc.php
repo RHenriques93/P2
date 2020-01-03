@@ -220,13 +220,6 @@ if(isset($_POST["deleteservice"])){
      }
  } 
  
-
-
-
-
-
-
-
 }
 ?>
 

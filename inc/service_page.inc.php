@@ -64,7 +64,7 @@ foreach ($dados as $row) {
 
                                                 foreach ($dados as $linha) {
                                                     echo '   
-                                                    <div class="col-md-5 col-sm-4 col-xs-6 m-2"> 
+                                                    <div class="col-md-5 col-sm-4 col-xs-6 m-2 text-center"> 
                                                         <figure class="figure">  
                                                             <img class="figure-img" src="'.$linha["img_serv"].'" width="auto" height="250px" alt="Imagem do Serviço">
                                                         </figure>

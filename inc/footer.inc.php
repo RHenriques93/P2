@@ -27,7 +27,7 @@
   </div>
   <div class="page-footer font-small bg-dark mt-4">
 <div class="footer-copyright text-center py-3">© 2020 Copyright |
-    <a target="_blank" href="https://www.falcondesign.pt/">André Ferreira</a> e <a target="_blank" href="https://pt.pornhub.com/gayporn">Rafael Henriques</a>
+    <a target="_blank" href="https://www.falcondesign.pt/">André Ferreira</a> e <a target="_blank" href="#">Rafael Henriques</a>
   </div>
 </div>
 </div>

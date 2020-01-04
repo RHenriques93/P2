@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 03-Jan-2020 às 22:35
+-- Generation Time: 04-Jan-2020 às 14:01
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `img_service` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_img_serv`),
   KEY `fk_id_servico_img_service` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `img_service`
@@ -97,7 +97,8 @@ INSERT INTO `img_service` (`id_img_serv`, `img_serv`, `id_servico`) VALUES
 (17, 'http://localhost/projetofinal/img/uploads/motiongraphics.jpg', 21),
 (18, 'http://localhost/projetofinal/img/uploads/flyer.jpg', 17),
 (19, 'http://localhost/projetofinal/img/uploads/webdesing_img.jpg', 46),
-(20, 'http://localhost/projetofinal/img/uploads/fotodeproduto.jpg', 48);
+(20, 'http://localhost/projetofinal/img/uploads/fotodeproduto.jpg', 48),
+(21, 'http://localhost/projetofinal/img/uploads/timeline.jpg', 49);
 
 -- --------------------------------------------------------
 
@@ -114,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `preco_servico` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_preco_servico`),
   KEY `fk_id_servico_servico` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `preco_servico`
@@ -128,7 +129,8 @@ INSERT INTO `preco_servico` (`id_preco_servico`, `base`, `padrao`, `premium`, `i
 (11, 40, 50, 60, 30),
 (12, 100, 175, 250, 45),
 (13, 500, 700, 1000, 46),
-(15, 100, 175, 250, 48);
+(15, 100, 175, 250, 48),
+(16, 75, 110, 150, 49);
 
 -- --------------------------------------------------------
 
@@ -149,15 +151,15 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
   PRIMARY KEY (`id_requisicao`),
   KEY `fk_id_utilizador_req_utilizador_req` (`id_utilizador`),
   KEY `fk_id_subarea_req_subarea_req` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `requisicao`
 --
 
 INSERT INTO `requisicao` (`id_requisicao`, `id_subarea`, `nome_projeto`, `descricao`, `data`, `id_utilizador`, `preco`, `img_req`) VALUES
-(1, 6, 'Auto Carlos Stand 2019', 'CriaÃ§Ã£o de um logÃ³tipo para um stand de automÃ³veis com o nome Auto Carlos.', '2020-01-03 15:44:02', 8, 200, 'http://localhost/projetofinal/img/uploads/logotipostand.png'),
-(2, 7, 'Evento de Natal ', 'CriaÃ§Ã£o de um flyer para um evento de natal onde  irÃ£o decorrer concertos etc.', '2020-01-03 15:53:26', 8, 100, 'http://localhost/projetofinal/img/uploads/christmasevent.jpg');
+(1, 6, 'Auto Carlos Stand 2019', 'Criação de um logótipo para um stand de automóveis com o nome Auto Carlos.', '2020-01-04 13:16:01', 8, 200, 'http://localhost/projetofinal/img/uploads/logotipostand.png'),
+(2, 7, 'Evento de Natal ', 'Criação de um flyer para um evento de natal onde  irão decorrer concertos etc.', '2020-01-04 13:16:18', 8, 100, 'http://localhost/projetofinal/img/uploads/christmasevent.jpg');
 
 -- --------------------------------------------------------
 
@@ -175,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `servico` (
   PRIMARY KEY (`id_servico`),
   KEY `fk_id_utilizador_utilizador` (`id_utilizador`),
   KEY `fk_id_subarea_subarea` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `servico`
@@ -189,7 +191,8 @@ INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `des
 (11, 7, '2020-01-03 21:21:29', 30, 'Desenvolvimento de flyers para eventos.'),
 (4, 6, '2020-01-03 22:34:28', 45, 'Criação de logótipos para todos os tipos de marcas.'),
 (4, 13, '2020-01-03 21:15:45', 46, 'Desenvolvimento de Websites em PHP'),
-(2, 18, '2020-01-03 21:26:32', 48, 'Fotografias de Produto / Publicidade para o seu evento ou empresa. ');
+(2, 18, '2020-01-03 21:26:32', 48, 'Fotografias de Produto / Publicidade para o seu evento ou empresa. '),
+(1, 11, '2020-01-04 13:05:50', 49, 'Serviço em Edição de Vídeo ');
 
 -- --------------------------------------------------------
 
@@ -276,7 +279,7 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
   UNIQUE KEY `email` (`email`),
   KEY `fk_id_tipo_tipo_utilizador` (`tipo_utilizador`),
   KEY `fk_id_genero_genero_utilizador` (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `utilizador`

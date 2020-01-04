@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 04-Jan-2020 às 14:01
+-- Generation Time: 04-Jan-2020 às 15:51
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `img_service` (
   `id_servico` int(11) NOT NULL,
   PRIMARY KEY (`id_img_serv`),
   KEY `fk_id_servico_img_service` (`id_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `img_service`
@@ -98,7 +98,8 @@ INSERT INTO `img_service` (`id_img_serv`, `img_serv`, `id_servico`) VALUES
 (18, 'http://localhost/projetofinal/img/uploads/flyer.jpg', 17),
 (19, 'http://localhost/projetofinal/img/uploads/webdesing_img.jpg', 46),
 (20, 'http://localhost/projetofinal/img/uploads/fotodeproduto.jpg', 48),
-(21, 'http://localhost/projetofinal/img/uploads/timeline.jpg', 49);
+(21, 'http://localhost/projetofinal/img/uploads/timeline.jpg', 49),
+(24, 'http://localhost/projetofinal/img/uploads/party-flyer.png', 30);
 
 -- --------------------------------------------------------
 
@@ -151,15 +152,16 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
   PRIMARY KEY (`id_requisicao`),
   KEY `fk_id_utilizador_req_utilizador_req` (`id_utilizador`),
   KEY `fk_id_subarea_req_subarea_req` (`id_subarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `requisicao`
 --
 
 INSERT INTO `requisicao` (`id_requisicao`, `id_subarea`, `nome_projeto`, `descricao`, `data`, `id_utilizador`, `preco`, `img_req`) VALUES
-(1, 6, 'Auto Carlos Stand 2019', 'Criação de um logótipo para um stand de automóveis com o nome Auto Carlos.', '2020-01-04 13:16:01', 8, 200, 'http://localhost/projetofinal/img/uploads/logotipostand.png'),
-(2, 7, 'Evento de Natal ', 'Criação de um flyer para um evento de natal onde  irão decorrer concertos etc.', '2020-01-04 13:16:18', 8, 100, 'http://localhost/projetofinal/img/uploads/christmasevent.jpg');
+(1, 6, 'Auto Carlos Stand 2019', 'Criação de um logótipo para um stand de automóveis com o nome Auto Carlos.', '2020-01-04 15:45:30', 8, 200, 'http://localhost/projetofinal/img/uploads/logotipostand.png'),
+(2, 7, 'Evento de Natal ', 'Criação de um flyer para um evento de natal onde  irão decorrer concertos etc.', '2020-01-04 13:16:18', 8, 100, 'http://localhost/projetofinal/img/uploads/christmasevent.jpg'),
+(6, 10, 'Marca XPTO', 'Animação de Logótipo da Marca XPTO para intro do canal do Youtube.', '2020-01-04 15:49:12', 11, 100, 'http://localhost/projetofinal/img/uploads/xpto_logo.png');
 
 -- --------------------------------------------------------
 
@@ -188,7 +190,7 @@ INSERT INTO `servico` (`id_utilizador`, `id_subarea`, `data`, `id_servico`, `des
 (1, 9, '2020-01-03 22:33:17', 18, 'Melhore a comunicação da sua empresa através dos ví­deos instituicionais.'),
 (1, 6, '2020-01-03 22:33:50', 19, 'Criação de Logótipos para vários tipos de empresas ou indivíduos.'),
 (2, 12, '2020-01-03 21:13:18', 21, 'Desenvolvimento de grafismos animados.'),
-(11, 7, '2020-01-03 21:21:29', 30, 'Desenvolvimento de flyers para eventos.'),
+(11, 7, '2020-01-04 15:40:45', 30, 'Desenvolvimento de flyers para eventos...'),
 (4, 6, '2020-01-03 22:34:28', 45, 'Criação de logótipos para todos os tipos de marcas.'),
 (4, 13, '2020-01-03 21:15:45', 46, 'Desenvolvimento de Websites em PHP'),
 (2, 18, '2020-01-03 21:26:32', 48, 'Fotografias de Produto / Publicidade para o seu evento ou empresa. '),
@@ -286,11 +288,11 @@ CREATE TABLE IF NOT EXISTS `utilizador` (
 --
 
 INSERT INTO `utilizador` (`id_utilizador`, `username`, `nome`, `id_genero`, `email`, `data_nascimento`, `data`, `pass`, `tipo_utilizador`, `biografia`, `imagem`, `repor_pass`) VALUES
-(1, 'rafaelhenriques', 'Rafael Henriques', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2020-01-03 17:09:32', '$2y$10$91mgWy.jEcoph.YuY7/ckerywZYyX13IFFGEp/NfYEqMWlgkQWUcC', 2, 'Estudante de Multimédia no ISMT.', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', 'a38a1d64322708af4d3a07e72bad391a'),
+(1, 'rafaelhenriques', 'Rafael Henriques', 1, 'rafaelhenriques1993@gmail.com', '1993-10-16', '2020-01-04 15:28:42', '$2y$10$91mgWy.jEcoph.YuY7/ckerywZYyX13IFFGEp/NfYEqMWlgkQWUcC', 2, 'Estudante de Multimédia no ISMT...', 'http://localhost/projetofinal/img/uploads/rafaelhenriques.jpg', 'a38a1d64322708af4d3a07e72bad391a'),
 (2, 'andreferreira', 'André Ferreira', 1, 'falcon.oficialyt@gmail.com', '1999-12-18', '2020-01-03 13:51:51', '$2y$10$wRJO8vl0haOv7SjY29dwRutPjBX9QArF3OeYIar5QEqI7OAYo1nCe', 2, 'Estudante de Multimédia no Instituto Superior Miguel Torga.', 'http://localhost/projetofinal/img/uploads/andreferreira.jpg', 'ad394df9cbcaeeb677f1648d8483fdd4'),
-(4, 'sofiabarreira', 'Sofia Barreira', 2, 'sofiasbarreira@gmail.com', '2019-12-11', '2020-01-03 14:17:47', '$2y$10$QrmSsaCxzibpYURl/BjkvuUI1pN/UO3KNgCXny4VBNfZfqu38J./y', 2, 'teste', 'http://localhost/projetofinal/img/uploads/sofiabarreira.jpg', ''),
-(8, 'Carlos1999', 'Carlos Xavier', 1, 'carlos@gmail.com', '2019-12-18', '2020-01-03 21:18:38', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 3, 'Carlos, 36 Anos, Negociante de Automóveis.', 'http://localhost/projetofinal/img/uploads/carlos.jpg', ''),
-(11, 'sheila', 'Sheila Margarida', 2, 'sheila@gmail.com', '2019-12-17', '2020-01-03 21:20:36', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 2, 'Designer Gráfica em Part-Time', 'http://localhost/projetofinal/img/uploads/sheila.jpg', '');
+(4, 'sofiabarreira', 'Sofia Barreira', 2, 'sofiasbarreira@gmail.com', '1992-08-09', '2020-01-04 15:38:09', '$2y$10$QrmSsaCxzibpYURl/BjkvuUI1pN/UO3KNgCXny4VBNfZfqu38J./y', 2, 'Designer Gráfica e Web Designer...', 'http://localhost/projetofinal/img/uploads/sofiabarreira.jpg', ''),
+(8, 'Carlos1999', 'Carlos Xavier', 1, 'carlos@gmail.com', '1981-07-04', '2020-01-04 15:46:23', '$2y$10$Gvbzh5a1Ifez.MAoY6xe3OnYmECs2AGyPCavtsG/dhVBwCO5p3.7e', 1, 'Negociante de Automóveis.', 'http://localhost/projetofinal/img/uploads/carlos.jpg', ''),
+(11, 'sheila', 'Sheila Margarida', 2, 'sheila@gmail.com', '1987-05-15', '2020-01-04 15:46:58', '$2y$10$TAtC0Ue/Ts0pmqqq5N7LjusWdGfo4PV0Fqz.Nkl4a3.Q/UYNOsnBi', 3, 'Designer Gráfica em Part-Time...', 'http://localhost/projetofinal/img/uploads/sheila.jpg', '');
 
 --
 -- Constraints for dumped tables

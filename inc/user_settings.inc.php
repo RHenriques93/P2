@@ -1,5 +1,15 @@
 <div class="container">
   <div class="container-fluid py-3 justify-content-center">
+
+
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb grad">
+  <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=userpage">Perfil</a></li>
+    <li class="breadcrumb-item active text-light" aria-current="page">Informações de Perfil</li>
+  </ol>
+</nav>
+
+
 <?php
 if(isset($_SESSION['id_utilizador'])){
 $id = $_SESSION["id_utilizador"];

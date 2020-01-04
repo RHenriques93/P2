@@ -6,6 +6,14 @@ $id = $_SESSION["id_utilizador"];
 ?>
 
 <div class="container py-3">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb grad">
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=userpage">Perfil</a></li>
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=listarreq">Seus Pedidos</a></li>
+        <li class="breadcrumb-item active text-light" aria-current="page">Efetuar Pedido</li>
+  </ol>
+</nav>
+
     <section class="mb-4">
     <header class="col-md-12 mb-4">
       <h2 class="text-center text-dark">Efetuar Pedido</h2>

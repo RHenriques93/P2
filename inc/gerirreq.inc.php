@@ -7,9 +7,17 @@ $id = $_SESSION["id_utilizador"];
 
 <div class="container">
   <div class="container-fluid py-3">
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb grad">
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=userpage">Perfil</a></li>
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=listarreq">Seus Pedidos</a></li>
+        <li class="breadcrumb-item active text-light" aria-current="page">Atualizar ou Eliminar Pedido</li>
+  </ol>
+</nav>
+
     <div class="row justify-content-center">
       <header class="col-md-12 mb-4">
-        <h2 class="text-center text-dark">Atualizar ou Eliminar Serviços</h2>
+        <h2 class="text-center text-dark">Atualizar ou Eliminar Pedido</h2>
         <span class="underline mb-3"></span>
       </header>
 

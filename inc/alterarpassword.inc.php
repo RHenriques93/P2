@@ -50,6 +50,17 @@ require("db_projetofinal.php");
         } 
 ?>
 
+<div class="container">
+
+<br>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb grad">
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=userpage">Perfil</a></li>
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=usersettings">Informações de Perfil</a></li>
+        <li class="breadcrumb-item active text-light" aria-current="page">Alterar Password</li>
+        
+  </ol>
+</nav>
 
   <div class="container-fluid py-3 justify-content-center">
 
@@ -87,4 +98,5 @@ require("db_projetofinal.php");
 
 
       </div>
+          </div>
           </div>

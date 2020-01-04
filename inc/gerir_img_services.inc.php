@@ -3,11 +3,22 @@
 require("db_projetofinal.php");
 $id = $_SESSION["id_utilizador"];
 
-
+$id_servico = $_REQUEST["id_service"];
 
 ?>
 
 <div class ="container">
+<br>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb grad">
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=userpage">Perfil</a></li>
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=listarservicos">Seus Serviços</a></li>
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=gerirservicos&idservico=<?php echo $id_servico ?>">Atualizar ou Eliminar Serviço</a></li>
+        <li class="breadcrumb-item"><a class="text-white font-weight-bold" href="index.php?op=listarimagens&id_service=<?php echo $id_servico ?>">Imagens Associadas ao Serviço</a></li>
+        <li class="breadcrumb-item active text-light" aria-current="page">Atualizar ou Eliminar Imagem do Serviço</li>
+  
+  </ol>
+</nav>
 <div class="row justify-content-center">
 <div class="col-md-6">
 

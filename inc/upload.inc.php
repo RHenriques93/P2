@@ -55,19 +55,20 @@ try{
 
     if(empty($_FILES['imagemperfil']['name'])) {
 
-    $stmt = $db->prepare("UPDATE utilizador SET nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador WHERE id_utilizador = $id");
+    $stmt = $db->prepare("UPDATE utilizador SET nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador, data_nascimento = :data_nascimento WHERE id_utilizador = $id");
     $stmt->execute(array(
         ':nome' => $_REQUEST["nome"],
         ':biografia' => $_REQUEST["biografia"],
         ':email' => $_REQUEST["email"],
         ':genero' => $_REQUEST["genero"],
         ':tipo_utilizador' => $_REQUEST["tipo_utilizador"],
+        ':data_nascimento' => $_REQUEST["nascimento"],
       ));
 
     } else {
 
 
-  $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador WHERE id_utilizador = $id");
+  $stmt = $db->prepare("UPDATE utilizador SET imagem = :imagemperfil, nome = :nome, biografia = :biografia, email = :email, id_genero = :genero, tipo_utilizador = :tipo_utilizador, data_nascimento = :data_nascimento WHERE id_utilizador = $id");
     $stmt->execute(array(
         ':imagemperfil' => 'http://localhost/projetofinal/img/uploads/'.basename($_FILES['imagemperfil']['name']),
         ':nome' => $_REQUEST["nome"],
@@ -75,6 +76,7 @@ try{
         ':email' => $_REQUEST["email"],
         ':genero' => $_REQUEST["genero"],
         ':tipo_utilizador' => $_REQUEST["tipo_utilizador"],
+        ':data_nascimento' => $_REQUEST["nascimento"],
       ));
 
 

@@ -1,16 +1,23 @@
     <div class="container">
         <div class="container-fluid py-3">
-            <header class="col-md-12 mb-4">
-                    <h2 class="text-center text-dark">Sub-Serviços</h2>
-                    <span class="underline mb-3"></span>
-            </header>
-            <div class="row justify-content-center">
+           
 
             <?php 
             $id = $_REQUEST["id"];
 
             require("db_projetofinal.php");
 
+            $dados = $db->query("SELECT nome FROM area WHERE area.id_area = $id");
+
+foreach ($dados as $linha) {
+
+echo ' <header class="col-md-12 mb-4">
+<h2 class="text-center text-dark">'.$linha["nome"].'</h2>
+<span class="underline mb-3"></span>
+</header>
+<div class="row justify-content-center">';
+
+}
 $dados = $db->query("SELECT subarea.nome, subarea.id_subarea, subarea.img_subarea FROM subarea JOIN area ON subarea.id_area = area.id_area WHERE area.id_area = $id");
 
 foreach ($dados as $row) {

@@ -36,17 +36,27 @@ $id = $_SESSION["id_utilizador"];
 <form method="post" action="" enctype="multipart/form-data">
   
   <div class="form-group">
-  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Sub Area</label>
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Tipo de Serviço</label>
     <select class="form-control" name="subareaupdate">
 
     <option class="bg-dark text-dark" value="'.$row['servico associado'].'"selected>'.$row['nome'].'</option>';
 
          
-      $dados = $db->query("SELECT * FROM subarea");
+    $dados = $db->query("SELECT area.nome AS 'area nome', id_area FROM area");
                                                                 
-      foreach($dados as $linha) {
-        echo'<option class="text-secondary" value="'.$linha['id_subarea'].'">'.$linha['nome'].'</option>';
+    foreach($dados as $linha1) {
+    
+      echo' <optgroup class="text-secondary" label ="'.$linha1["area nome"].'">';
+      $id_area = $linha1["id_area"];
+
+      $dados = $db->query("SELECT subarea.nome, subarea.id_subarea FROM subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_area = $id_area ");
+    
+      foreach($dados as $row1) {
+             echo '<option class="text-secondary" value="'.$row1['id_subarea'].'">'.$row1['nome'].'</option>';
       }
+      echo '</optgroup>' ;
+          
+    }
    
 
    echo '

@@ -10,7 +10,6 @@
 
 $search = $_REQUEST["search"];
 
-$db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
 $dados = $db->query("SELECT DISTINCT servico.id_servico, utilizador.imagem, servico.descricao, utilizador.nome, utilizador.id_utilizador FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE area.nome LIKE '$search%' OR utilizador.nome LIKE '%$search%' OR subarea.nome LIKE '%$search%'");
 echo'<header class="col-md-12 mb-4">
 <h2 class="text-center text-dark">Resultados da pesquisa para "'.$search.'"</h2>

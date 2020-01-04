@@ -14,7 +14,7 @@ $id = $_SESSION["id_utilizador"];
 <?php
    
   
-  $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+
   $dados = $db->query("SELECT subarea.nome, requisicao.descricao, requisicao.nome_projeto, requisicao.id_subarea AS 'requisicao associada', requisicao.id_requisicao FROM requisicao JOIN utilizador ON requisicao.id_utilizador = utilizador.id_utilizador JOIN subarea ON requisicao.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id");
      
   

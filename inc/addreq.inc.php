@@ -33,16 +33,26 @@ $id = $_SESSION["id_utilizador"];
         </div>
 
   <div class="form-group">
-  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Sub Area</label>
-    <select multiple class="form-control" name="subarea" id="exampleFormControlSelect1">
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Tipo de Serviço</label>
+    <select class="form-control" name="subarea" id="exampleFormControlSelect1">
 
     <?php
-      $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-      $dados = $db->query("SELECT * FROM subarea");
+     
+     $dados = $db->query("SELECT area.nome AS 'area nome', id_area FROM area");
                                                                 
-      foreach($dados as $row) {
-        echo'<option class="text-secondary" value="'.$row['id_subarea'].'">'.$row['nome'].'</option>';
-      }
+     foreach($dados as $linha1) {
+     
+       echo' <optgroup class="text-secondary" label ="'.$linha1["area nome"].'">';
+       $id_area = $linha1["id_area"];
+ 
+       $dados = $db->query("SELECT subarea.nome, subarea.id_subarea FROM subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_area = $id_area ");
+     
+       foreach($dados as $row1) {
+              echo '<option class="text-secondary" value="'.$row1['id_subarea'].'">'.$row1['nome'].'</option>';
+       }
+       echo '</optgroup>' ;
+           
+     }
     ?>
 
         </select>
@@ -75,9 +85,7 @@ $id = $_SESSION["id_utilizador"];
 
 if(isset($_POST["submitservice"])){
   try {
-    $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-
+    
     $sql = "INSERT INTO requisicao (id_utilizador, id_subarea, descricao, preco, nome_projeto)
     VALUES ('".$id."','".$_POST["subarea"]."','".$_POST["descricao"]."','".$_POST["preco"]."','".$_POST["nome_projeto"]."')";
     

@@ -18,7 +18,7 @@ $id = $_SESSION["id_utilizador"];
    
    $id_req = $_REQUEST["idreq"];
   
-  $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
+  
   $dados = $db->query("SELECT subarea.nome, requisicao.descricao, requisicao.nome_projeto, requisicao.id_subarea AS 'requisicao associada', requisicao.id_requisicao, requisicao.preco, requisicao.img_req FROM requisicao JOIN utilizador ON requisicao.id_utilizador = utilizador.id_utilizador JOIN subarea ON requisicao.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE utilizador.id_utilizador = $id AND requisicao.id_requisicao = $id_req");
                          
   foreach($dados as $row) {
@@ -34,18 +34,27 @@ $id = $_SESSION["id_utilizador"];
   </div>
         
   <div class="form-group">
-  <label class="grad-txt f-20 font-weight-bold"for="exampleFormControlSelect2">Sub Area</label>
+  <label class="grad-txt f-20 font-weight-bold"for="exampleFormControlSelect2">Tipo de Serviço</label>
     <select class="form-control" name="subareaupdate">
 
     <option class="bg-dark" value="'.$row['requisicao associada'].'"selected>'.$row['nome'].'</option>';
 
-         $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-      $dados = $db->query("SELECT * FROM subarea");
+         
+    $dados = $db->query("SELECT area.nome AS 'area nome', id_area FROM area");
                                                                 
-      foreach($dados as $linha) {
-        echo'<option class="text-secondary" value="'.$linha['id_subarea'].'">'.$linha['nome'].'</option>';
+    foreach($dados as $linha1) {
+    
+      echo' <optgroup class="text-secondary" label ="'.$linha1["area nome"].'">';
+      $id_area = $linha1["id_area"];
+
+      $dados = $db->query("SELECT subarea.nome, subarea.id_subarea FROM subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_area = $id_area ");
+    
+      foreach($dados as $row1) {
+             echo '<option class="text-secondary" value="'.$row1['id_subarea'].'">'.$row1['nome'].'</option>';
       }
-   
+      echo '</optgroup>' ;
+          
+    }
 
    echo '
    <li class="list-group-item text-dark">'.$row["nome"].'</li>
@@ -132,10 +141,7 @@ if(isset($_REQUEST["submitservice"])) {
   
       
  try {
-    $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
-
-
+  
     if(empty($_FILES['imagemrequisicao']['name'])) {
     
       $sql = $db->prepare("UPDATE requisicao SET id_utilizador = $id, id_subarea = :id_subarea, descricao = :descricao, preco = :preco, nome_projeto = :nome_projeto WHERE id_requisicao = $id_req");
@@ -198,9 +204,7 @@ if(isset($_POST["deleteservice"])){
 
 
   try {
-     $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
-     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
- 
+      
      $sql = "DELETE FROM requisicao WHERE requisicao.id_requisicao = $id_req";
  
     

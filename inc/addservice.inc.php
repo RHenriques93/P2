@@ -19,15 +19,25 @@ $id = $_SESSION["id_utilizador"];
 <form method="post" action="" enctype="multipart/form-data">
   
   <div class="form-group">
-  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Sub Area</label>
-    <select class="form-control" name="subarea" id="exampleFormControlSelect1">
+  <label class="grad-txt f-20 font-weight-bold" for="exampleFormControlSelect2">Tipo de Serviço</label>
+    <select class="form-control" name="subarea" id="exampleFormControlSelect1" class="grad-txt">
 
     <?php
-      $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");
-      $dados = $db->query("SELECT * FROM subarea");
+    
+      $dados = $db->query("SELECT area.nome AS 'area nome', id_area FROM area");
                                                                 
-      foreach($dados as $row) {
-        echo'<option class="text-secondary" value="'.$row['id_subarea'].'">'.$row['nome'].'</option>';
+      foreach($dados as $linha) {
+      
+        echo' <optgroup class="text-secondary" label ="'.$linha["area nome"].'">';
+        $id_area = $linha["id_area"];
+
+        $dados = $db->query("SELECT subarea.nome, subarea.id_subarea FROM subarea JOIN area ON subarea.id_area = area.id_area WHERE subarea.id_area = $id_area ");
+      
+        foreach($dados as $row) {
+               echo '<option class="text-secondary" value="'.$row['id_subarea'].'">'.$row['nome'].'</option>';
+        }
+        echo '</optgroup>' ;
+            
       }
     ?>
 
@@ -65,8 +75,7 @@ $id = $_SESSION["id_utilizador"];
 
 if(isset($_POST["submitservice"])){
   try {
-    $db = new PDO("mysql:host=localhost; dbname=projetofinal","root","");           
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+  
 
     $sql = "INSERT INTO servico (id_utilizador, id_subarea, descricao)
     VALUES ('".$id."','".$_POST["subarea"]."','".$_POST["descricao"]."'); INSERT INTO preco_servico (id_servico, base, padrao, premium) VALUES ((SELECT id_servico FROM servico ORDER BY id_servico DESC limit 1),'".$_POST["precobase"]."','".$_POST["precopadrao"]."','".$_POST["precopremium"]."')";

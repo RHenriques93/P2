@@ -7,7 +7,7 @@
             <?php 
             
            
-
+require("db_projetofinal.php");
 $search = $_REQUEST["search"];
 
 $dados = $db->query("SELECT DISTINCT servico.id_servico, utilizador.imagem, servico.descricao, utilizador.nome, utilizador.id_utilizador FROM utilizador JOIN servico ON utilizador.id_utilizador = servico.id_utilizador JOIN subarea ON servico.id_subarea = subarea.id_subarea JOIN area ON subarea.id_area = area.id_area WHERE area.nome LIKE '$search%' OR utilizador.nome LIKE '%$search%' OR subarea.nome LIKE '%$search%'");
